@@ -22,7 +22,7 @@ void Obstacle::Rotate(int degree)
 void Obstacle::RotateWithOther(int degree,CIwFVec2 rotateCeneterPos)
 {
 }
-void Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox,CIwFVec2 &target)
+bool Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox)
 {
 	//TODO: CHECK COLLISION FOR OBSTACLE
 	float limit_L=m_Position.x-characterBox.x/2.0f;
@@ -32,17 +32,18 @@ void Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox,CIw
 
 	if(characterPos.x>limit_L && characterPos.x<limit_R 
 		&& characterPos.y>limit_U && characterPos.y<limit_D)
-	{
-
-	}
+		return true;
+	return false;
 
 }
-void Obstacle::Render()
+void Obstacle::Render(CIwFVec2 mapPos,CIwSVec2 characterBox)
 {
 	if(m_Display)
 	{
 		Iw2DSetColour(C_RED);
-		Iw2DFillRect(CIwSVec2((iwsfixed)m_Position.x, (iwsfixed)m_Position.y+16) - m_Size/IW_FIXED(2), CIwSVec2(32,32));
+		Iw2DFillRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)), m_Size);
+		Iw2DSetColour(C_BLACK);
+		Iw2DDrawRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x)-characterBox.x/2, (iwsfixed)(m_Position.y-mapPos.y)-characterBox.y/2), m_Size+characterBox);
 		Iw2DSetColour(C_WHITE);
 	}
 }

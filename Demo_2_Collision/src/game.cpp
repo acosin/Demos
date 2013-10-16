@@ -10,12 +10,7 @@
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
  * PARTICULAR PURPOSE.
  */
-/*
-issues:
-1. Collision detector
-   character been blocked when collide to maze tiles.
 
-*/
 #include "Iw2D.h"
 #include "s3e.h"
 #include "IwGx.h"
@@ -29,6 +24,8 @@ CGame::CGame()
 	_Map= new Map;
 	_Character=new Character;
 	_Tiles=new Tiles;
+	_Obstacle=new Obstacle;
+
 }
 
 CGame::~CGame()
@@ -36,6 +33,7 @@ CGame::~CGame()
 	delete _Map;
 	delete _Character;
 	delete _Tiles;
+	delete _Obstacle;
 }
 
 void CGame::Update(int deltaTime)
@@ -74,16 +72,26 @@ void CGame::Update(int deltaTime)
 			
 			_Character->m_Position+=delta;
 			_Map->m_Position+=delta;
+
+			if(_Obstacle->CollisionDetect(_Character->m_Position,_Character->m_CollisionBox))
+			{
+				_Character->m_Position=_Character->m_PositionPrev;
+				_Character->m_Target=_Character->m_Position;
+				_Map->m_Position=_Map->m_PositionPrev;
+				//ADD bounce effect
+			}
 			
 		}
-		_Tiles->CheckCurrTiles(_Character->m_Position+CIwFVec2(16,0),_Character->m_CollisionBox);
-		_Tiles->CheckCollision(_Character->m_Position+CIwFVec2(16,0),_Character->m_CollisionBox,_Character->m_Target);
+		_Tiles->CheckCurrTiles(_Character->m_Position,_Character->m_CollisionBox);
+		//_Tiles->CheckCollision(_Character->m_Position+CIwFVec2(16,0),_Character->m_CollisionBox,_Character->m_Target);
 	}
 	
 	_Character->m_TargetOnScreen=_Character->m_Target-_Map->m_Position;
+	_Character->m_PositionPrev=_Character->m_Position;
+	_Map->m_PositionPrev=_Map->m_Position;
 
 }
-
+//load resource and initialize
 void CGame::LoadRes()
 {
 	//load map img
@@ -91,15 +99,17 @@ void CGame::LoadRes()
 	//load character img
 	_Character->Load();
 	_Tiles->Load();
+
+	_Obstacle->m_Display=true;
+	_Obstacle->m_Position=CIwFVec2(240.0f,240.0f);
+	_Obstacle->m_Size=CIwSVec2(50,50);
 }
 
 void CGame::Render()
 {
-    // game render goes here
-
     // for example, clear to black (the order of components is ABGR)
     Iw2DSurfaceClear(0x00000000);
-	IwGxPrintString(120, 150, "T");
+	IwGxPrintString(230, 10, "MI");
     
 	// draw a red square
     //Iw2DSetColour(0xff0000ff);
@@ -109,8 +119,9 @@ void CGame::Render()
 	//Iw2DDrawImage(starImage, CIwSVec2((iwsfixed)m_Position.x, (iwsfixed)m_Position.y) - m_Size/IW_FIXED(2));
 
 	_Map->Render();
+	_Obstacle->Render(_Map->m_Position,_Character->m_CollisionBox);
 	_Tiles->Render(_Map->m_Position);
-	_Character->Render();
+	_Character->Render(_Map->m_Position);
     // show the surface
     Iw2DSurfaceShow();
 }

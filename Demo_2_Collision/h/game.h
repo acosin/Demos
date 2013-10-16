@@ -16,6 +16,7 @@
 #include "map.h"
 #include "character.h"
 #include "tiles.h"
+#include "obstacle.h"
 class CGame
 {
 public:
@@ -35,6 +36,7 @@ private:
 	Map* _Map;
 	Character* _Character;
 	Tiles* _Tiles;
+	Obstacle* _Obstacle;
 };
 
 #endif

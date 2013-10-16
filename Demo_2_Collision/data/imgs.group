@@ -3,10 +3,8 @@ CIwResGroup
 	name "imgs"
 
 	"textures/character.png"
-	"textures/map.png"
 	"textures/map_edit.png"
 	"textures/star.png"
-	"textures/dot.png"
 	"textures/MiM_DownRight.png"
 	"textures/MiM_LeftRight.png"
 	"textures/MiM_DownRight_h.png"

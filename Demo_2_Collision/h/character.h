@@ -8,6 +8,7 @@ friend class Map;
 public:
 	CIwFVec2 m_Target; // target for character
 	CIwFVec2 m_Position; // position for character in bottom center
+	CIwFVec2 m_PositionPrev;// previous postion of character in last frame
 	CIwFVec2 m_ScreenCenter;
 	CIwFVec2 m_TargetOnScreen; // target for character on screen
 	CIwSVec2 m_CollisionBox;
@@ -19,7 +20,7 @@ public:
 	~Character();
 	void Load();
 	void Update(int deltaTime);
-	void Render();
+	void Render(CIwFVec2 mapPos);
 	void Animation();
 	void Status();
 	float GetDistanceToCenter();

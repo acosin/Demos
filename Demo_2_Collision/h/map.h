@@ -5,6 +5,8 @@
 class Map
 {
 public:
+	CIwFVec2 m_Position; // position for MAP
+	CIwFVec2 m_PositionPrev; // previous position for MAP
 	Map();
 	~Map();
 	void Load();
@@ -14,7 +16,7 @@ public:
 	CIwSVec2 GetMapSize();
 	bool CheckMapEdge(CIwFVec2 &delta);
 	bool CheckMapEdge();
-	CIwFVec2 m_Position; // position for character
+	
 private:
 	CIw2DImage* _image;
 	

@@ -16,7 +16,7 @@
 # Some conditional operations are also permitted, see the
 # S3E documentation for details.
 [S3E]
-MemSize=10485760
-MemSizeDebug=20485760
+MemSize=76805120
+MemSizeDebug=76805120
 [GX]
 DataCacheSize=80000

@@ -3,17 +3,11 @@ ResGroupResources:
 		"character" (0x34cb6392)
 		Size: 8228
 	CIwTexture (0x3521f539)
-		"map" (0xb888f83)
-		Size: 3145764
-	CIwTexture (0x3521f539)
 		"map_edit" (0x4abdeae8)
-		Size: 3145764
+		Size: 7536676
 	CIwTexture (0x3521f539)
 		"star" (0x7c9e197f)
 		Size: 228
-	CIwTexture (0x3521f539)
-		"dot" (0xb886b0c)
-		Size: 40
 	CIwTexture (0x3521f539)
 		"MiM_DownRight" (0x57041bdd)
 		Size: 16420
@@ -26,7 +20,7 @@ ResGroupResources:
 	CIwTexture (0x3521f539)
 		"MiM_LeftRight_h" (0xf83e0eb7)
 		Size: 12324
-	ResList 'CIwTexture' pos:35 size:6357522
+	ResList 'CIwTexture' pos:35 size:7602630
 
-ResGroupResources: Wrote 6357526 bytes to CIwResGroup "imgs"
+ResGroupResources: Wrote 7602634 bytes to CIwResGroup "imgs"
 
