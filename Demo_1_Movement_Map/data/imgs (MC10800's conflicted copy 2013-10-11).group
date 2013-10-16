@@ -1,0 +1,22 @@
+CIwResGroup
+{
+	name "imgs"
+
+	//images
+	"textures/character.png"
+	"textures/map.png"
+	"textures/dot.png"
+	"textures/MazeTiles/BlockLine.png"
+	"textures/MazeTiles/MiM_Blocked.png"
+	"textures/MazeTiles/MiM_DownLeft.png"
+	"textures/MazeTiles/MiM_DownRight.png"
+	"textures/MazeTiles/MiM_DownUp.png"
+	"textures/MazeTiles/MiM_LeftDownRight.png"
+	"textures/MazeTiles/MiM_LeftRight.png"
+	"textures/MazeTiles/MiM_LeftUp.png"
+	"textures/MazeTiles/MiM_LeftUpDown.png"
+	"textures/MazeTiles/MiM_LeftUpRight.png"
+	"textures/MazeTiles/MiM_RightUp.png"
+	"textures/MazeTiles/MiM_UpDownLeftRight.png"
+	"textures/MazeTiles/MiM_UpRightDown.png"
+}

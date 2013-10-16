@@ -1,0 +1,12 @@
+CIwResGroup
+{
+	name "imgs"
+
+	//images
+	"textures/character.png"
+	"textures/map.png"
+	"textures/map_edit.png"
+	"textures/star.png"
+	"textures/dot.png"
+	"textures/MiM_DownLeft.png"
+}

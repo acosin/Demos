@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo_1_Movement_Map_vc10", "Demo_1_Movement_Map_vc10.vcxproj", "{F9B59A09-D7A3-555F-5F91-35EFF9104E8D}"
+
+EndProject
+Global
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		x86 Debug|Win32 = x86 Debug|Win32
+		x86 Release|Win32 = x86 Release|Win32
+    GCC ARM Debug|Win32 = GCC ARM Debug|Win32
+    GCC ARM Release|Win32 = GCC ARM Release|Win32
+    RVCT ARM Debug|Win32 = RVCT ARM Debug|Win32
+    RVCT ARM Release|Win32 = RVCT ARM Release|Win32
+        GCC MIPS Debug|Win32 = GCC MIPS Debug|Win32
+        GCC MIPS Release|Win32 = GCC MIPS Release|Win32
+        EndGlobalSection
+GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.x86 Debug|Win32.ActiveCfg = x86 Debug|Win32
+		{F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.x86 Debug|Win32.Build.0 = x86 Debug|Win32
+		{F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.x86 Release|Win32.ActiveCfg = x86 Release|Win32
+		{F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.x86 Release|Win32.Build.0 = x86 Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC ARM Debug|Win32.ActiveCfg = GCC ARM Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC ARM Debug|Win32.Build.0 = GCC ARM Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC ARM Release|Win32.ActiveCfg = GCC ARM Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC ARM Release|Win32.Build.0 = GCC ARM Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.RVCT ARM Debug|Win32.ActiveCfg = RVCT ARM Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.RVCT ARM Debug|Win32.Build.0 = RVCT ARM Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.RVCT ARM Release|Win32.ActiveCfg = RVCT ARM Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.RVCT ARM Release|Win32.Build.0 = RVCT ARM Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC MIPS Debug|Win32.ActiveCfg = GCC MIPS Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC MIPS Debug|Win32.Build.0 = GCC MIPS Debug|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC MIPS Release|Win32.ActiveCfg = GCC MIPS Release|Win32
+    {F9B59A09-D7A3-555F-5F91-35EFF9104E8D}.GCC MIPS Release|Win32.Build.0 = GCC MIPS Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
