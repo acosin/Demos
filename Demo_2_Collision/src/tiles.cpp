@@ -34,13 +34,13 @@ void Tiles::Load()
 	}
 }
 
-void Tiles::Render(CIwFVec2 mapPos)
+void Tiles::Render(CIwFVec2 mapPos,CIwSVec2 characterBox)
 {
 	for(int i=0;i!=_Total;i++)
-		m_Tiles[i]->Render(mapPos,false);
+		m_Tiles[i]->Render(mapPos,false,characterBox);
 	for(int j=0;j!=9;j++)
 		if(m_NearByTiles[j]!=-1)
-			m_Tiles[m_NearByTiles[j]]->Render(mapPos,true);
+			m_Tiles[m_NearByTiles[j]]->Render(mapPos,true,characterBox);
 }
 //get tiles where character currently stands near by
 void Tiles::CheckCurrTiles(CIwFVec2 characterPos, CIwSVec2 characterBox)

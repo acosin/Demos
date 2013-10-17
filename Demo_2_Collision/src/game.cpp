@@ -73,6 +73,15 @@ void CGame::Update(int deltaTime)
 			_Character->m_Position+=delta;
 			_Map->m_Position+=delta;
 
+			_Tiles->CheckCurrTiles(_Character->m_Position,_Character->m_CollisionBox);
+			if(_Tiles->CheckCollision(_Character->m_Position,_Character->m_CollisionBox,_Character->m_Target))
+			{
+				_Character->m_Position=_Character->m_PositionPrev;
+				_Character->m_Target=_Character->m_Position;
+				_Map->m_Position=_Map->m_PositionPrev;
+				//ADD bounce effect
+			}
+
 			if(_Obstacle->CollisionDetect(_Character->m_Position,_Character->m_CollisionBox))
 			{
 				_Character->m_Position=_Character->m_PositionPrev;
@@ -82,8 +91,7 @@ void CGame::Update(int deltaTime)
 			}
 			
 		}
-		_Tiles->CheckCurrTiles(_Character->m_Position,_Character->m_CollisionBox);
-		//_Tiles->CheckCollision(_Character->m_Position+CIwFVec2(16,0),_Character->m_CollisionBox,_Character->m_Target);
+		
 	}
 	
 	_Character->m_TargetOnScreen=_Character->m_Target-_Map->m_Position;
@@ -120,7 +128,7 @@ void CGame::Render()
 
 	_Map->Render();
 	_Obstacle->Render(_Map->m_Position,_Character->m_CollisionBox);
-	_Tiles->Render(_Map->m_Position);
+	_Tiles->Render(_Map->m_Position,_Character->m_CollisionBox);
 	_Character->Render(_Map->m_Position);
     // show the surface
     Iw2DSurfaceShow();

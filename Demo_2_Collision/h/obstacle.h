@@ -15,6 +15,6 @@ public:
 	bool CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox);
 	void Render(CIwFVec2 mapPos,CIwSVec2 characterBox);
 private:
-
+	bool _Hit;
 };
 #endif

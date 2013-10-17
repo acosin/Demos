@@ -43,12 +43,12 @@ bool Map::CheckMapEdge(CIwFVec2 &pos)
 	}
 	if(pos.x+Iw2DGetSurfaceWidth()>_size.x)
 	{
-		pos.x=_size.x-Iw2DGetSurfaceWidth();
+		pos.x=(float)_size.x-Iw2DGetSurfaceWidth();
 		return false;
 	}
 	if(pos.y+Iw2DGetSurfaceHeight()>_size.y)
 	{
-		pos.y=_size.y-Iw2DGetSurfaceHeight();
+		pos.y=(float)_size.y-Iw2DGetSurfaceHeight();
 		return false;
 	}
 	return true;
@@ -67,12 +67,12 @@ bool Map::CheckMapEdge()
 	}
 	if(m_Position.x+Iw2DGetSurfaceWidth()>_size.x)
 	{
-		m_Position.x=_size.x-Iw2DGetSurfaceWidth();
+		m_Position.x=(float)_size.x-Iw2DGetSurfaceWidth();
 		return false;
 	}
 	if(m_Position.y+Iw2DGetSurfaceHeight()>_size.y)
 	{
-		m_Position.y=_size.y-Iw2DGetSurfaceHeight();
+		m_Position.y=(float)_size.y-Iw2DGetSurfaceHeight();
 		return false;
 	}
 	return true;

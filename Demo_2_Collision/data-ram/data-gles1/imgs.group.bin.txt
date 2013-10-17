@@ -14,13 +14,7 @@ ResGroupResources:
 	CIwTexture (0x3521f539)
 		"MiM_LeftRight" (0xb1b63e10)
 		Size: 16420
-	CIwTexture (0x3521f539)
-		"MiM_DownRight_h" (0x287a93c4)
-		Size: 12324
-	CIwTexture (0x3521f539)
-		"MiM_LeftRight_h" (0xf83e0eb7)
-		Size: 12324
-	ResList 'CIwTexture' pos:35 size:7602630
+	ResList 'CIwTexture' pos:35 size:7577982
 
-ResGroupResources: Wrote 7602634 bytes to CIwResGroup "imgs"
+ResGroupResources: Wrote 7577986 bytes to CIwResGroup "imgs"
 

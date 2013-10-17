@@ -9,6 +9,7 @@
 Obstacle::Obstacle()
 {
 	m_Display=false;
+	_Hit=false;
 }
 
 Obstacle::~Obstacle()
@@ -32,18 +33,28 @@ bool Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox)
 
 	if(characterPos.x>limit_L && characterPos.x<limit_R 
 		&& characterPos.y>limit_U && characterPos.y<limit_D)
-		return true;
-	return false;
+	{
+		_Hit=true;
+		return _Hit;
+	}
+	_Hit=false;
+	return _Hit;
 
 }
 void Obstacle::Render(CIwFVec2 mapPos,CIwSVec2 characterBox)
 {
 	if(m_Display)
 	{
-		Iw2DSetColour(C_RED);
+		//obstacle
+		if(_Hit)
+		{
+			//check boundary
+			Iw2DSetColour(C_RED);
+			Iw2DDrawRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x)-characterBox.x/2, (iwsfixed)(m_Position.y-mapPos.y)-characterBox.y/2), m_Size+characterBox);
+		}
+		else
+			Iw2DSetColour(C_BLACK);
 		Iw2DFillRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)), m_Size);
-		Iw2DSetColour(C_BLACK);
-		Iw2DDrawRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x)-characterBox.x/2, (iwsfixed)(m_Position.y-mapPos.y)-characterBox.y/2), m_Size+characterBox);
 		Iw2DSetColour(C_WHITE);
 	}
 }
