@@ -162,13 +162,13 @@ void Tiles::CheckCurrTiles(CIwFVec2 characterPos, CIwSVec2 characterBox)
 
 }
 
-bool Tiles::CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target)
+bool Tiles::CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos)
 {
 	bool collide=false;
 	for(int i=0;i!=9;i++)
 	{
 		if(m_NearByTiles[i]!=-1)
-			if(m_Tiles[m_NearByTiles[i]]->CheckCollision(characterPos,characterBox, target))	//collision check
+			if(m_Tiles[m_NearByTiles[i]]->CheckCollision(characterPos,characterBox, target,characterPrePos))//collision check
 				collide=true;
 	}
 	return collide;

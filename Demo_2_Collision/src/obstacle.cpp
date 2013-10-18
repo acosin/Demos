@@ -41,6 +41,90 @@ bool Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox)
 	return _Hit;
 
 }
+int Obstacle::CollisionSide(CIwFVec2 characterPos , CIwSVec2 characterBox, CIwFVec2 &target)
+{
+	float limit_L=m_Position.x-characterBox.x/2.0f;
+	float limit_R=m_Position.x+m_Size.x+characterBox.x/2.0f;
+	float limit_U=m_Position.y-characterBox.y/2.0f;
+	float limit_D=m_Position.y+m_Size.y+characterBox.y/2.0f;
+	float t_c,t_t;//corner tangta,target tangta
+	int side=-1;
+	if(characterPos.x<limit_L)
+	{
+		if(characterPos.y<limit_U)//top-left
+		{
+			t_c=(limit_L-characterPos.x)/(limit_U-characterPos.y);
+			t_t=(target.x-characterPos.x)/(target.y-characterPos.y);
+			if(t_c>t_t)//leftside
+				side= 4;
+			else //top side
+				side= 1;
+		}
+		else if(characterPos.y<limit_D)
+			side= 4;//left
+		else//bottom-left
+		{
+			t_c=(limit_L-characterPos.x)/(characterPos.y-limit_D);
+			t_t=(target.x-characterPos.x)/(characterPos.y-target.y);
+			if(t_c>t_t)//leftside
+				side= 4;
+			else //bottom side
+				side= 3;
+		}
+	}
+	else if(characterPos.x<limit_R)
+	{
+		if(characterPos.y<limit_U)
+			side= 1;//top
+		else if(characterPos.y<limit_D)
+			side= 0;//inside
+		else
+			side= 3;//bottom
+	}
+	else
+	{
+		if(characterPos.y<limit_U)//top-right
+		{
+			t_c=(characterPos.x-limit_R)/(limit_U-characterPos.y);
+			t_t=(characterPos.x-target.x)/(target.y-characterPos.y);
+			if(t_c>t_t)//rightside
+				side= 2;
+			else //top side
+				side= 1;
+		}
+		else if(characterPos.y<limit_D)
+			side= 2;//right
+		else//bottom-right
+		{
+			t_c=(limit_R-characterPos.x)/(characterPos.y-limit_U);
+			t_t=(target.x-characterPos.x)/(characterPos.y-target.y);
+			if(t_c>t_t)//rightside
+				side= 2;
+			else //bottom side
+				side= 3;
+		}
+	}
+	switch(side)
+	{
+	case -1://error
+		break;
+	case 0://inside
+		break;
+	case 1://top
+		target.y=limit_U-target.y+limit_U;
+		break;
+	case 2://right
+		target.x=limit_R-target.x+limit_R;
+		break;
+	case 3://bottom
+		target.y=limit_D-target.y+limit_D;
+		break;
+	case 4://left
+		target.x=limit_L-target.x+limit_L;
+		break;
+	}
+	return side;//error code
+}
 void Obstacle::Render(CIwFVec2 mapPos,CIwSVec2 characterBox)
 {
 	if(m_Display)

@@ -21,7 +21,14 @@ Tile::~Tile()
 {
 	delete _image;
 }
-
+void Tile::AddObstacle(CIwFVec2 pos,CIwSVec2 size,bool display)
+{
+	Obstacle edge=Obstacle();
+	edge.m_Position=pos;
+	edge.m_Size=size;
+	edge.m_Display=display;
+	m_Edges.push_back(edge);
+}
 void Tile::Load()
 {
 	_image=Iw2DCreateImageResource(_filename);
@@ -30,31 +37,17 @@ void Tile::Load()
 	{
 		int temp_arr[4]={0,1,1,0};
 		memcpy(m_CollisionDirection,temp_arr,sizeof(temp_arr));
-		Obstacle edge=Obstacle();
-		edge.m_Position=CIwFVec2(m_Position.x,m_Position.y);
-		edge.m_Size=CIwSVec2(_Size.x,4);
-		edge.m_Display=true;
-		m_Edges.push_back(edge);
-		Obstacle edge1=Obstacle();
-		edge1.m_Position=CIwFVec2(m_Position.x,m_Position.y);
-		edge1.m_Size=CIwSVec2(4,_Size.y);
-		edge1.m_Display=true;
-		m_Edges.push_back(edge1);
+
+		AddObstacle(CIwFVec2(m_Position.x,m_Position.y),CIwSVec2(_Size.x,4),true);
+		AddObstacle(CIwFVec2(m_Position.x,m_Position.y),CIwSVec2(4,_Size.y),true);
 	}
 	if(_filename=="MiM_LeftRight")
 	{
 		int temp_arr[4]={0,1,0,1};
 		memcpy(m_CollisionDirection,temp_arr,sizeof(temp_arr));
-		Obstacle edge=Obstacle();
-		edge.m_Position=CIwFVec2(m_Position.x,m_Position.y);
-		edge.m_Size=CIwSVec2(_Size.x,4);
-		edge.m_Display=true;
-		m_Edges.push_back(edge);
-		Obstacle edge1=Obstacle();
-		edge1.m_Position=CIwFVec2(m_Position.x,m_Position.y+(float)_Size.y-4);
-		edge1.m_Size=CIwSVec2(_Size.x,4);
-		edge1.m_Display=true;
-		m_Edges.push_back(edge1);
+
+		AddObstacle(CIwFVec2(m_Position.x,m_Position.y),CIwSVec2(_Size.x,4),true);
+		AddObstacle(CIwFVec2(m_Position.x,m_Position.y+(float)_Size.y-4),CIwSVec2(_Size.x,4),true);
 	}
 }
 
@@ -62,7 +55,7 @@ void Tile::Render(CIwFVec2 mapPos,bool highlight,CIwSVec2 characterBox)
 {
 	if(highlight)
 	{
-		Iw2DSetColour(0x00ff0000);
+		Iw2DSetColour(0xffff0000);
 		Iw2DFillRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)),_Size);
 		//Iw2DSetColour(C_WHITE);
 	}
@@ -81,13 +74,17 @@ void Tile::Update()
 {
 }
 
-bool Tile::CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target)
+bool Tile::CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos)
 {
 	bool collide=false;
 	for(int i=m_Edges.size();i!=0;i--)
 	{
 		if(m_Edges[i-1].CollisionDetect(characterPos,characterBox))
+		{
+
 			collide=true;
+			m_Edges[i-1].CollisionSide(characterPrePos,characterBox,target);
+		}
 	}
 	return collide;
 }

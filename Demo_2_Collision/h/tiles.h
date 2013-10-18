@@ -14,7 +14,7 @@ public:
 	void Load();
 	void Render(CIwFVec2 mapPos,CIwSVec2 characterBox);
 	void CheckCurrTiles(CIwFVec2 characterPos, CIwSVec2 characterBox);
-	bool CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target);
+	bool CheckCollision(CIwFVec2 characterPos, CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
 private:
 	int _W;
 	int _H;

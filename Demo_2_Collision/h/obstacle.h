@@ -13,6 +13,7 @@ public:
 	void Rotate(int degree);//rotate around its center
 	void RotateWithOther(int degree,CIwFVec2 rotateCeneterPos);//rotate around other
 	bool CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox);
+	int CollisionSide(CIwFVec2 characterPos , CIwSVec2 characterBox, CIwFVec2 &target);
 	void Render(CIwFVec2 mapPos,CIwSVec2 characterBox);
 private:
 	bool _Hit;

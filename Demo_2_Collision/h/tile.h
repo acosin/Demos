@@ -20,7 +20,8 @@ public:
 	void Render(CIwFVec2 mapPos,bool highlight,CIwSVec2 characterBox);
 	void Rotate();
 	void Update();
-	bool CheckCollision(CIwFVec2 characterPos , CIwSVec2 characterBox,CIwFVec2 &target);
+	void AddObstacle(CIwFVec2 pos,CIwSVec2 size,bool display);
+	bool CheckCollision(CIwFVec2 characterPos , CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
 private:
 	CIw2DImage* _image;
 	CIwSVec2 _Size; // character size
