@@ -1,7 +1,7 @@
 -c
-"c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/tile.cpp"
+"c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/tiles.cpp"
 -o
-Debug_Demo_2_Collision_vc10_gcc_arm//tile.obj
+Release_Demo_2_Collision_vc10_gcc_arm//tiles.obj
 -Ic:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h
 -Ic:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h
 -Ic:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h
@@ -43,11 +43,11 @@ Debug_Demo_2_Collision_vc10_gcc_arm//tile.obj
 -Wno-psabi
 -fvisibility=hidden
 -nostdinc
--g
--O0
+-fomit-frame-pointer
+-O3
 -D__S3E_CL_WRAPPER
 -include
-"c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/temp_defines_debug.h"
+"c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/temp_defines_release.h"
 -Wno-reorder
 -fvisibility-inlines-hidden
 -fno-exceptions

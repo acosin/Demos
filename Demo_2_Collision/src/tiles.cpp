@@ -29,7 +29,7 @@ void Tiles::Load()
 		int w=i/_W;
 		int h=i%_W;
 		CIwFVec2 pos=m_Position+CIwFVec2(h*64.0f,w*64.0f);
-		m_Tiles[i]=new Tile(pos,files[i%2],0);
+		m_Tiles[i]=new Tile(pos,files[i%2],1);
 		m_Tiles[i]->Load();
 	}
 }
