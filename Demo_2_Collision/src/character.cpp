@@ -33,15 +33,15 @@ void Character::Load()
 void Character::Render(CIwFVec2 mapPos)
 {
 	//character
-	Iw2DDrawImage(_image, CIwSVec2((iwsfixed)m_ScreenCenter.x, (iwsfixed)m_ScreenCenter.y-16) - _Size/IW_FIXED(2));
+	Iw2DDrawImage(_image, CIwSVec2(iwsfixed(m_ScreenCenter.x-_Size.x/2.0f), iwsfixed(m_ScreenCenter.y-_Size.y/2.0f-16.0f)));
 	//target
-	Iw2DDrawImage(_imageTarget, CIwSVec2((iwsfixed)(m_TargetOnScreen.x-8.0f), (iwsfixed)(m_TargetOnScreen.y-8.0f)));
+	Iw2DDrawImage(_imageTarget, CIwSVec2(iwsfixed(m_TargetOnScreen.x-8.0f), iwsfixed(m_TargetOnScreen.y-8.0f)));
 	//character pos point
 	Iw2DSetColour(C_BLACK);
-	Iw2DFillRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)) - CIwSVec2(2,2), CIwSVec2(4,4));
+	Iw2DFillRect(CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)) - CIwSVec2(2,2), CIwSVec2(4,4));
 	//character collision box
 	Iw2DSetColour(C_RED);
-	Iw2DDrawRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)) - m_CollisionBox/IW_FIXED(2), CIwSVec2(32,32));
+	Iw2DDrawRect(CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)) - m_CollisionBox/IW_FIXED(2), CIwSVec2(32,32));
 	Iw2DSetColour(C_WHITE);
 }
 

@@ -40,13 +40,26 @@ void Tile::InitialObstacle()
 	m_Edges.push_back(CreateObstacle(CIwFVec2(m_Position.x+(float)_Size.y-OBSTACLESIZE,m_Position.y),CIwSVec2(OBSTACLESIZE,_Size.y),true));
 	m_Edges.push_back(CreateObstacle(CIwFVec2(m_Position.x,m_Position.y+(float)_Size.y-OBSTACLESIZE),CIwSVec2(_Size.x,OBSTACLESIZE),true));
 	m_Edges.push_back(CreateObstacle(CIwFVec2(m_Position.x,m_Position.y),CIwSVec2(OBSTACLESIZE,_Size.y),true));
+
 	for(int i=0;i!=4;i++)
 		if(m_CollisionEdge[i]==1)
 			m_Edges[i].m_Block=false;
+	if(m_Rotation>0)
+		UpdateObstacle();
+	if(m_Rotation>1)
+		UpdateObstacle();
+	if(m_Rotation>2)
+		UpdateObstacle();
 }
 void Tile::UpdateObstacle()
 {
 	//	TODO: error check when index is incorrect
+	int blockOfTopside=m_CollisionEdge[0];
+	m_CollisionEdge[0]=m_CollisionEdge[3];
+	m_CollisionEdge[3]=m_CollisionEdge[2];
+	m_CollisionEdge[2]=m_CollisionEdge[1];
+	m_CollisionEdge[1]=blockOfTopside;
+
 	m_Edges[0].m_Block=false;
 	m_Edges[1].m_Block=false;
 	m_Edges[2].m_Block=false;
@@ -74,21 +87,20 @@ void Tile::Load()
 
 void Tile::Render(CIwFVec2 mapPos,bool highlight,CIwSVec2 characterBox)
 {
-	iwfixed  angle =IW_FIXED(PI)*IW_FIXED(0.5f)*IW_FIXED(m_Rotation);//90 degrees
-	CIwFVec2 centre=m_Position+CIwFVec2((float)_Size.x/2.0f,(float)_Size.y/2.0f);
+	iwangle  angle =90*m_Rotation;//90 degrees
+	CIwSVec2 centre=CIwSVec2(iwsfixed(m_Position.x+(float)_Size.x/2.0f-mapPos.x),iwsfixed(m_Position.y+(float)_Size.y/2.0f-mapPos.y));
     CIwMat2D rot;
-    //error here fix it!!!!
-	rot.SetRot(angle, CIwVec2(centre));
     
-
+	rot.SetRot(IW_ANGLE_FROM_DEGREES(angle), CIwVec2(centre));
+    
 	if(highlight)
 	{
 		Iw2DSetColour(0xffff0000);
-		Iw2DFillRect(CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)),_Size);
+		Iw2DFillRect(CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)),_Size);
 		//Iw2DSetColour(C_WHITE);
 	}
 	Iw2DSetTransformMatrix(rot);
-	Iw2DDrawImage(_image, CIwSVec2((iwsfixed)(m_Position.x-mapPos.x), (iwsfixed)(m_Position.y-mapPos.y)));
+	Iw2DDrawImage(_image, CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)));
 	//Reset identity transform
 	Iw2DSetTransformMatrix(CIwMat2D::g_Identity);
 	for(int i=m_Edges.size();i!=0;i--)
@@ -104,11 +116,7 @@ void Tile::Rotate()
 	m_Rotation++;
 	if(m_Rotation>3)
 		m_Rotation=0;
-	bool blockOfTopside=m_Edges[0].m_Block;
-	m_Edges[0].m_Block=m_Edges[3].m_Block;
-	m_Edges[3].m_Block=m_Edges[2].m_Block;
-	m_Edges[2].m_Block=m_Edges[1].m_Block;
-	m_Edges[1].m_Block=blockOfTopside;
+
 	UpdateObstacle();
 }
 

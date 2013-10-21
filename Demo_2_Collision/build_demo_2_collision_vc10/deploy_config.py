@@ -4,7 +4,7 @@
 # tool during the build process.
 
 config = {}
-cmdline = ['C:/Marmalade/6.2/s3e/makefile_builder/mkb.py', 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb', '--default-buildenv=vc10', '--msvc-project', '--deploy-only']
+cmdline = ['C:/Marmalade/6.2/s3e/makefile_builder/mkb.py', 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb', '--deploy-only']
 mkb = 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb'
 mkf = ['c:\\marmalade\\6.2\\modules\\iw2d\\iw2d.mkf', 'c:\\marmalade\\6.2\\modules\\iwgx\\iwgx.mkf', 'c:\\marmalade\\6.2\\modules\\iwgeom\\iwgeom.mkf', 'c:\\marmalade\\6.2\\modules\\iwutil\\iwutil.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libjpeg_6b\\libjpeg.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libpng_1.2.34\\libpng.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\zlib_1.2.4\\zlib.mkf', 'c:\\marmalade\\6.2\\modules\\iwresmanager\\iwresmanager.mkf', 'c:\\marmalade\\6.2\\modules\\iwgl\\iwgl.mkf', 'c:\\marmalade\\6.2\\modules\\iwgxfont\\iwgxfont.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\tiniconv_1.0.1\\tiniconv.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_2_collision\\demo_2_collision.mkf']
 
