@@ -21,14 +21,23 @@ void Map::Update(int deltaTime)
 	//DO NOTING CURRENTLY
 }
 
-void Map::Change()
-{
 
-}
-void Map::Render()
+void Map::Render(CIwSVec2 characterBox)
 {
-	Iw2DDrawImage(_image, CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1));
+	//Iw2DDrawImage(_image, CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1));
+	CIwSVec2 topleft=CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1);
+	for(int x=0;x!=32;x++)
+	{
+		for(int y=0;y!=32;y++)
+		{
+			CIwSVec2 pos = CIwSVec2((int16)(y * 32), (int16)(y * 32));
+
+			Iw2DDrawImageRegion(_image, topleft + pos, pos, CIwSVec2(32, 32));
+		}
+	}
+	//_Tiles->Render(m_Position,characterBox);
 }
+
 bool Map::CheckMapEdge(CIwFVec2 &pos)
 {
 	if(pos.x<0)
@@ -53,6 +62,7 @@ bool Map::CheckMapEdge(CIwFVec2 &pos)
 	}
 	return true;
 }
+
 bool Map::CheckMapEdge()
 {
 	if(m_Position.x<0)
@@ -77,6 +87,7 @@ bool Map::CheckMapEdge()
 	}
 	return true;
 }
+
 CIwSVec2 Map::GetMapSize()
 {
 	return _size;

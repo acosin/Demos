@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include "Iw2D.h"
+#include "tiles.h"
 
 class Map
 {
@@ -11,15 +12,14 @@ public:
 	~Map();
 	void Load();
 	void Update(int deltaTime);
-	void Change();
-	void Render();
+	void Render(CIwSVec2 characterBox);
 	CIwSVec2 GetMapSize();
 	bool CheckMapEdge(CIwFVec2 &delta);
 	bool CheckMapEdge();
 	
 private:
 	CIw2DImage* _image;
-	
+	//Tiles* _Tiles;
     CIwSVec2 _size; // character size
 
 };

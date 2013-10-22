@@ -18,7 +18,7 @@
 #include "tiles.h"
 #include "obstacle.h"
 #include "audio.h"
-
+#include "input.h"
 class CGame
 {
 public:

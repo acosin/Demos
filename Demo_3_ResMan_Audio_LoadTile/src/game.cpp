@@ -16,7 +16,7 @@
 #include "IwGx.h"
 
 #include "game.h"
-#include "input.h"
+
 
 
 CGame::CGame()
@@ -61,7 +61,6 @@ void CGame::Update(int deltaTime)
 
 	if(m_StartTouch)// Checking if screen has been touched first, otherwise keep character still when start a stage
 	{	
-		
 		_Character->m_TargetOnScreen=GetTouches();
 		_Character->m_Target=_Character->m_TargetOnScreen+_Map->m_Position;
 	}
@@ -130,9 +129,9 @@ void CGame::Render()
 	//Iw2DDrawImage(backgroundImage, CIwSVec2(0, 0));
 	//Iw2DDrawImage(starImage, CIwSVec2((iwsfixed)m_Position.x, (iwsfixed)m_Position.y) - m_Size/IW_FIXED(2));
 
-	_Map->Render();
+	_Map->Render(_Character->m_CollisionBox);
 	_Obstacle->Render(_Map->m_Position,_Character->m_CollisionBox);
-	_Tiles->Render(_Map->m_Position,_Character->m_CollisionBox);
+	//_Tiles->Render(_Map->m_Position,_Character->m_CollisionBox);
 	_Character->Render(_Map->m_Position);
     // show the surface
     Iw2DSurfaceShow();
