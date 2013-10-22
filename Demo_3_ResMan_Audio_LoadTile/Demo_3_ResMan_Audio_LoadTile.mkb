@@ -1,0 +1,6 @@
+#!/usr/bin/env mkb
+subprojects
+{
+    iw2d
+	Demo_3_ResMan_Audio_LoadTile
+}

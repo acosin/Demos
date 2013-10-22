@@ -1,6 +1,0 @@
-#!/usr/bin/env mkb
-subprojects
-{
-    iw2d
-	Demo_3_LoadTileInfo_Audio
-}

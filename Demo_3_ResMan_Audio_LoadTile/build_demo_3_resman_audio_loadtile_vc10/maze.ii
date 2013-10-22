@@ -1,0 +1,23 @@
+# 1 "c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/maze.cpp"
+# 1 "c:\\Users\\1106786\\Dropbox\\Dropbox\\PG life\\Project Impact\\Code\\Demos\\Demo_3_ResMan_Audio_LoadTile\\build_demo_3_resman_audio_loadtile_vc10//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_3_ResMan_Audio_LoadTile/build_demo_3_resman_audio_loadtile_vc10/temp_defines_debug.h" 1
+# 1 "<command-line>" 2
+# 1 "c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/maze.cpp"
+# 1 "c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/maze.h" 1
+
+
+class Maze
+{
+public:
+ Maze();
+ ~Maze();
+ void Initial();
+private:
+
+};
+# 2 "c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/maze.cpp" 2
+Maze::Maze()
+{
+}
