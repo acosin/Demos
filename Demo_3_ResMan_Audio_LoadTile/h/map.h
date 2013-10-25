@@ -2,7 +2,7 @@
 #define MAP_H
 #include "Iw2D.h"
 #include "tiles.h"
-
+#include "layer.h"
 class Map
 {
 public:
@@ -21,7 +21,7 @@ private:
 	CIw2DImage* _image;
 	//Tiles* _Tiles;
     CIwSVec2 _size; // character size
-
+	Layer* _layer;
 };
 
 #endif

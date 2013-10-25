@@ -2,3 +2,6 @@
 Maze::Maze()
 {
 }
+Maze::~Maze()
+{
+}

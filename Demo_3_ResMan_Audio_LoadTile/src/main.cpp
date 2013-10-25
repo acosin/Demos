@@ -89,6 +89,7 @@ int Exit()
     delete pGame;
 	IwResManagerTerminate();
     Iw2DTerminate();
+	
 	return 0;
 }
 

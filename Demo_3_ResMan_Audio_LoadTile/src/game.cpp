@@ -16,8 +16,8 @@
 #include "IwGx.h"
 
 #include "game.h"
-
-
+#include <iostream>
+#include "s3ePointer.h"
 
 CGame::CGame()
 {
@@ -39,6 +39,7 @@ CGame::~CGame()
 //load resource and initialize
 void CGame::LoadRes()
 {
+	//IwMemBucketDebugSetBreakpoint(331) ;
 	//load map img
 	_Map->Load();
 	//load character img
@@ -59,10 +60,12 @@ void CGame::Update(int deltaTime)
 	if(!_Audio->Update())
 		s3eDebugPrint(300, 100, "error Audio support", 0);
 
-	if(m_StartTouch)// Checking if screen has been touched first, otherwise keep character still when start a stage
+	if(m_TargetUpdate)// Checking if screen has been touched first, otherwise keep character still when start a stage
 	{	
-		_Character->m_TargetOnScreen=GetTouches();
+		//CIwFVec2 touch=_Map->m_Position+GetTouches(S3E_POINTER_STATE_RELEASED);
+		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_UP);
 		_Character->m_Target=_Character->m_TargetOnScreen+_Map->m_Position;
+		
 	}
 	if(_Character->GetDistanceToTarget()>0.001f)
 	{
@@ -119,7 +122,7 @@ void CGame::Update(int deltaTime)
 void CGame::Render()
 {
     // for example, clear to black (the order of components is ABGR)
-    Iw2DSurfaceClear(0x00000000);
+    Iw2DSurfaceClear(0x00ff0000);
 	IwGxPrintString(230, 10, "MI");
     
 	// draw a red square
@@ -131,7 +134,7 @@ void CGame::Render()
 
 	_Map->Render(_Character->m_CollisionBox);
 	_Obstacle->Render(_Map->m_Position,_Character->m_CollisionBox);
-	//_Tiles->Render(_Map->m_Position,_Character->m_CollisionBox);
+	_Tiles->Render(_Map->m_Position,_Character->m_CollisionBox);
 	_Character->Render(_Map->m_Position);
     // show the surface
     Iw2DSurfaceShow();

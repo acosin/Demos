@@ -39,6 +39,9 @@ files
 	obstacle.cpp
 	resmgr.cpp
 	audio.cpp
+	layer.cpp
+	tileunit.cpp
+
 	(h)
     game.h
 	input.h
@@ -50,6 +53,8 @@ files
 	maze.h
 	resmgr.h
 	audio.h
+	layer.h
+	tileunit.h
 
 	[Data]
 	(data)

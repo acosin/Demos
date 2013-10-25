@@ -41,6 +41,8 @@
     </Filter>
     <Filter Include="'Marmalade Studio'\iwgx">
     </Filter>
+    <Filter Include="(cjson)">
+    </Filter>
     <Filter Include="'Marmalade Studio'\iwgeom">
     </Filter>
     <Filter Include="'Marmalade System (S3E)'\GL\EGL">
@@ -77,6 +79,9 @@
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/cfloat">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
+    </None>
+    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/libs/cjson-for-marmalade/cjson.mkf">
+      <Filter>(cjson)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/climits">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
@@ -677,6 +682,9 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/byteswap.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/libs/cjson-for-marmalade/cJSON.h">
+      <Filter>(cjson)</Filter>
+    </ClInclude>
     <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cderror.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
@@ -832,6 +840,9 @@
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/langinfo.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/layer.h">
+      <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/libgen.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
@@ -1145,6 +1156,9 @@
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tiles.h">
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tileunit.h">
+      <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/time.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
@@ -1210,6 +1224,9 @@
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/audio.cpp">
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/libs/cjson-for-marmalade/cJSON.c">
+      <Filter>(cjson)</Filter>
+    </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/character.cpp">
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
@@ -1217,6 +1234,9 @@
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/input.cpp">
+      <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
+    </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/layer.cpp">
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/main.cpp">
@@ -1238,6 +1258,9 @@
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tiles.cpp">
+      <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
+    </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tileunit.cpp">
       <Filter>(Demo_3_ResMan_Audio_LoadTile)\src</Filter>
     </ClCompile>
   </ItemGroup>

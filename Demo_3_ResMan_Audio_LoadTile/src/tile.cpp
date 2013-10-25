@@ -22,7 +22,7 @@ Tile::Tile(CIwFVec2 pos,char* file,int rotate)
 
 Tile::~Tile()
 {
-	delete _image;
+	delete m_Image;
 }
 Obstacle Tile::CreateObstacle(CIwFVec2 pos,CIwSVec2 size,bool display)
 {
@@ -70,8 +70,8 @@ void Tile::UpdateObstacle()
 }
 void Tile::Load()
 {
-	_image=Iw2DCreateImageResource(_filename);
-	_Size=CIwSVec2(_image->GetWidth(),_image->GetHeight());
+	m_Image=Iw2DCreateImageResource(_filename);
+	_Size=CIwSVec2(m_Image->GetWidth(),m_Image->GetHeight());
 	if(_filename=="MiM_DownRight")
 	{
 		int temp_arr[4]={0,1,1,0};//0 means block, 1 means pass
@@ -100,14 +100,13 @@ void Tile::Render(CIwFVec2 mapPos,bool highlight,CIwSVec2 characterBox)
 		//Iw2DSetColour(C_WHITE);
 	}
 	Iw2DSetTransformMatrix(rot);
-	Iw2DDrawImage(_image, CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)));
+	Iw2DDrawImage(m_Image, CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)));
 	//Reset identity transform
 	Iw2DSetTransformMatrix(CIwMat2D::g_Identity);
 	for(int i=m_Edges.size();i!=0;i--)
 	{
 		m_Edges[i-1].Render(mapPos,characterBox);
 	}
-	    
     
 }
 

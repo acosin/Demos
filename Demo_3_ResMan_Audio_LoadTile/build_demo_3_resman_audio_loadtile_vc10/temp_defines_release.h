@@ -13,6 +13,9 @@
 #ifndef IW_ASSERTION_CHANNEL_2D
 #   define IW_ASSERTION_CHANNEL_2D 1
 #endif
+#ifndef IW_MKF_CJSON
+#   define IW_MKF_CJSON 1
+#endif
 #ifndef IW_MKF_DEMO_3_RESMAN_AUDIO_LOADTILE
 #   define IW_MKF_DEMO_3_RESMAN_AUDIO_LOADTILE 1
 #endif

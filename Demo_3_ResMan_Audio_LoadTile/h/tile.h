@@ -12,6 +12,8 @@ public:
 	int m_Rotation;
 	int m_CollisionEdge[4];
 	vector<Obstacle> m_Edges; 
+	
+	CIw2DImage* m_Image;
 	Tile();
 	Tile(CIwFVec2 pos,char* file,int rotate);
 	~Tile();
@@ -24,7 +26,7 @@ public:
 	void InitialObstacle();
 	bool CheckCollision(CIwFVec2 characterPos , CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
 private:
-	CIw2DImage* _image;
+	//CIw2DImage* _image;
 	CIwSVec2 _Size; // character size
 	char* _filename;
 };

@@ -8,12 +8,15 @@ Map::Map()
 Map::~Map()
 {
 	delete _image;
+	delete _layer;
 }
 
 void Map::Load()
 {
 	_image=Iw2DCreateImageResource("map_edit");
-	_size=CIwSVec2(_image->GetWidth(),_image->GetHeight());
+	_size=CIwSVec2(100*32,100*32);
+	_layer=new Layer;
+	_layer->Init();
 }
 
 void Map::Update(int deltaTime)
@@ -25,16 +28,17 @@ void Map::Update(int deltaTime)
 void Map::Render(CIwSVec2 characterBox)
 {
 	//Iw2DDrawImage(_image, CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1));
-	CIwSVec2 topleft=CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1);
-	for(int x=0;x!=32;x++)
-	{
-		for(int y=0;y!=32;y++)
-		{
-			CIwSVec2 pos = CIwSVec2((int16)(y * 32), (int16)(y * 32));
+	//CIwSVec2 topleft=CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1);
+	//for(int x=0;x!=32;x++)
+	//{
+	//	for(int y=0;y!=32;y++)
+	//	{
+	//		CIwSVec2 pos = CIwSVec2((int16)(y * 32), (int16)(y * 32));
 
-			Iw2DDrawImageRegion(_image, topleft + pos, pos, CIwSVec2(32, 32));
-		}
-	}
+	//		Iw2DDrawImageRegion(_image, topleft + pos, pos, CIwSVec2(32, 32));
+	//	}
+	//}
+	_layer->Render(m_Position);
 	//_Tiles->Render(m_Position,characterBox);
 }
 

@@ -3,4 +3,8 @@ subprojects
 {
     iw2d
 	Demo_3_ResMan_Audio_LoadTile
+
+	(libs)
+    # path to cjson.mkf
+    cJSON-for-marmalade/cjson
 }

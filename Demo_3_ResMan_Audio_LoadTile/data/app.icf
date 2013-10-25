@@ -20,3 +20,5 @@ MemSize=52428800
 MemSizeDebug=52428800
 [GX]
 DataCacheSize=80000
+[Util]
+#MemoryBreakpoint=330
