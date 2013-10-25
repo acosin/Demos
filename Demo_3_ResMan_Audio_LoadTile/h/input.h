@@ -7,10 +7,9 @@
 #include "s3ePointer.h"
 
 
-extern CIwFVec2 m_TouchPos;
-extern bool m_StartTouch;
-extern bool m_EndTouch;
-extern bool m_TargetUpdate;
+extern s3ePointerState last_States;
+extern s3ePointerState current_States;
+
 void UpdateInput(int deltaTime);
 CIwFVec2 GetTouches();
 CIwFVec2 GetTouches(s3ePointerState state);

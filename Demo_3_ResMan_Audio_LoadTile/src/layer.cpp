@@ -87,9 +87,9 @@ void Layer::Init()
 void Layer::Render(CIwFVec2 mapPos)
 {
 	int index=-1;
-	if(m_TargetUpdate)
+	if(current_States==S3E_POINTER_STATE_DOWN)
 	{
-		CIwFVec2 touch=mapPos+GetTouches(S3E_POINTER_STATE_UP);
+		CIwFVec2 touch=mapPos+GetTouches(S3E_POINTER_STATE_DOWN);
 		int index_y=int(touch.y)/32;
 		int index_x=int(touch.x)/32;
 		index=index_y*100+index_x;
@@ -97,7 +97,7 @@ void Layer::Render(CIwFVec2 mapPos)
 		if(m_TileDir[index]==4)
 			m_TileDir[index]=0;
 		std::cout<<"x:"<<index_x<<", y:"<<index_y<<", index: "<<index<<std::endl;
-		m_TargetUpdate=false;
+
 	}
 	for(int i=0;i!=10000;i++)
 	{

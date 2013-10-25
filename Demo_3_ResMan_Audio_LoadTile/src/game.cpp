@@ -60,10 +60,10 @@ void CGame::Update(int deltaTime)
 	if(!_Audio->Update())
 		s3eDebugPrint(300, 100, "error Audio support", 0);
 
-	if(m_TargetUpdate)// Checking if screen has been touched first, otherwise keep character still when start a stage
+	if(current_States==S3E_POINTER_STATE_DOWN)// Checking if screen has been touched first, otherwise keep character still when start a stage
 	{	
 		//CIwFVec2 touch=_Map->m_Position+GetTouches(S3E_POINTER_STATE_RELEASED);
-		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_UP);
+		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_DOWN);
 		_Character->m_Target=_Character->m_TargetOnScreen+_Map->m_Position;
 		
 	}
