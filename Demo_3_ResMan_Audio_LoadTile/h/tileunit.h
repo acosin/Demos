@@ -10,7 +10,7 @@ public:
 	CIwSVec2 m_Size;
 	TileUnit();
 	~TileUnit();
-	void Init(int,int);
+	void Init(int,int,int);
 	void Render(CIw2DImage* m_Image,CIwFVec2 mapPos);
 };
 

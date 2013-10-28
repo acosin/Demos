@@ -1,5 +1,5 @@
 #include "map.h"
-
+#include "resmgr.h"
 Map::Map()
 {
 	m_Position=CIwSVec2(0,0);
@@ -7,16 +7,20 @@ Map::Map()
 
 Map::~Map()
 {
-	delete _image;
+	//delete _image;
 	delete _layer;
+	delete _maze;
 }
 
 void Map::Load()
 {
-	_image=Iw2DCreateImageResource("map_edit");
+	//_image=Iw2DCreateImageResource("map_edit");
 	_size=CIwSVec2(100*32,100*32);
 	_layer=new Layer;
+	_maze=new Maze;
+	ReadJsonFile("Level_Alpha_6.json");
 	_layer->Init();
+	_maze->Init();
 }
 
 void Map::Update(int deltaTime)
@@ -39,6 +43,7 @@ void Map::Render(CIwSVec2 characterBox)
 	//	}
 	//}
 	_layer->Render(m_Position);
+	_maze->Render(m_Position);
 	//_Tiles->Render(m_Position,characterBox);
 }
 

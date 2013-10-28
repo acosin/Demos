@@ -3,6 +3,7 @@
 #include "Iw2D.h"
 #include "tiles.h"
 #include "layer.h"
+#include "maze.h"
 class Map
 {
 public:
@@ -18,10 +19,11 @@ public:
 	bool CheckMapEdge();
 	
 private:
-	CIw2DImage* _image;
+	//CIw2DImage* _image;
 	//Tiles* _Tiles;
     CIwSVec2 _size; // character size
 	Layer* _layer;
+	Maze* _maze;
 };
 
 #endif

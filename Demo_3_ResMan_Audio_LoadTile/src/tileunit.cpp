@@ -7,11 +7,11 @@ TileUnit::~TileUnit()
 {
 }
 
-void TileUnit::Init(int index,int xCount)
+void TileUnit::Init(int index,int xCount,int size)
 {
 	m_X=index%xCount;
 	m_Y=index/xCount;
-	m_Size=CIwSVec2(32,32);
+	m_Size=CIwSVec2(size,size);
 }
 
 void TileUnit::Render(CIw2DImage* m_Image,CIwFVec2 topLeft)
