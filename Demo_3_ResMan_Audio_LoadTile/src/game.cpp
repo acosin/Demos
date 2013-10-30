@@ -1,32 +1,9 @@
-/*
- * This file is part of the Marmalade SDK Code Samples.
- *
- * (C) 2001-2012 Marmalade. All Rights Reserved.
- *
- * This source code is intended only as a supplement to the Marmalade SDK.
- *
- * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
- * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
- * PARTICULAR PURPOSE.
- */
-
 #include "Iw2D.h"
 #include "s3e.h"
 #include "IwGx.h"
-
 #include "game.h"
 #include <iostream>
 #include "s3ePointer.h"
-
-CGame::CGame()
-{
-	_Map= new Map;
-	_Character=new Character;
-	_Tiles=new Tiles;
-	_Obstacle=new Obstacle;
-	_Audio=new Audio;
-}
 
 CGame::~CGame()
 {
@@ -39,8 +16,12 @@ CGame::~CGame()
 //load resource and initialize
 void CGame::LoadRes()
 {
+	_Map= new Map;
+	_Character=new Character;
+	_Tiles=new Tiles;
+	_Obstacle=new Obstacle;
+	_Audio=new Audio;
 	//IwMemBucketDebugSetBreakpoint(331) ;
-	//load map img
 	_Map->Load();
 	//load character img
 	_Character->Load();
@@ -60,10 +41,10 @@ void CGame::Update(int deltaTime)
 	if(!_Audio->Update())
 		s3eDebugPrint(300, 100, "error Audio support", 0);
 
-	if(current_States==S3E_POINTER_STATE_DOWN)// Checking if screen has been touched first, otherwise keep character still when start a stage
+	if(current_States==S3E_POINTER_STATE_PRESSED)// Checking if screen has been touched first, otherwise keep character still when start a stage
 	{	
 		//CIwFVec2 touch=_Map->m_Position+GetTouches(S3E_POINTER_STATE_RELEASED);
-		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_DOWN);
+		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_PRESSED);
 		_Character->m_Target=_Character->m_TargetOnScreen+_Map->m_Position;
 		
 	}

@@ -1,9 +1,5 @@
 #include "layer.h"
 
-Layer::Layer(){}
-
-Layer::~Layer(){}
-
 void Layer::Init(cJSON* layer)
 {
 	cJSON *data=cJSON_GetObjectItem(layer,"data");

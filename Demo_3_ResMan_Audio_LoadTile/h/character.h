@@ -12,7 +12,7 @@ public:
 	CIwFVec2 m_ScreenCenter;
 	CIwFVec2 m_TargetOnScreen; // target for character on screen
 	CIwSVec2 m_CollisionBox;
-	float m_MOVERANGE;// within the range, map will not move with character; out of the range, map start to move
+	//float m_MOVERANGE;// within the range, map will not move with character; out of the range, map start to move
 	bool m_HitRange;
 
 	Character();
@@ -28,7 +28,6 @@ public:
 	void CheckTarget(CIwFVec2 &target);
 private:
 	CIw2DImage* _image;
-	CIw2DImage* _imageTarget;
 	CIwSVec2 _Size; // character size
 	
 };

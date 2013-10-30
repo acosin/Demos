@@ -3,7 +3,6 @@
 #include <iostream>
 #include "s3ePointer.h"
 #include "s3eFile.h"
-Map::Map(){}
 
 Map::~Map()
 {
@@ -59,6 +58,7 @@ void Map::ReadJsonFile(char * filename)
 	_tileset_map->Init(cJSON_GetArrayItem(tilesets,0));
 	_tileset_maze->Init(cJSON_GetArrayItem(tilesets,1));
 
+	
 
 	_total=_height*_width;
 	_size=CIwSVec2(_width*_tileWidth,_height*_tileHeight);
@@ -66,33 +66,20 @@ void Map::ReadJsonFile(char * filename)
 }
 void Map::Load()
 {
-	m_Position=CIwSVec2(0,0);
 	_layer_base=new Layer;
 	_layer_middle=new Layer;
 	_layer_maze=new Layer;
 	_tileset_map=new TileSet;
 	_tileset_maze=new TileSet;
 	ReadJsonFile("Level Alpha 7.5.json");//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+	
+	int startPoint_X=22,startPoint_Y=12;
+	m_Position=CIwSVec2(startPoint_X*_tileWidth,startPoint_Y*_tileHeight);
+	
 	for(int i=0;i!=_total;i++)
 	{
 		m_TileDir.append(0);
 	}
-}
-void Map::InitTileSet()
-{
-	//m_Tiles=CIwArray<TileUnit>();
-	//m_Image=Iw2DCreateImageResource("red_tileset");
-	//CIwSVec2 size=CIwSVec2(m_Image->GetWidth(),m_Image->GetHeight());
-	//int W=size.x/m_TileSize;
-	//int H=size.y/m_TileSize;
-	//int total=W*H;
-	//for(int i=0;i!=total;i++)
-	//{
-	//	TileUnit tempTileUnit;
-	//	tempTileUnit.Init(i,W,m_TileSize);
-	//	m_Tiles.append(tempTileUnit);
-	//}
 }
 void Map::Update(int deltaTime)
 {

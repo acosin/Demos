@@ -9,8 +9,8 @@ class Layer
 public:
 	CIwArray<int> m_TileIndex;
 	bool m_rotatable;
-	Layer();
-	~Layer();
+	Layer(){}
+	~Layer(){}
 	void Init(cJSON* layer);
 private:
 	char* _name;//layer name
