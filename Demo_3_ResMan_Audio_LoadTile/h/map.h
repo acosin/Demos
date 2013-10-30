@@ -23,14 +23,12 @@ public:
 	void ReadJsonFile(char * filename);
 private:
 	//CIw2DImage* _image;
-	//Tiles* _Tiles;
     CIwSVec2 _size; // character size
 	Layer* _layer_base;
 	Layer* _layer_middle;
 	Layer* _layer_maze;
 	TileSet* _tileset_map;
 	TileSet* _tileset_maze;
-	//Maze* _maze;
 	int _height;
 	int _width;
 	int _total;

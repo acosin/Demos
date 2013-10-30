@@ -8,6 +8,7 @@ class Layer
 {
 public:
 	CIwArray<int> m_TileIndex;
+	bool m_rotatable;
 	Layer();
 	~Layer();
 	void Init(cJSON* layer);
@@ -18,6 +19,7 @@ private:
 	float _opacity;//layer opacity
 	int _width;
 	int _height;
+	
 };
 
 #endif

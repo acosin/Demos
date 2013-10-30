@@ -3,10 +3,7 @@
 #include <iostream>
 #include "s3ePointer.h"
 #include "s3eFile.h"
-Map::Map()
-{
-	m_Position=CIwSVec2(0,0);
-}
+Map::Map(){}
 
 Map::~Map()
 {
@@ -69,8 +66,7 @@ void Map::ReadJsonFile(char * filename)
 }
 void Map::Load()
 {
-	//_image=Iw2DCreateImageResource("map_edit");
-	//_size=CIwSVec2(100*32,100*32);
+	m_Position=CIwSVec2(0,0);
 	_layer_base=new Layer;
 	_layer_middle=new Layer;
 	_layer_maze=new Layer;
@@ -105,18 +101,6 @@ void Map::Update(int deltaTime)
 
 void Map::Render(CIwSVec2 characterBox)
 {
-	//Iw2DDrawImage(_image, CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1));
-	//CIwSVec2 topleft=CIwSVec2((iwsfixed)m_Position.x*-1, (iwsfixed)m_Position.y*-1);
-	//for(int x=0;x!=32;x++)
-	//{
-	//	for(int y=0;y!=32;y++)
-	//	{
-	//		CIwSVec2 pos = CIwSVec2((int16)(y * 32), (int16)(y * 32));
-
-	//		Iw2DDrawImageRegion(_image, topleft + pos, pos, CIwSVec2(32, 32));
-	//	}
-	//}
-	//_layer->Render(m_Position);
 	int index_Touched=-1;
 	if(current_States==S3E_POINTER_STATE_DOWN)
 	{
@@ -132,18 +116,16 @@ void Map::Render(CIwSVec2 characterBox)
 	}
 	for(int i=0;i!=_total;i++)
 	{
-		//int index_Tile=_layer_base->m_TileIndex[i];
 		int index_x=i%_width;
 		int index_y=i/_width;
 
 		CIwSVec2 topleft = CIwSVec2(int(index_x * _tileWidth-m_Position.x), int(index_y * _tileHeight-m_Position.y));
 
-		_tileset_map->Render(_layer_base->m_TileIndex[i],topleft,m_TileDir[i]);
-		_tileset_map->Render(_layer_middle->m_TileIndex[i],topleft,m_TileDir[i]);
-		_tileset_maze->Render(_layer_maze->m_TileIndex[i],topleft,m_TileDir[i]);
+		_tileset_map->Render(_layer_base->m_TileIndex[i],topleft,_layer_base->m_rotatable? m_TileDir[i]:0);
+		_tileset_map->Render(_layer_middle->m_TileIndex[i],topleft,_layer_middle->m_rotatable? m_TileDir[i]:0);
+		_tileset_maze->Render(_layer_maze->m_TileIndex[i],topleft,_layer_maze->m_rotatable? m_TileDir[i]:0);
 	}
-	//_maze->Render(m_Position);
-	//_Tiles->Render(m_Position,characterBox);
+
 }
 
 bool Map::CheckMapEdge(CIwFVec2 &pos)
