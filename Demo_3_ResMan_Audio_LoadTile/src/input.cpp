@@ -73,4 +73,5 @@ CIwFVec2 GetTouches(s3ePointerState state)
 	case S3E_POINTER_STATE_UNKNOWN:
 		return m_TouchPosOnHover;
 	}
+	return m_TouchPosOnHover;
 }

@@ -57,10 +57,10 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/algorithm">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/data/app.config.txt">
+    <None Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/data/app.config.txt">
       <Filter></Filter>
     </None>
-    <None Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/data/app.icf">
+    <None Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/data/app.icf">
       <Filter></Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/bitset">
@@ -120,7 +120,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/cwctype">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/demo_2_collision.mkf">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/demo_2_collision.mkf">
       <Filter>(Demo_2_Collision)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/deque">
@@ -141,7 +141,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/hash_set">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/data/imgs.group">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/data/imgs.group">
       <Filter>(Demo_2_Collision)\Data</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/iomanip">
@@ -213,10 +213,10 @@
     <None Include="c:/marmalade/6.2/modules/iwutil/iwutil.mkf">
       <Filter>'Marmalade Studio'\iwutil</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/libjpeg.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/libjpeg.mkf">
       <Filter>(libjpeg)</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/libpng.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/libpng.mkf">
       <Filter>(libpng)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/limits">
@@ -288,7 +288,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/strstream">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/tiniconv.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/tiniconv.mkf">
       <Filter>(tiniconv)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/typeinfo">
@@ -303,10 +303,10 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/vector">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/zlib.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/zlib.mkf">
       <Filter>(zlib)</Filter>
     </None>
-    <CustomBuild Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb">
+    <CustomBuild Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb">
       <Filter></Filter>
     </CustomBuild>
   </ItemGroup>
@@ -674,13 +674,13 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/byteswap.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cderror.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cderror.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cdjpeg.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cdjpeg.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/character.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/character.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ctype.h">
@@ -731,7 +731,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/fstream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/game.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/game.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/getopt.h">
@@ -770,7 +770,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ifaddrs.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/input.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/input.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/inttypes.h">
@@ -794,37 +794,37 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/istream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jchuff.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jchuff.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jconfig.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jconfig.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdct.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdct.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdhuff.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdhuff.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jerror.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jerror.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jinclude.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jinclude.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmemsys.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmemsys.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmorecfg.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmorecfg.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpegint.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpegint.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpeglib.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpeglib.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jversion.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jversion.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/langinfo.h">
@@ -842,7 +842,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/malloc.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/map.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/map.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math.h">
@@ -854,7 +854,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math_rvct.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/maze.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/maze.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/mem.h">
@@ -875,7 +875,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/new.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/obstacle.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/obstacle.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/ostream.h">
@@ -884,10 +884,10 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/param.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/png.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/png.h">
       <Filter>(libpng)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/pngconf.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/pngconf.h">
       <Filter>(libpng)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/poll.h">
@@ -1133,10 +1133,10 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/termios.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/tile.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/tile.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/h/tiles.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/h/tiles.h">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/time.h">
@@ -1148,13 +1148,13 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/times.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv.h">
       <Filter>(tiniconv)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv_int.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv_int.h">
       <Filter>(tiniconv)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/transupp.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/transupp.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/type_traits.h">
@@ -1193,39 +1193,39 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/wctype.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zconf.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zconf.h">
       <Filter>(zlib)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zlib.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zlib.h">
       <Filter>(zlib)</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/character.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/character.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/game.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/game.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/input.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/input.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/main.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/main.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/map.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/map.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/maze.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/maze.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/obstacle.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/obstacle.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/tile.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/tile.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/src/tiles.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/src/tiles.cpp">
       <Filter>(Demo_2_Collision)\src</Filter>
     </ClCompile>
   </ItemGroup>

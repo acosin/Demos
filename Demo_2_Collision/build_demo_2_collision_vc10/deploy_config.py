@@ -4,9 +4,9 @@
 # tool during the build process.
 
 config = {}
-cmdline = ['C:/Marmalade/6.2/s3e/makefile_builder/mkb.py', 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb', '--deploy-only']
-mkb = 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb'
-mkf = ['c:\\marmalade\\6.2\\modules\\iw2d\\iw2d.mkf', 'c:\\marmalade\\6.2\\modules\\iwgx\\iwgx.mkf', 'c:\\marmalade\\6.2\\modules\\iwgeom\\iwgeom.mkf', 'c:\\marmalade\\6.2\\modules\\iwutil\\iwutil.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libjpeg_6b\\libjpeg.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libpng_1.2.34\\libpng.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\zlib_1.2.4\\zlib.mkf', 'c:\\marmalade\\6.2\\modules\\iwresmanager\\iwresmanager.mkf', 'c:\\marmalade\\6.2\\modules\\iwgl\\iwgl.mkf', 'c:\\marmalade\\6.2\\modules\\iwgxfont\\iwgxfont.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\tiniconv_1.0.1\\tiniconv.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_2_collision\\demo_2_collision.mkf']
+cmdline = ['C:/Marmalade/6.2/s3e/makefile_builder/mkb.py', 'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb', '--deploy-only']
+mkb = 'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/Demo_2_Collision.mkb'
+mkf = ['c:\\marmalade\\6.2\\modules\\iw2d\\iw2d.mkf', 'c:\\marmalade\\6.2\\modules\\iwgx\\iwgx.mkf', 'c:\\marmalade\\6.2\\modules\\iwgeom\\iwgeom.mkf', 'c:\\marmalade\\6.2\\modules\\iwutil\\iwutil.mkf', u'c:\\users\\0900391\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libjpeg_6b\\libjpeg.mkf', u'c:\\users\\0900391\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libpng_1.2.34\\libpng.mkf', u'c:\\users\\0900391\\appdata\\roaming\\marmalade\\packages\\6.2.2\\zlib_1.2.4\\zlib.mkf', 'c:\\marmalade\\6.2\\modules\\iwresmanager\\iwresmanager.mkf', 'c:\\marmalade\\6.2\\modules\\iwgl\\iwgl.mkf', 'c:\\marmalade\\6.2\\modules\\iwgxfont\\iwgxfont.mkf', u'c:\\users\\0900391\\appdata\\roaming\\marmalade\\packages\\6.2.2\\tiniconv_1.0.1\\tiniconv.mkf', 'c:\\users\\0900391\\dropbox\\project impact\\code\\demos\\demo_2_collision\\demo_2_collision.mkf']
 
 class DeployConfig(object):
     pass
@@ -16,16 +16,16 @@ class DeployConfig(object):
 assets = {}
 
 assets['Default'] = [
-    ('c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision\data', '.', 0),
+    ('c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision\data', '.', 0),
 ]
 
 assets['default'] = [
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/data/splashscreen.jpg', 'splashscreen.jpg', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/data-ram/data-gles1/imgs.group.bin,c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/data/imgs.group.bin', 'imgs.group.bin', 0),
+    ('c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/data/splashscreen.jpg', 'splashscreen.jpg', 0),
+    ('c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/data-ram/data-gles1/imgs.group.bin,c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/data/imgs.group.bin', 'imgs.group.bin', 0),
 ]
 
 assets['artbuild'] = [
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_2_collision/data', '.', 0),
+    ('c:/users/0900391/dropbox/project impact/code/demos/demo_2_collision/data', '.', 0),
 ]
 
 ######### DEFAULT CONFIG #############
@@ -38,8 +38,8 @@ class DefaultConfig(DeployConfig):
     caption = 'Demo_2_Collision'
     long_caption = 'Demo_2_Collision'
     version = [0, 0, 1]
-    config = ['c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/data/app.icf']
-    data_dir = 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/data'
+    config = ['c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/data/app.icf']
+    data_dir = 'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/data'
     iphone_link_lib = []
     linux_ext_lib = []
     iphone_link_libdir = []
@@ -56,20 +56,20 @@ class DefaultConfig(DeployConfig):
     iphone_link_libs = []
     target = {
          'arm' : {
-                   'debug'   : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_arm/Demo_2_Collision.s3e',
-                   'release' : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_arm/Demo_2_Collision.s3e',
+                   'debug'   : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_arm/Demo_2_Collision.s3e',
+                   'release' : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_arm/Demo_2_Collision.s3e',
                  },
          'mips_gcc' : {
-                   'debug'   : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_gcc_mips/Demo_2_Collision.so',
-                   'release' : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_gcc_mips/Demo_2_Collision.so',
+                   'debug'   : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_gcc_mips/Demo_2_Collision.so',
+                   'release' : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_gcc_mips/Demo_2_Collision.so',
                  },
          'x86' : {
-                   'debug'   : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_x86/Demo_2_Collision.s86',
-                   'release' : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_x86/Demo_2_Collision.s86',
+                   'debug'   : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_x86/Demo_2_Collision.s86',
+                   'release' : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_x86/Demo_2_Collision.s86',
                  },
          'arm_gcc' : {
-                   'debug'   : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_gcc_arm/Demo_2_Collision.s3e',
-                   'release' : r'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_gcc_arm/Demo_2_Collision.s3e',
+                   'debug'   : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Debug_Demo_2_Collision_VC10_gcc_arm/Demo_2_Collision.s3e',
+                   'release' : r'c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_2_Collision/build_demo_2_collision_vc10/Release_Demo_2_Collision_VC10_gcc_arm/Demo_2_Collision.s3e',
                  },
         }
     assets = assets['Default']

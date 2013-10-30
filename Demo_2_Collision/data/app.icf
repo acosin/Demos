@@ -18,5 +18,7 @@
 [S3E]
 MemSize=76805120
 MemSizeDebug=76805120
+WinWidth=1280
+WinHeight=768
 [GX]
 DataCacheSize=80000

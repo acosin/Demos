@@ -1,5 +1,8 @@
 #include "map.h"
-#include "resmgr.h"
+#include <stdlib.h>
+#include <iostream>
+#include "s3ePointer.h"
+#include "s3eFile.h"
 Map::Map()
 {
 	m_Position=CIwSVec2(0,0);
@@ -7,27 +10,98 @@ Map::Map()
 
 Map::~Map()
 {
-	//delete _image;
-	delete _layer;
-	delete _maze;
+	delete _layer_base;
+	delete _layer_middle;
+	delete _layer_maze;
+	delete _tileset_map;
+	delete _tileset_maze;
 }
+void Map::ReadJsonFile(char * filename)
+{
+	cJSON *root;
+	char * jsonContent;
+	s3eFile* fileHandler;
+	fileHandler=s3eFileOpen(filename, "rb");
+	if (fileHandler != NULL)
+    {
+        // Allocate buffer to be filled with the files contents
+        int32 fileSize = s3eFileGetSize(fileHandler);
+        jsonContent = (char*)s3eMallocBase(fileSize+1);
 
+        // Read data from file
+        if (s3eFileRead(&jsonContent[0], fileSize+1, 1, fileHandler) != 1)
+        {
+            // An kError has occurred, retrieve information for display
+			std::cout<<s3eFileGetErrorString()<<std::endl;
+        }
+        else
+        {
+            // Data reading has been successful
+            jsonContent[fileSize] = '\0';
+        }
+    }
+    else
+    {
+        // Something went wrong during opening of the file retrieve error for display
+		std::cout<<s3eFileGetErrorString()<<std::endl;
+    }
+	if (fileHandler)
+		s3eFileClose(fileHandler);
+	root = cJSON_Parse(jsonContent);
+	s3eFileFlush(fileHandler);
+
+	_height=cJSON_GetObjectItem(root,"height")->valueint;
+	cJSON *layers = cJSON_GetObjectItem(root,"layers");
+	_tileHeight=cJSON_GetObjectItem(root,"tileheight")->valueint;
+	_tileWidth=cJSON_GetObjectItem(root,"tilewidth")->valueint;
+	_width=cJSON_GetObjectItem(root,"width")->valueint;
+	_layer_base->Init(cJSON_GetArrayItem(layers,0));
+	_layer_middle->Init(cJSON_GetArrayItem(layers,1));
+	_layer_maze->Init(cJSON_GetArrayItem(layers,2));
+	cJSON *tilesets = cJSON_GetObjectItem(root,"tilesets");
+	_tileset_map->Init(cJSON_GetArrayItem(tilesets,0));
+	_tileset_maze->Init(cJSON_GetArrayItem(tilesets,1));
+
+
+	_total=_height*_width;
+	_size=CIwSVec2(_width*_tileWidth,_height*_tileHeight);
+
+}
 void Map::Load()
 {
 	//_image=Iw2DCreateImageResource("map_edit");
-	_size=CIwSVec2(100*32,100*32);
-	_layer=new Layer;
-	_maze=new Maze;
-	ReadJsonFile("Level_Alpha_6.json");
-	_layer->Init();
-	_maze->Init();
-}
+	//_size=CIwSVec2(100*32,100*32);
+	_layer_base=new Layer;
+	_layer_middle=new Layer;
+	_layer_maze=new Layer;
+	_tileset_map=new TileSet;
+	_tileset_maze=new TileSet;
+	ReadJsonFile("Level Alpha 7.5.json");//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+	for(int i=0;i!=_total;i++)
+	{
+		m_TileDir.append(0);
+	}
+}
+void Map::InitTileSet()
+{
+	//m_Tiles=CIwArray<TileUnit>();
+	//m_Image=Iw2DCreateImageResource("red_tileset");
+	//CIwSVec2 size=CIwSVec2(m_Image->GetWidth(),m_Image->GetHeight());
+	//int W=size.x/m_TileSize;
+	//int H=size.y/m_TileSize;
+	//int total=W*H;
+	//for(int i=0;i!=total;i++)
+	//{
+	//	TileUnit tempTileUnit;
+	//	tempTileUnit.Init(i,W,m_TileSize);
+	//	m_Tiles.append(tempTileUnit);
+	//}
+}
 void Map::Update(int deltaTime)
 {
 	//DO NOTING CURRENTLY
 }
-
 
 void Map::Render(CIwSVec2 characterBox)
 {
@@ -42,8 +116,33 @@ void Map::Render(CIwSVec2 characterBox)
 	//		Iw2DDrawImageRegion(_image, topleft + pos, pos, CIwSVec2(32, 32));
 	//	}
 	//}
-	_layer->Render(m_Position);
-	_maze->Render(m_Position);
+	//_layer->Render(m_Position);
+	int index_Touched=-1;
+	if(current_States==S3E_POINTER_STATE_DOWN)
+	{
+		CIwFVec2 touch=m_Position+GetTouches(S3E_POINTER_STATE_DOWN);
+		int index_y=int(touch.y)/_tileset_map->GetSize().y;
+		int index_x=int(touch.x)/_tileset_map->GetSize().x;
+		index_Touched=index_y*_width+index_x;
+		m_TileDir[index_Touched]+=1;
+		if(m_TileDir[index_Touched]==4)
+			m_TileDir[index_Touched]=0;
+		std::cout<<"x:"<<index_x<<", y:"<<index_y<<", index: "<<index_Touched<<std::endl;
+
+	}
+	for(int i=0;i!=_total;i++)
+	{
+		//int index_Tile=_layer_base->m_TileIndex[i];
+		int index_x=i%_width;
+		int index_y=i/_width;
+
+		CIwSVec2 topleft = CIwSVec2(int(index_x * _tileWidth-m_Position.x), int(index_y * _tileHeight-m_Position.y));
+
+		_tileset_map->Render(_layer_base->m_TileIndex[i],topleft,m_TileDir[i]);
+		_tileset_map->Render(_layer_middle->m_TileIndex[i],topleft,m_TileDir[i]);
+		_tileset_maze->Render(_layer_maze->m_TileIndex[i],topleft,m_TileDir[i]);
+	}
+	//_maze->Render(m_Position);
 	//_Tiles->Render(m_Position,characterBox);
 }
 
@@ -95,9 +194,4 @@ bool Map::CheckMapEdge()
 		return false;
 	}
 	return true;
-}
-
-CIwSVec2 Map::GetMapSize()
-{
-	return _size;
 }

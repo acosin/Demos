@@ -35,12 +35,12 @@ files
 	map.cpp
 	tile.cpp
 	tiles.cpp
-	maze.cpp
 	obstacle.cpp
 	resmgr.cpp
 	audio.cpp
 	layer.cpp
 	tileunit.cpp
+	tileset.cpp
 
 	(h)
     game.h
@@ -50,11 +50,11 @@ files
 	tile.h
 	tiles.h
 	obstacle.h
-	maze.h
 	resmgr.h
 	audio.h
 	layer.h
 	tileunit.h
+	tileset.h
 
 	[Data]
 	(data)

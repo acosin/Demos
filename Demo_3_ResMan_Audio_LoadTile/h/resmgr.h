@@ -7,9 +7,6 @@
 #include "s3eFile.h"
 #include "cJSON.h"
 #include "IwGx.h"
-
-extern cJSON *root;
-cJSON * ReadJsonFile(char *);
-
+#include <IwArray.h>
 
 #endif

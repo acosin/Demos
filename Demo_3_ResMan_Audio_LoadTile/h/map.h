@@ -3,7 +3,9 @@
 #include "Iw2D.h"
 #include "tiles.h"
 #include "layer.h"
-#include "maze.h"
+#include "tileset.h"
+#include "input.h"
+#include <IwArray.h>
 class Map
 {
 public:
@@ -14,16 +16,27 @@ public:
 	void Load();
 	void Update(int deltaTime);
 	void Render(CIwSVec2 characterBox);
-	CIwSVec2 GetMapSize();
+	CIwSVec2 GetMapSize(){return _size;}
 	bool CheckMapEdge(CIwFVec2 &delta);
 	bool CheckMapEdge();
-	
+	void InitTileSet();
+	void ReadJsonFile(char * filename);
 private:
 	//CIw2DImage* _image;
 	//Tiles* _Tiles;
     CIwSVec2 _size; // character size
-	Layer* _layer;
-	Maze* _maze;
+	Layer* _layer_base;
+	Layer* _layer_middle;
+	Layer* _layer_maze;
+	TileSet* _tileset_map;
+	TileSet* _tileset_maze;
+	//Maze* _maze;
+	int _height;
+	int _width;
+	int _total;
+	int _tileHeight;
+	int _tileWidth;
+	CIwArray<int> m_TileDir;
 };
 
 #endif

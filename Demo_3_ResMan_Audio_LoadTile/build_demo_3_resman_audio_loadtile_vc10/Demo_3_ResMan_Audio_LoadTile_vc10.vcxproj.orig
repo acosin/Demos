@@ -769,7 +769,6 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math_gcc.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math_rvct.h" />
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/maze.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/mem.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/memory.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/mman.h" />
@@ -865,6 +864,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/termios.h" />
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tile.h" />
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tiles.h" />
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tileset.h" />
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/h/tileunit.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/time.h" />
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/time.h" />
@@ -896,11 +896,11 @@
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/layer.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/main.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/map.cpp" />
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/maze.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/obstacle.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/resmgr.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tile.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tiles.cpp" />
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tileset.cpp" />
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_3_resman_audio_loadtile/src/tileunit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
