@@ -1,0 +1,10 @@
+#!/usr/bin/env mkb
+subprojects
+{
+    iw2d
+	Demo_4_TileCollision_AdvAudio_UI
+
+	(libs)
+    # path to cjson.mkf
+    cJSON-for-marmalade/cjson
+}

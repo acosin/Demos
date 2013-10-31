@@ -1,0 +1,10 @@
+CIwResGroup
+{
+	name "imgs"
+
+	"textures/character.png"
+	"textures/MiM_DownRight.png"
+	"textures/MiM_LeftRight.png"
+	"textures/red tileset.png"
+	"textures/RotationTiles.png"
+}

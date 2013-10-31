@@ -34,8 +34,8 @@ void Character::Render(CIwFVec2 mapPos)
 	Iw2DSetColour(C_GREEN);
 	Iw2DFillRect(CIwSVec2(iwsfixed(m_TargetOnScreen.x),iwsfixed(m_TargetOnScreen.y)) - CIwSVec2(2,2), CIwSVec2(4,4));
 	//character collision box
-	Iw2DSetColour(C_BLACK);
-	Iw2DDrawRect(CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)) - m_CollisionBox/IW_FIXED(2), m_CollisionBox);
+	//Iw2DSetColour(C_BLACK);
+	//Iw2DDrawRect(CIwSVec2(iwsfixed(m_Position.x-mapPos.x), iwsfixed(m_Position.y-mapPos.y)) - m_CollisionBox/IW_FIXED(2), m_CollisionBox);
 	Iw2DSetColour(C_WHITE);
 }
 

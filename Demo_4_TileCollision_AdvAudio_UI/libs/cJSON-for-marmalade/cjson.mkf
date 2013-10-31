@@ -1,0 +1,27 @@
+packages
+{	
+}
+
+options
+{
+	strict=0
+}
+
+subprojects
+{
+}
+
+includepaths
+{
+	"."
+}
+
+defines
+{
+}
+
+files
+{
+	cJSON.c
+	cJSON.h
+}

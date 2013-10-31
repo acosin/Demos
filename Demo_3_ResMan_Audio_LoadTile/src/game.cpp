@@ -103,7 +103,7 @@ void CGame::Update(int deltaTime)
 void CGame::Render()
 {
     // for example, clear to black (the order of components is ABGR)
-    Iw2DSurfaceClear(0x00ff0000);
+    Iw2DSurfaceClear(0x00ecdeff);
 	IwGxPrintString(230, 10, "MI");
     
 	// draw a red square
