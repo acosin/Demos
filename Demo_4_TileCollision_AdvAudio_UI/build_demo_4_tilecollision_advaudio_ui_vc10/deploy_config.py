@@ -6,7 +6,7 @@
 config = {}
 cmdline = ['C:/Marmalade/6.2/s3e/makefile_builder/mkb.py', 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/Demo_4_TileCollision_AdvAudio_UI.mkb', '--deploy-only']
 mkb = 'c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/Demo_4_TileCollision_AdvAudio_UI.mkb'
-mkf = ['c:\\marmalade\\6.2\\modules\\iw2d\\iw2d.mkf', 'c:\\marmalade\\6.2\\modules\\iwgx\\iwgx.mkf', 'c:\\marmalade\\6.2\\modules\\iwgeom\\iwgeom.mkf', 'c:\\marmalade\\6.2\\modules\\iwutil\\iwutil.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libjpeg_6b\\libjpeg.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libpng_1.2.34\\libpng.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\zlib_1.2.4\\zlib.mkf', 'c:\\marmalade\\6.2\\modules\\iwresmanager\\iwresmanager.mkf', 'c:\\marmalade\\6.2\\modules\\iwgl\\iwgl.mkf', 'c:\\marmalade\\6.2\\modules\\iwgxfont\\iwgxfont.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\tiniconv_1.0.1\\tiniconv.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_4_tilecollision_advaudio_ui\\demo_4_tilecollision_advaudio_ui.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_4_tilecollision_advaudio_ui\\libs\\cjson-for-marmalade\\cjson.mkf']
+mkf = ['c:\\marmalade\\6.2\\modules\\iw2d\\iw2d.mkf', 'c:\\marmalade\\6.2\\modules\\iwgx\\iwgx.mkf', 'c:\\marmalade\\6.2\\modules\\iwgeom\\iwgeom.mkf', 'c:\\marmalade\\6.2\\modules\\iwutil\\iwutil.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libjpeg_6b\\libjpeg.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\libpng_1.2.34\\libpng.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\zlib_1.2.4\\zlib.mkf', 'c:\\marmalade\\6.2\\modules\\iwresmanager\\iwresmanager.mkf', 'c:\\marmalade\\6.2\\modules\\iwgl\\iwgl.mkf', 'c:\\marmalade\\6.2\\modules\\iwgxfont\\iwgxfont.mkf', u'c:\\users\\1106786\\appdata\\roaming\\marmalade\\packages\\6.2.2\\tiniconv_1.0.1\\tiniconv.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_4_tilecollision_advaudio_ui\\demo_4_tilecollision_advaudio_ui.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_4_tilecollision_advaudio_ui\\libs\\cjson-for-marmalade\\cjson.mkf', 'c:\\users\\1106786\\dropbox\\dropbox\\pg life\\project impact\\code\\demos\\demo_4_tilecollision_advaudio_ui\\libs\\soundengine\\soundengine.mkf']
 
 class DeployConfig(object):
     pass
@@ -21,8 +21,10 @@ assets['Default'] = [
 
 assets['default'] = [
     ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/splashscreen.jpg', 'splashscreen.jpg', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/audio.mp3', 'audio.mp3', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data-ram/data-gles1/imgs.group.bin,c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/imgs.group.bin', 'imgs.group.bin', 0),
+    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/audios/music_placeholder.mp3', 'audios/music_placeholder.mp3', 0),
+    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data-ram/data-gles1/Level_1.group.bin,c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/Level_1.group.bin', 'Level_1.group.bin', 0),
+    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/audios/music_placeholder.mp3', 'music_placeholder.mp3', 0),
+    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/audios/test_footstep_left_01.wav', 'test_footstep_left_01.wav', 0),
 ]
 
 assets['artbuild'] = [

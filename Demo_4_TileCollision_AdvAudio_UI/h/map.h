@@ -1,7 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
 #include "Iw2D.h"
-#include "tiles.h"
 #include "layer.h"
 #include "tileset.h"
 #include "input.h"
@@ -21,6 +20,7 @@ public:
 	bool CheckMapEdge();
 	void InitTileSet();
 	void ReadJsonFile(char * filename);
+	bool CheckCollision(CIwFVec2 characterPos,CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
 private:
 	int screenHeight;
 	int screenWidth;
@@ -35,7 +35,9 @@ private:
 	int _total;
 	int _tileHeight;
 	int _tileWidth;
-	CIwArray<int> m_TileDir;
+	CIwArray<int> _TileDir;
+	CIwArray<TileObstacle> _TileObstacles;
+	int _characterPreIndex;
 };
 
 #endif

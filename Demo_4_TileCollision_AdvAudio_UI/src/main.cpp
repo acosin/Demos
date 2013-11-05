@@ -1,20 +1,8 @@
-/*
- * This file is part of the Marmalade SDK Code Samples.
- *
- * (C) 2001-2012 Marmalade. All Rights Reserved.
- *
- * This source code is intended only as a supplement to the Marmalade SDK.
- *
- * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
- * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
- * PARTICULAR PURPOSE.
- */
 #include "s3e.h"
 #include "Iw2D.h"
 #include "game.h"
 #include "IwResManager.h"
-
+#include "IwSound.h"
 // updates per second
 #define UPS 60
 
@@ -34,9 +22,21 @@ int GetUpdateFrame()
 // initial game
 int Initial()
 {
+	IwGxInit();
 	Iw2DInit();
 	IwResManagerInit();
-	
+	// Init IwSound
+	IwSoundInit();
+
+
+#ifdef IW_BUILD_RESOURCES
+	// Tell resource system how to convert WAV files
+	IwGetResManager()->AddHandler(new CIwResHandlerWAV);
+#endif
+
+	// Load our Level1 resource group into the resource manager
+	IwGetResManager()->LoadGroup("Level_1.group");
+
 	// create game object
     pGame = new CGame;
 	timer = (uint32)s3eTimerGetMs();
@@ -46,8 +46,8 @@ int Initial()
 int Prepare()
 {	
 	// Load resources 
-	IwGetResManager()->LoadGroup("imgs.group"); 
-
+	CIwResGroup* Level_1Group = IwGetResManager()->GetGroupNamed("Level_1");
+	IwGetResManager()->SetCurrentGroup(Level_1Group);
 	//loading image
 	pGame->LoadRes();
 	return 1;
@@ -87,9 +87,11 @@ int Exit()
 {
 	// clear up game object
     delete pGame;
+	// Shutdown IwSound
+	IwSoundTerminate();
 	IwResManagerTerminate();
     Iw2DTerminate();
-	
+	IwGxTerminate();
 	return 0;
 }
 

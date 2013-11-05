@@ -3,11 +3,12 @@
 #include "Iw2D.h"
 #include <IwArray.h>
 #include "cJSON.h"
-
+#include "tileobstacle.h"
 class Layer
 {
 public:
 	CIwArray<int> m_TileIndex;
+	
 	bool m_rotatable;
 	Layer(){}
 	~Layer(){}

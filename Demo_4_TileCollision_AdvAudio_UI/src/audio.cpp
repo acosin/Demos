@@ -1,17 +1,6 @@
 #include "audio.h"
 
-enum AudioState
-{
-    PLAYING,
-    PAUSED,
-    STOPPED
-};
-static AudioState g_Status = STOPPED;
-static s3eBool g_MP3Supported = S3E_FALSE;
-static void*   g_AudioData;
-static int     g_AudioSize;
-
-int32 AudioStopCallback(void* systemData, void* userData)
+int32 Audio::AudioStopCallback(void* systemData, void* userData)
 {
     g_Status = STOPPED;
     return 0;
@@ -26,6 +15,8 @@ Audio::~Audio()
 
 void Audio::Init(char* filename)
 {
+	g_Status = STOPPED;
+	g_MP3Supported = S3E_FALSE;
 	_Filename=filename;
 	_FileHandle = s3eFileOpen(_Filename, "rb");
 	g_AudioSize = s3eFileGetSize(_FileHandle);
@@ -41,19 +32,22 @@ void Audio::Init(char* filename)
 
 }
 
-bool Audio::Update()
+bool Audio::Update(bool play)
 {
-	if (!g_MP3Supported)
-        return false;
-	if (g_Status == STOPPED)
-        Play();
-/*
-    if (g_Status == STATE_PLAYING)
-        Pause();
+	if(play)
+	{
+		if (!g_MP3Supported)
+			return false;
+		if (g_Status == STOPPED)
+			Play();
+		/*
+		if (g_Status == STATE_PLAYING)
+			Pause();
 
-    if (g_Status == STATE_PAUSED)
-        Resume();
+		if (g_Status == STATE_PAUSED)
+			Resume();
 		*/
+	}
 	return true;
 }
 

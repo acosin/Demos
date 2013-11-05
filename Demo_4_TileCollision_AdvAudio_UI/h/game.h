@@ -3,10 +3,11 @@
 
 #include "map.h"
 #include "character.h"
-#include "tiles.h"
 #include "obstacle.h"
-#include "audio.h"
+#include "music.h"
+#include "SE.h"
 #include "input.h"
+#include "ui.h"
 class CGame
 {
 public:
@@ -25,9 +26,10 @@ public:
 private:
 	Map* _Map;
 	Character* _Character;
-	Tiles* _Tiles;
 	Obstacle* _Obstacle;
-	Audio* _Audio;
+	Music* _Music;
+	SE* _SE;
+	UI* _UI;
 };
 
 #endif

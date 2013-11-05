@@ -1,17 +1,17 @@
 #ifndef TILEUNIT_H
 #define TILEUNIT_H
 #include "Iw2D.h"
-
+#include <vector>
 class TileUnit
 {
 public:
-	int m_X;
-	int m_Y;
-	CIwSVec2 m_Size;
-	TileUnit();
-	~TileUnit();
-	void Init(int,int,int);
-	void Render(CIw2DImage* m_Image,CIwFVec2 mapPos);
+	//vector<bool> border;
+	TileUnit(){}
+	~TileUnit(){}
+	void Init(bool border[]);
+	void Rotate(int rotation);
+	bool m_border[4];//true means there is obstacle at border
+	bool m_borderRot[4];
 };
 
 #endif

@@ -10,20 +10,9 @@ Obstacle::Obstacle()
 {
 	m_Display=false;
 	_Hit=false;
-	m_Block=true;
+	m_Block=false;
 }
 
-Obstacle::~Obstacle()
-{
-}
-
-void Obstacle::Rotate(int degree)
-{
-}
-
-void Obstacle::RotateWithOther(int degree,CIwFVec2 rotateCeneterPos)
-{
-}
 bool Obstacle::CollisionDetect(CIwFVec2 characterPos , CIwSVec2 characterBox)
 {
 	if(!m_Block)// none checking when not block stuff

@@ -19,4 +19,5 @@ void Layer::Init(cJSON* layer)
 		index=cJSON_GetArrayItem(data,i)->valueint;
 		m_TileIndex.append(index);
 	}
+
 }

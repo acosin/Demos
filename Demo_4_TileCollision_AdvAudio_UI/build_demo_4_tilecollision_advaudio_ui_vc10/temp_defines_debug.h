@@ -49,6 +49,9 @@
 #ifndef IW_MKF_LIBPNG
 #   define IW_MKF_LIBPNG 1
 #endif
+#ifndef IW_MKF_SOUNDENGINE
+#   define IW_MKF_SOUNDENGINE 1
+#endif
 #ifndef IW_MKF_TINICONV
 #   define IW_MKF_TINICONV 1
 #endif

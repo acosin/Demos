@@ -1,9 +1,12 @@
 #include "tileset.h"
-
+#include <iostream.h>
 
 void TileSet::Init(cJSON* tileset)
 {
-	_firstGid=cJSON_GetObjectItem(tileset,"firstgid")->valueint;
+	_defaultTU=new TileUnit;
+	bool b[4]={false,false,false,false};//non-blocking border
+	_defaultTU->Init(b);
+	m_firstGid=cJSON_GetObjectItem(tileset,"firstgid")->valueint;
 	_filename=cJSON_GetObjectItem(tileset,"image")->valuestring;
 	_imageHeight=cJSON_GetObjectItem(tileset,"imageheight")->valueint;
 	_imageWidth=cJSON_GetObjectItem(tileset,"imagewidth")->valueint;
@@ -14,11 +17,30 @@ void TileSet::Init(cJSON* tileset)
 	_image=Iw2DCreateImageResource(_name);
 	_tilesPerRow=_imageWidth/_tilewidth;
 	_tileSize= CIwSVec2(_tilewidth, _tileheight);
+	cJSON * properties=cJSON_GetObjectItem(tileset,"tileproperties");
+	int propSize=0;
+	if(properties->child)
+		propSize=cJSON_GetArraySize(properties);
+	for(int i=0;i!=propSize;i++)
+	{
+		cJSON *tile=cJSON_GetArrayItem(properties,i);
+		
+		int index=atoi(tile->string);
+		char* border=cJSON_GetArrayItem(tile,0)->valuestring;
+		bool b[4]={false,false,false,false};//non-blocking border
+		for(int i=0;i!=4;i++)
+			if(border[i*2]=='0')
+				b[i]=true;//blocking border
+		TileUnit tu;
+		tu.Init(b);
+		m_TileUnitsKey.append(index);
+		m_TileUnits.append(tu);
+	}
 }
 
 void TileSet::Render(int index,CIwSVec2 topLeft,int rotation)
 {
-	int ind=index-_firstGid;
+	int ind=index-m_firstGid;
 	if(ind<0)
 		return;
 	int index_X=ind%_tilesPerRow;
@@ -36,4 +58,15 @@ void TileSet::Render(int index,CIwSVec2 topLeft,int rotation)
 	}
 	Iw2DDrawImageRegion(_image, topLeft, pos, _tileSize);
 	Iw2DSetTransformMatrix(CIwMat2D::g_Identity);
+}
+
+TileUnit* TileSet::GetTileUnit(int index)
+{
+	int ind_search=m_TileUnitsKey.find(index);
+	if(ind_search<0)
+	{
+		//std:cout<<"no border info found for "<<_name<<"["<<index<<"]"<<std::endl;
+		return _defaultTU;//all border are non-blocking
+	}
+	return &m_TileUnits[ind_search];
 }
