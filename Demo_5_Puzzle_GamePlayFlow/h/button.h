@@ -2,6 +2,7 @@
 #define BUTTON_H
 #include "Iw2D.h"
 #include "input.h"
+
 enum BTN_TYPE
 {
 	RECT=0,
@@ -27,7 +28,7 @@ public:
 	char * m_text;
 	uint32 text_color;
 	BTN_TYPE btn_type;
-
+	int m_id;
 
 	Button(){isDisplay=false;}
 	~Button(){if(_image) delete _image;}

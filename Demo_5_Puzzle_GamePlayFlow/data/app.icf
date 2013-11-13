@@ -22,3 +22,4 @@ MemSizeDebug=52428800
 DataCacheSize=80000
 [Util]
 #MemoryBreakpoint=330
+MemMgrMaxAllocWarning=0

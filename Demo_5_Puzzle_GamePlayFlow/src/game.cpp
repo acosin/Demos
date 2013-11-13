@@ -7,8 +7,6 @@
 
 CGame::~CGame()
 {
-	delete _MapLobby;
-	delete _MapLevel_1;
 	delete _Character;
 	delete _Music;
 	delete _SE;
@@ -17,96 +15,161 @@ CGame::~CGame()
 //load resource and initialize
 void CGame::LoadRes()
 {
-	
-	_MapLobby= new Map;
-	_MapLevel_1=new Map;
+	_currentLevel=0;
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
+	_MapLevel.append(new Map);
 	_Character=new Character;
 	_Music=new Music;
 	_SE=new SE;
 	_UI=new UI;
 	//IwMemBucketDebugSetBreakpoint(331) ;
-	_MapLobby->Load("Alpha 8 - Lobby.json");
-	_MapLevel_1->Load("Alpha 8 - Level1.json");
+	_MapLevel[0]->Load("Alpha 8 - Lobby.json");
+	_MapLevel[1]->Load("Alpha 8 - Level1.json");
+	_MapLevel[2]->Load("Alpha 8 - Level2.json");
+	_MapLevel[3]->Load("Alpha 8 - Level3.json");
+	_MapLevel[4]->Load("Alpha 8 - Level4.json");
+	_MapLevel[5]->Load("Alpha 8 - Level5.json");
+	_MapLevel[6]->Load("Alpha 8 - Level6.json");
+	_MapLevel[7]->Load("Alpha 8 - Level7.json");
+	_MapLevel[8]->Load("Alpha 8 - Level8.json");
+	_MapLevel[9]->Load("Alpha 8 - Level9.json");
+	_MapLevel[10]->Load("Alpha 8 - Level10.json");
 	//load character img
 	_Character->Load();
-	currentMap=_MapLobby;
+	currentMap=_MapLevel[_currentLevel];
 	_Character->Init(currentMap->_StartPos);
 	currentMap->Init();
-	_Music->Init("audios/music_placeholder.mp3");
+	_Music->Init("audios/music1.mp3");
 
-	_SE->Init("footstep_L1","footstep_R1");
+	_SE->Init("footstep_L1","footstep_R1","noise_2");
 	_UI->Load();
+	_GS=GS_Playing;
 }
 
 void CGame::Update(int deltaTime)
 {
 	UpdateInput(deltaTime);
-	if(_UI->IsTouched())
+	int btn_id=_UI->IsTouched();
+	if(btn_id>=0)
+	{
 		std::cout<<"Touched"<<std::endl;
+		if(btn_id==BTN_PAUSE&&_GS==GS_Playing)
+			_GS=GS_Pause;
+		else if(btn_id==BTN_PAUSE&&_GS==GS_Pause)
+			_GS=GS_Playing;
+		else if(btn_id==BTN_P_RETURN)
+			_GS=GS_Playing;
+		else if(btn_id==BTN_P_RESTART)
+			_GS=GS_Restart;
+		else if(btn_id==BTN_E_RESTART)
+			_GS=GS_Restart;
+		else if(btn_id==BTN_E_RETURN)
+			_GS=GS_Playing;
+		else if(btn_id==BTN_P_MUSIC)
+			_GS=GS_Playing;
+
+	}
+	if(_GS==GS_Playing)
+	{
+		if(currentMap->m_tileRotating)
+			_SE->TileRotate();
+		if(current_States==S3E_POINTER_STATE_PRESSED)// Checking if screen has been touched first, otherwise keep character still when start a stage
+		{	
+			//CIwFVec2 touch=currentMap->m_Position+GetTouches(S3E_POINTER_STATE_RELEASED);
+			_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_PRESSED);
+			_Character->m_Target=_Character->m_TargetOnScreen+currentMap->m_Position;
+		
+		}
+		currentMap->SetCharacterIndex(_Character->m_Position);
+		if(currentMap->CheckBlock())
+		{
+			if(!currentMap->CheckMazePath())
+				return;
+		}
+		if(currentMap->CheckEndPoint())
+		{
+			_UI->m_EndPanel->SetVisible(true);
+			int tou=_UI->IsTouched();
+			if(tou==BTN_E_RETURN)
+			{
+				_currentLevel=0;
+				currentMap=_MapLevel[_currentLevel];
+				_Character->Init(currentMap->_StartPos);
+				currentMap->SetCharacterIndex(_Character->m_Position);
+				currentMap->Init();
+			}
+			else
+				return;
+		}
+		if(_currentLevel==0)
+		{
+			int doorIndex=currentMap->CheckDoor()+1;
+			if(doorIndex>0)
+			{
+				_currentLevel=doorIndex;
+				currentMap=_MapLevel[_currentLevel];
+				_Character->Init(currentMap->_StartPos);
+				currentMap->SetCharacterIndex(_Character->m_Position);
+				currentMap->Init();
+			}
+		}
+	
+		if(_Character->GetDistanceToTarget()>1.0f)
+		{
+		
+			if(!currentMap->CheckMapEdge())
+				_Character->m_Target=_Character->m_Position;
+
+			else
+			{
+				if(_Character->m_Target.x<_Character->m_Position.x-currentMap->m_Position.x)
+					_Character->m_Target.x=_Character->m_Position.x-currentMap->m_Position.x;
+				if(_Character->m_Target.y<_Character->m_Position.y-currentMap->m_Position.y)
+					_Character->m_Target.y=_Character->m_Position.y-currentMap->m_Position.y;
+
+				if(_Character->m_Target.x>_Character->m_Position.x+currentMap->GetMapSize().x-Iw2DGetSurfaceWidth()-currentMap->m_Position.x)
+					_Character->m_Target.x=_Character->m_Position.x+currentMap->GetMapSize().x-Iw2DGetSurfaceWidth()-currentMap->m_Position.x;
+				if(_Character->m_Target.y>_Character->m_Position.y+currentMap->GetMapSize().y-Iw2DGetSurfaceHeight()-currentMap->m_Position.y)
+					_Character->m_Target.y=_Character->m_Position.y+currentMap->GetMapSize().y-Iw2DGetSurfaceHeight()-currentMap->m_Position.y;
+
+				CIwFVec2 deltaPos=_Character->m_Target - _Character->m_Position;
+				CIwFVec2 delta=deltaPos * 0.05f;//calc move steps
+			
+				_Character->m_Position+=delta;
+				currentMap->m_Position+=delta;
+				if(!_SE->Update(true))
+					s3eDebugPrint(300, 100, "error Audio support", 0);
+				if(currentMap->CheckCollision(_Character->m_Position,_Character->m_CollisionBox,_Character->m_Target,_Character->m_PositionPrev))
+				{
+					_Character->m_Position=_Character->m_PositionPrev;
+					currentMap->m_Position=currentMap->m_PositionPrev;
+				}
+			
+			}
+		
+		}
+	
+		_Character->m_TargetOnScreen=_Character->m_Target-currentMap->m_Position;
+		_Character->m_PositionPrev=_Character->m_Position;
+		currentMap->m_PositionPrev=currentMap->m_Position;
+	}
+	
 	// Update Iw Sound Manager
 	IwGetSoundManager()->Update();
-    // game logic goes here
-	if(!_Music->Update(false))
+	if(!_Music->Update(_UI->isMusicPlay))
 		s3eDebugPrint(300, 100, "error Audio support", 0);
 
 	
-	if(current_States==S3E_POINTER_STATE_PRESSED)// Checking if screen has been touched first, otherwise keep character still when start a stage
-	{	
-		//CIwFVec2 touch=currentMap->m_Position+GetTouches(S3E_POINTER_STATE_RELEASED);
-		_Character->m_TargetOnScreen=GetTouches(S3E_POINTER_STATE_PRESSED);
-		_Character->m_Target=_Character->m_TargetOnScreen+currentMap->m_Position;
-		
-	}
-	currentMap->SetCharacterIndex(_Character->m_Position);
-	if(currentMap->CheckBlock())
-		return;
-	if(currentMap->CheckDoor())
-	{
-		currentMap=_MapLevel_1;
-		_Character->Init(currentMap->_StartPos);
-		currentMap->SetCharacterIndex(_Character->m_Position);
-		currentMap->Init();
-	}
-	if(currentMap->CheckEndPoint())
-		return;
-	if(_Character->GetDistanceToTarget()>1.0f)
-	{
-		
-		if(!currentMap->CheckMapEdge())
-			_Character->m_Target=_Character->m_Position;
-
-		else
-		{
-			if(_Character->m_Target.x<_Character->m_Position.x-currentMap->m_Position.x)
-				_Character->m_Target.x=_Character->m_Position.x-currentMap->m_Position.x;
-			if(_Character->m_Target.y<_Character->m_Position.y-currentMap->m_Position.y)
-				_Character->m_Target.y=_Character->m_Position.y-currentMap->m_Position.y;
-
-			if(_Character->m_Target.x>_Character->m_Position.x+currentMap->GetMapSize().x-Iw2DGetSurfaceWidth()-currentMap->m_Position.x)
-				_Character->m_Target.x=_Character->m_Position.x+currentMap->GetMapSize().x-Iw2DGetSurfaceWidth()-currentMap->m_Position.x;
-			if(_Character->m_Target.y>_Character->m_Position.y+currentMap->GetMapSize().y-Iw2DGetSurfaceHeight()-currentMap->m_Position.y)
-				_Character->m_Target.y=_Character->m_Position.y+currentMap->GetMapSize().y-Iw2DGetSurfaceHeight()-currentMap->m_Position.y;
-
-			CIwFVec2 deltaPos=_Character->m_Target - _Character->m_Position;
-			CIwFVec2 delta=deltaPos * 0.05f;//calc move steps
-			
-			_Character->m_Position+=delta;
-			currentMap->m_Position+=delta;
-			if(!_SE->Update(true))
-				s3eDebugPrint(300, 100, "error Audio support", 0);
-			if(currentMap->CheckCollision(_Character->m_Position,_Character->m_CollisionBox,_Character->m_Target,_Character->m_PositionPrev))
-			{
-				_Character->m_Position=_Character->m_PositionPrev;
-				currentMap->m_Position=currentMap->m_PositionPrev;
-			}
-			
-		}
-		
-	}
 	
-	_Character->m_TargetOnScreen=_Character->m_Target-currentMap->m_Position;
-	_Character->m_PositionPrev=_Character->m_Position;
-	currentMap->m_PositionPrev=currentMap->m_Position;
 
 }
 
@@ -116,7 +179,7 @@ void CGame::Render()
     // for example, clear to black (the order of components is ABGR)
     Iw2DSurfaceClear(0x00ecdeff);
 	Iw2DSetColour(0xffffffff);
-	IwGxPrintString(230, 10, "MI");
+	IwGxPrintString(630, 10, "MI");
     
 	currentMap->Render(_Character->m_CollisionBox);
 	_Character->Render(currentMap->m_Position);

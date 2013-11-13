@@ -74,16 +74,16 @@
     <None Include="c:/marmalade/6.2/modules/iwgx/h/IwClip.inl">
       <Filter>'Marmalade Studio'\iwgx</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/Level_1.group">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/data/Level_1.group">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\Data</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/algorithm">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/data/app.config.txt">
+    <None Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/data/app.config.txt">
       <Filter></Filter>
     </None>
-    <None Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/data/app.icf">
+    <None Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/data/app.icf">
       <Filter></Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/bitset">
@@ -101,7 +101,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/cfloat">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cjson.mkf">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cjson.mkf">
       <Filter>(cjson)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/climits">
@@ -146,7 +146,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/cwctype">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/demo_4_tilecollision_advaudio_ui.mkf">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/demo_4_tilecollision_advaudio_ui.mkf">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/deque">
@@ -230,7 +230,7 @@
     <None Include="c:/marmalade/6.2/modules/iwresmanager/iwresmanager.mkf">
       <Filter>'Marmalade Studio'\iwresmanager</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/docs/iwsound.config.txt">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/docs/iwsound.config.txt">
       <Filter>(SoundEngine)\Docs</Filter>
     </None>
     <None Include="c:/marmalade/6.2/modules/iwutil/docs/iwutil.config.txt">
@@ -239,10 +239,10 @@
     <None Include="c:/marmalade/6.2/modules/iwutil/iwutil.mkf">
       <Filter>'Marmalade Studio'\iwutil</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/libjpeg.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/libjpeg.mkf">
       <Filter>(libjpeg)</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/libpng.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/libpng.mkf">
       <Filter>(libpng)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/limits">
@@ -293,7 +293,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/slist">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/soundengine.mkf">
+    <None Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/soundengine.mkf">
       <Filter>(SoundEngine)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/sstream">
@@ -317,7 +317,7 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/strstream">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/tiniconv.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/tiniconv.mkf">
       <Filter>(tiniconv)</Filter>
     </None>
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/typeinfo">
@@ -332,10 +332,10 @@
     <None Include="c:/marmalade/6.2/s3e/h/std/c++/vector">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/zlib.mkf">
+    <None Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/zlib.mkf">
       <Filter>(zlib)</Filter>
     </None>
-    <CustomBuild Include="c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/Demo_4_TileCollision_AdvAudio_UI.mkb">
+    <CustomBuild Include="c:/Users/0900391/Dropbox/Project Impact/Code/Demos/Demo_4_TileCollision_AdvAudio_UI/Demo_4_TileCollision_AdvAudio_UI.mkb">
       <Filter></Filter>
     </CustomBuild>
   </ItemGroup>
@@ -634,7 +634,7 @@
     <ClInclude Include="c:/marmalade/6.2/modules/iwgx/h/IwResHandlerMTL.h">
       <Filter>'Marmalade Studio'\iwgx</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwResHandlerWAV.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwResHandlerWAV.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/modules/iwresmanager/h/IwResManager.h">
@@ -658,31 +658,31 @@
     <ClInclude Include="c:/marmalade/6.2/modules/iwutil/h/IwSingleton.h">
       <Filter>'Marmalade Studio'\iwutil</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSound.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSound.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundADPCM.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundADPCM.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundData.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundData.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundGroup.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundGroup.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundInst.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundInst.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundManager.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundManager.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundPCM.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundPCM.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundParams.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundParams.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundSpec.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/h/IwSoundSpec.h">
       <Filter>(SoundEngine)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/modules/iwutil/h/IwString.h">
@@ -724,7 +724,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/MarmaladeVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/SE.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/SE.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\audio</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/alloca.h">
@@ -733,22 +733,22 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/assert.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/audio.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/audio.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\audio</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/byteswap.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cJSON.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cJSON.h">
       <Filter>(cjson)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cderror.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cderror.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cdjpeg.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/cdjpeg.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/character.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/character.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ctype.h">
@@ -799,7 +799,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/fstream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/game.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/game.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/getopt.h">
@@ -838,7 +838,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ifaddrs.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/input.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/input.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/inttypes.h">
@@ -862,43 +862,43 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/istream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jchuff.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jchuff.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jconfig.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jconfig.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdct.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdct.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdhuff.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jdhuff.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jerror.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jerror.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jinclude.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jinclude.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmemsys.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmemsys.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmorecfg.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jmorecfg.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpegint.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpegint.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpeglib.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jpeglib.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jversion.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/jversion.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/langinfo.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/layer.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/layer.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/libgen.h">
@@ -913,7 +913,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/malloc.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/map.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/map.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/math.h">
@@ -937,7 +937,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/msl_string.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/music.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/music.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\audio</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/netdb.h">
@@ -946,7 +946,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/new.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/obstacle.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/obstacle.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/ostream.h">
@@ -955,10 +955,10 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/param.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/png.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/png.h">
       <Filter>(libpng)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/pngconf.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/pngconf.h">
       <Filter>(libpng)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/poll.h">
@@ -982,7 +982,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/pwd.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/resmgr.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/resmgr.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/resource.h">
@@ -1162,7 +1162,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/socket.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/sprite.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/sprite.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/stat.h">
@@ -1210,13 +1210,13 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/termios.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileobstacle.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileobstacle.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileset.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileset.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileunit.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/tileunit.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\map</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/time.h">
@@ -1228,13 +1228,13 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/times.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv.h">
       <Filter>(tiniconv)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv_int.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/tiniconv_1.0.1/h/tiniconv_int.h">
       <Filter>(tiniconv)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/transupp.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/libjpeg_6b/h/transupp.h">
       <Filter>(libjpeg)</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/type_traits.h">
@@ -1249,7 +1249,7 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ucontext.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/ui.h">
+    <ClInclude Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/h/ui.h">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\h\UI</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/uio.h">
@@ -1276,90 +1276,90 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/wctype.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zconf.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zconf.h">
       <Filter>(zlib)</Filter>
     </ClInclude>
-    <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zlib.h">
+    <ClInclude Include="c:/users/0900391/appdata/roaming/marmalade/packages/6.2.2/zlib_1.2.4/h/zlib.h">
       <Filter>(zlib)</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwResHandlerWAV.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwResHandlerWAV.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundADPCM.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundADPCM.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundData.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundData.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundGroup.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundGroup.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundInst.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundInst.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundManager.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundManager.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundPCM.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundPCM.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundParams.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundParams.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundSpec.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/soundengine/source/IwSoundSpec.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/SE.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/SE.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/audio.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/audio.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cJSON.c">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/libs/cjson-for-marmalade/cJSON.c">
       <Filter>(cjson)</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/character.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/character.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/game.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/game.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/input.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/input.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/layer.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/layer.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/main.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/main.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/map.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/map.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/music.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/music.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/obstacle.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/obstacle.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/resmgr.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/resmgr.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/sprite.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/sprite.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileobstacle.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileobstacle.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileset.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileset.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileunit.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/tileunit.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\map</Filter>
     </ClCompile>
-    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/ui.cpp">
+    <ClCompile Include="c:/users/0900391/dropbox/project impact/code/demos/demo_4_tilecollision_advaudio_ui/src/ui.cpp">
       <Filter>(Demo_4_TileCollision_AdvAudio_UI)\src\UI</Filter>
     </ClCompile>
   </ItemGroup>

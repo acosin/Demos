@@ -13,11 +13,14 @@ public:
 	void Resume();
 	bool Update(bool play);
 	void Play();
-	void Init(char* filename1,char* filename2);
+	void Init(char* filename1,char* filename2,char* filename3);
+	void TileRotate();
 	CIwSoundInst* _soundInstance1;
 	CIwSoundInst* _soundInstance2;
+	CIwSoundInst* _soundInstance3;
 	CIwSoundSpec* _soundSpec1;
 	CIwSoundSpec* _soundSpec2;
+	CIwSoundSpec* _soundSpec3;
 	int lastPlayed;
 private:
 	bool _Play;

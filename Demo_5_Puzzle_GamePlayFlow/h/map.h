@@ -4,6 +4,8 @@
 #include "layer.h"
 #include "tileset.h"
 #include "input.h"
+#include "path.h"
+#include "NPC.h"
 #include <IwArray.h>
 class Map
 {
@@ -23,10 +25,18 @@ public:
 	void ReadJsonFile(char * filename);
 	void SetCharacterIndex(CIwFVec2 characterPos);
 	bool CheckBlock();
-	bool CheckDoor();
+	int CheckDoor();
 	bool CheckEndPoint();
+	bool CheckMazePath();
+	void CheckBorder(int index);
+	bool CheckTileConn(int index_1,int index_2);
 	bool CheckCollision(CIwFVec2 characterPos,CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
+	bool CheckMazeTileConn(int index_1,int openDir,int index_2);
+	bool CheckNPC(int touchIndex);
 	int _StartPos[2];
+	CIwArray<int> m_doors;
+	char* m_filename;
+	bool m_tileRotating;
 private:
 	int screenHeight;
 	int screenWidth;
@@ -36,6 +46,7 @@ private:
 	Layer* _layer_maze;
 	TileSet* _tileset_map;
 	TileSet* _tileset_maze;
+	Path* _path;
 	int _height;
 	int _width;
 	int _total;
@@ -49,6 +60,18 @@ private:
 	int	_index_Map_Y;
 	CIwArray<int> _EventBlock;
 	int _EndPos[2];
+	
+	bool _border[4];
+	
+	CIwArray<int> mazeEndIndex;
+	CIwArray<int> mapEndIndex;
+	CIwArray<int> mazeStartIndex;
+	CIwArray<int> mapStartIndex;
+	NPC* _NPC;
+	int mazeFinished;
+	bool _blocked;
+	
+	int showDialog;
 };
 
 #endif

@@ -1,11 +1,21 @@
 #include "tileset.h"
 #include <iostream.h>
-
+int TileSet::CharCMP(char* a, char* b,int size)
+{
+	int index=0;
+	while(index<size)
+	{
+		if(a[index]!=b[index])
+			return 0;
+		index++;
+	}
+	return 1;
+}
 void TileSet::Init(cJSON* tileset)
 {
 	_defaultTU=new TileUnit;
 	bool b[4]={false,false,false,false};//non-blocking border
-	_defaultTU->Init(b,false,false);
+	_defaultTU->Init(b,false,false,false);
 	m_firstGid=cJSON_GetObjectItem(tileset,"firstgid")->valueint;
 	_filename=cJSON_GetObjectItem(tileset,"image")->valuestring;
 	_imageHeight=cJSON_GetObjectItem(tileset,"imageheight")->valueint;
@@ -29,12 +39,13 @@ void TileSet::Init(cJSON* tileset)
 		bool b[4]={false,false,false,false};//non-blocking border
 		bool isDoor=false;
 		bool isEndPoint=false;
+		bool isNPC=false;
 		int properSize=cJSON_GetArraySize(tile);
 		for(int j=0;j!=properSize;j++)
 		{
 			cJSON * proper=cJSON_GetArrayItem(tile,j);
 			
-			if(proper->string[0]=='B')
+			if(CharCMP(proper->string, "Border",sizeof("Border")))
 			{
 				char* border=cJSON_GetArrayItem(tile,0)->valuestring;
 				
@@ -42,18 +53,22 @@ void TileSet::Init(cJSON* tileset)
 					if(border[i*2]=='0')
 						b[i]=true;//blocking border
 			}
-			if(proper->string[0]=='D')
+			else if(CharCMP(proper->string, "Door",sizeof("Door")))
 			{
 				isDoor=true;
 			}
-			if(proper->string[0]=='E')
+			else if(CharCMP(proper->string, "EndPoint",sizeof("EndPoint")))
 			{
 				isEndPoint=true;
+			}
+			else if(CharCMP(proper->string, "NPC",sizeof("NPC")))
+			{
+				isNPC=true;
 			}
 		}
 		
 		TileUnit tu;
-		tu.Init(b,isDoor,isEndPoint);
+		tu.Init(b,isDoor,isEndPoint,isNPC);
 		m_TileUnitsKey.append(index);
 		m_TileUnits.append(tu);
 	}

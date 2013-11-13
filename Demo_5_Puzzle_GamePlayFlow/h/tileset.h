@@ -21,6 +21,7 @@ public:
 	CIwSVec2 GetSize(){return _tileSize;}
 	TileUnit* GetTileUnit(int index);
 	int m_firstGid;
+	int CharCMP(char* a, char* b,int size);
 private:
 	CIw2DImage* _image;
 	TileUnit* _defaultTU;

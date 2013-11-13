@@ -25,29 +25,26 @@ void Button::SetText(char * text, CIwSVec2 pos, CIwSVec2 size,uint32 color)
 }
 void Button::Render()
 {
-	if(isDisplay)
+	if(btn_type==IMAGE)
+		Iw2DDrawImage(_image, m_ImgPos);
+	else
 	{
-		if(btn_type==IMAGE)
-			Iw2DDrawImage(_image, m_ImgPos);
-		else
+		Iw2DSetColour(bg_color);
+		if(btn_type==RECT||btn_type==TEXT)
+			Iw2DFillRect(m_BGPos,m_BGSize);
+		else if(btn_type==SPHERE)
+			Iw2DFillArc(m_BGPos+CIwSVec2(m_BGSize.x/2,m_BGSize.y/2), m_BGSize, iwangle(0), iwangle(0x1600), 40);
+		if(btn_type==TEXT)
 		{
-			Iw2DSetColour(bg_color);
-			if(btn_type==RECT||btn_type==TEXT)
-				Iw2DFillRect(m_BGPos,m_BGSize);
-			else if(btn_type==SPHERE)
-				Iw2DFillArc(m_BGPos+_Size/2, m_BGSize, 0, 360, 20);
-			if(btn_type==TEXT)
-			{
-				uint8 rgb[4];
-				rgb[0]=(text_color & 0x000000ff);//A
-				rgb[1]=(text_color & 0x0000ff00) >>8;//B
-				rgb[2]=(text_color & 0x00ff0000) >>16;//G
-				rgb[3]=(text_color & 0xff000000) >>24;//R
-				IwGxPrintSetColour(rgb[3], rgb[2], rgb[1]);
-				IwGxPrintSetScale(2);
-				IwGxPrintString(m_TextPos.x, m_TextPos.y, m_text);
+			uint8 rgb[4];
+			rgb[0]=(text_color & 0x000000ff);//A
+			rgb[1]=(text_color & 0x0000ff00) >>8;//B
+			rgb[2]=(text_color & 0x00ff0000) >>16;//G
+			rgb[3]=(text_color & 0xff000000) >>24;//R
+			IwGxPrintSetColour(rgb[3], rgb[2], rgb[1]);
+			IwGxPrintSetScale(2);
+			IwGxPrintString(m_TextPos.x, m_TextPos.y, m_text);
 			
-			}
 		}
 	}
 	

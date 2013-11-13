@@ -18,7 +18,7 @@ void Character::Load()
 
 	_image=Iw2DCreateImageResource("character");
 	_Size=CIwSVec2(_image->GetWidth(),_image->GetHeight());
-	m_CollisionBox=CIwSVec2(_Size.x,_Size.y/2);
+	m_CollisionBox=CIwSVec2(_Size.x/2,_Size.y/4);
 }
 void Character::Init(int startPoint[])
 {

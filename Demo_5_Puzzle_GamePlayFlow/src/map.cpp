@@ -11,9 +11,23 @@ Map::~Map()
 	delete _layer_maze;
 	delete _tileset_map;
 	delete _tileset_maze;
+	delete _path;
+	delete _NPC;
+}
+int CharCMP(char* a, char* b,int size)
+{
+	int index=0;
+	while(index<size)
+	{
+		if(a[index]!=b[index])
+			return 0;
+		index++;
+	}
+	return 1;
 }
 void Map::ReadJsonFile(char * filename)
 {
+	m_filename=filename;
 	cJSON *root;
 	char * jsonContent;
 	s3eFile* fileHandler;
@@ -64,9 +78,11 @@ void Map::ReadJsonFile(char * filename)
 	{
 		cJSON * prop=cJSON_GetArrayItem(properties,i);
 		char* propString=prop->valuestring;
-		char name=prop->string[0];
+
+		char* name=prop->string;
+
 		char* chars_array = strtok(propString, ",");
-		if(name=='B')
+		if(CharCMP(name,"Block",sizeof("Block")))
 		{
 			while(chars_array)
 			{
@@ -74,17 +90,57 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
-		else if(name=='E')
+		else if(CharCMP(name,"Door",sizeof("Door")))
+		{
+			while(chars_array)
+			{
+				m_doors.append(atoi(chars_array));
+				chars_array = strtok(NULL, ",");
+			}
+		}
+		else if(CharCMP(name,"EndPoint",sizeof("EndPoint")))
 		{
 			_EndPos[0]=atoi(chars_array);
 			chars_array = strtok(NULL, ",");
 			_EndPos[1]=atoi(chars_array);
 		}
-		else if(name=='S')
+		else if(CharCMP(name,"StartPoint",sizeof("StartPoint")))
 		{
 			_StartPos[0]=atoi(chars_array);
 			chars_array = strtok(NULL, ",");
 			_StartPos[1]=atoi(chars_array);
+		}
+		else if(CharCMP(name,"emaze",sizeof("emaze")))
+		{
+			while(chars_array)
+			{
+				mapEndIndex.append(atoi(chars_array));
+				chars_array = strtok(NULL, ",");
+			}
+		}
+		else if(CharCMP(name,"etmaze",sizeof("etmaze")))
+		{
+			while(chars_array)
+			{
+				mazeEndIndex.append(atoi(chars_array));
+				chars_array = strtok(NULL, ",");
+			}
+		}
+		else if(CharCMP(name,"smaze",sizeof("smaze")))
+		{
+			while(chars_array)
+			{
+				mapStartIndex.append(atoi(chars_array));
+				chars_array = strtok(NULL, ",");
+			}
+		}
+		else if(CharCMP(name,"stmaze",sizeof("stmaze")))
+		{
+			while(chars_array)
+			{
+				mazeStartIndex.append(atoi(chars_array));
+				chars_array = strtok(NULL, ",");
+			}
 		}
 	}
 
@@ -92,12 +148,13 @@ void Map::ReadJsonFile(char * filename)
 	_size=CIwSVec2(_width*_tileWidth,_height*_tileHeight);
 
 }
+
 void Map::Load(char * mapFileName)
 {
 	int temp[2]={0,0};
 	memcpy(_StartPos,temp,sizeof(temp));
 	memcpy(_EndPos,temp,sizeof(temp));
-
+	showDialog=-1;
 	screenHeight= IwGxGetScreenHeight();
 	screenWidth=IwGxGetScreenWidth();
 	_layer_base=new Layer;
@@ -105,8 +162,14 @@ void Map::Load(char * mapFileName)
 	_layer_maze=new Layer;
 	_tileset_map=new TileSet;
 	_tileset_maze=new TileSet;
+	_path=new Path;
 	ReadJsonFile(mapFileName);
-	
+	_characterPreIndex=0;
+	_NPC=new NPC;
+	_NPC->m_Dialogs.append("Hello there!!!!");
+	_NPC->m_Dialogs.append("How are you?");
+	_NPC->m_Dialogs.append("This is World of MI. Welcome!");
+	_NPC->Init();
 	for(int i=0;i!=_total;i++)
 	{
 		_TileDir.append(0);
@@ -119,34 +182,57 @@ void Map::Load(char * mapFileName)
 	}
 	//_EventBlock.append(4322);
 }
+bool Map::CheckNPC(int touchIndex)
+{
+	int index_base=_layer_base->m_TileIndex[touchIndex]-_tileset_map->m_firstGid;
+	bool isDoor_base=_tileset_map->GetTileUnit(index_base)->m_isNPC;
+
+	int index_middle=_layer_middle->m_TileIndex[touchIndex]-_tileset_map->m_firstGid;
+	bool isDoor_middle=_tileset_map->GetTileUnit(index_middle)->m_isNPC;
+
+	if(isDoor_base||isDoor_middle)
+	{
+		return true;
+	}
+	return false;
+}
 void Map::Init()
 {
+	mazeFinished=0;
 	m_Position=CIwFVec2(_StartPos[0]*_tileWidth-Iw2DGetSurfaceWidth()/2.0f,_StartPos[1]*_tileHeight-Iw2DGetSurfaceHeight()/2.0f);
+	m_tileRotating=false;
 }
+
 void Map::Update(int deltaTime)
 {
 	//DO NOTING CURRENTLY
 }
+
 void Map::SetCharacterIndex(CIwFVec2 characterPos)
 {
+	
 	_index_Map_X=((int)characterPos.x)/_tileWidth;
 	_index_Map_Y=((int)characterPos.y)/_tileHeight;
-	_characterIndex=_index_Map_X+_index_Map_Y*_width;
+	int temp=_index_Map_X+_index_Map_Y*_width;
+	if(_characterIndex>=0&&_characterIndex!=temp)
+		_characterPreIndex=_characterIndex;
+	_characterIndex=temp;
+	
 }
+
 bool Map::CheckBlock()
 {
-	
+	_blocked= false;
 	if(_EventBlock.empty())
-		return false;
-	for(int i=_EventBlock.size()-1;i!=-1;i--)
-	{
-		if(_EventBlock[i]==_characterIndex)
-			return true;
-	}
-	return false;
+		_blocked= false;
+	else if(mazeFinished<_EventBlock.size()&&_EventBlock[mazeFinished]==_characterIndex&&(_layer_maze->m_TileIndex[_characterPreIndex]-_tileset_maze->m_firstGid)<0)
+		_blocked=true;
+	return _blocked;
 }
-bool Map::CheckDoor()
+
+int Map::CheckDoor()
 {
+	
 	int index_base=_layer_base->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
 	bool isDoor_base=_tileset_map->GetTileUnit(index_base)->m_isDoor;
 
@@ -154,34 +240,46 @@ bool Map::CheckDoor()
 	bool isDoor_middle=_tileset_map->GetTileUnit(index_middle)->m_isDoor;
 
 	if(isDoor_base||isDoor_middle)
-		return true;
-	return false;
+	{
+		return m_doors.find(_characterIndex);
+	}
+	return -1;
 }
+
 bool Map::CheckEndPoint()
 {
-	int index_base=_layer_base->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
-	bool isEndPoint_base=_tileset_map->GetTileUnit(index_base)->m_isEndPoint;
-
-	int index_middle=_layer_middle->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
-	bool isEndPoint_middle=_tileset_map->GetTileUnit(index_middle)->m_isEndPoint;
-
-	if(isEndPoint_base||isEndPoint_middle)
+	int endPoint_Index=_EndPos[0]+_EndPos[1]*_width;
+	if(endPoint_Index==_characterIndex)
 		return true;
+
 	return false;
 }
 
 void Map::Render(CIwSVec2 characterBox)
 {
+	IW_CALLSTACK("MAP::Render()");
 	int index_Touched=-1;
+	m_tileRotating=false;
 	if(current_States==S3E_POINTER_STATE_DOWN)
 	{
 		CIwFVec2 touch=m_Position+GetTouches(S3E_POINTER_STATE_DOWN);
 		int index_y=int(touch.y)/_tileset_map->GetSize().y;
 		int index_x=int(touch.x)/_tileset_map->GetSize().x;
 		index_Touched=index_y*_width+index_x;
-		_TileDir[index_Touched]+=1;
-		if(_TileDir[index_Touched]==4)
-			_TileDir[index_Touched]=0;
+		if(CheckNPC(index_Touched))
+		{
+			std::cout<<"NPC!!!"<<std::endl;
+			showDialog++;
+			if(showDialog>=_NPC->m_Dialogs.size())
+				showDialog=-1;
+		}
+		if(_blocked&&(_layer_maze->m_TileIndex[index_Touched]-_tileset_maze->m_firstGid)>=0)
+		{
+			m_tileRotating=true;
+			_TileDir[index_Touched]+=1;
+			if(_TileDir[index_Touched]==4)
+				_TileDir[index_Touched]=0;
+		}
 		std::cout<<"x:"<<index_x<<", y:"<<index_y<<", index: "<<index_Touched<<std::endl;
 
 	}
@@ -203,6 +301,10 @@ void Map::Render(CIwSVec2 characterBox)
 	for(int i=0;i!=9;i++)
 	{
 		_TileObstacles[i].Render(m_Position,false,characterBox,i);
+	}
+	if(showDialog>=0)
+	{
+		_NPC->Dialog(showDialog);
 	}
 }
 
@@ -256,14 +358,179 @@ bool Map::CheckMapEdge()
 	return true;
 }
 
+bool Map::CheckTileConn(int index_1,int index_2)
+{
+	CheckBorder(index_1);
+	//true means cannot pass
+	if(!_border[0]&&index_1-_width==index_2)
+	{
+		return true;
+	}
+	if(!_border[1]&&index_1+1==index_2)
+	{
+		return true;
+	}
+	if(!_border[2]&&index_1+_width==index_2)
+	{
+		return true;
+	}
+	if(!_border[3]&&index_1-1==index_2)
+	{
+		return true;
+	}
+	return false;
+}
+bool Map::CheckMazeTileConn(int index_1,int openDir,int index_2)
+{
+	//true means cannot pass
+	if(openDir==0&&index_1-_width==index_2)
+	{
+		CheckBorder(index_2);
+		if(!_border[2])
+			return true;
+	}
+	if(openDir==1&&index_1+1==index_2)
+	{
+		CheckBorder(index_2);
+		if(!_border[3])
+			return true;
+	}
+	if(openDir==2&&index_1+_width==index_2)
+	{
+		CheckBorder(index_2);
+		if(!_border[0])
+			return true;
+	}
+	if(openDir==3&&index_1-1==index_2)
+	{
+		CheckBorder(index_2);
+		if(!_border[1])
+			return true;
+	}
+	return false;
+}
+bool Map::CheckMazePath()
+{
+	IW_CALLSTACK("MAP::CHECKMAZEPATH()");
+	if(!CheckTileConn(mazeStartIndex[mazeFinished],mapStartIndex[mazeFinished]))
+		return false;
+	
+	_path->Init(mazeStartIndex[mazeFinished],mazeEndIndex[mazeFinished]);
+	CIwArray<int> openNodes,closeNodes;
+	openNodes.append(mazeStartIndex[mazeFinished]);
+	for(int i=0;i!=openNodes.size();i++)
+	{
+		int curIndex=openNodes[i];
+		if(closeNodes.contains(curIndex))
+			continue;
+		CheckBorder(curIndex);
+		int index_Layer_Maze;
+		bool bor[4];
+		memcpy(bor,_border,sizeof(_border));
+		IW_CALLSTACK("MAP::CHECKMAZEPATH()-memcpy");
+		for(int j=0;j!=4;j++)
+		{
+			//true means cannot pass
+			if(!bor[j])
+			{
+				int ind=curIndex;
+				switch(j)
+				{
+				case 0:
+					ind=curIndex-_width;break;
+				case 1:
+					ind=curIndex+1;break;
+				case 2:
+					ind=curIndex+_width;break;
+				case 3:
+					ind=curIndex-1;break;
+				default:
+					ind=curIndex;break;
+				}
+				index_Layer_Maze=_layer_maze->m_TileIndex[ind]-_tileset_maze->m_firstGid;
+				IW_CALLSTACK("MAP::CHECKMAZEPATH()-index_Layer_Maze");
+				if(index_Layer_Maze>=0)
+				{
+					if(CheckMazeTileConn(curIndex,j,ind))
+					{
+						_path->AddPathNode(ind,curIndex);
+						if(!openNodes.contains(ind))
+							openNodes.append(ind);
+					}
+				}
+			}
+		}
+		
+		closeNodes.append(openNodes[i]);
+		
+		if(_path->isEnd())
+		{
+			if(CheckTileConn(mazeEndIndex[mazeFinished],mapEndIndex[mazeFinished]))
+			{
+				mazeFinished++;
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+void Map::CheckBorder(int index)
+{
+	//-4- get layer index
+	int index_Layer_Base,index_Layer_Middle,index_Layer_Maze;
+	index_Layer_Base=-1;
+	index_Layer_Middle=-1;
+	index_Layer_Maze=-1;
+	//make sure tile index is valid
+	//bool _border[4]={false,false,false,false};
+	if(index>=0&&index<=_total)	
+	{
+		//index_Map[i]=-1;
+		index_Layer_Base=_layer_base->m_TileIndex[index]-_tileset_map->m_firstGid;
+		index_Layer_Middle=_layer_middle->m_TileIndex[index]-_tileset_map->m_firstGid;
+		index_Layer_Maze=_layer_maze->m_TileIndex[index]-_tileset_maze->m_firstGid;
+		//-5- get border info for each tile
+		bool border_base[4]={false,false,false,false};
+		bool border_middle[4]={false,false,false,false};
+		bool border_maze[4]={false,false,false,false};
+		if(index_Layer_Base>=0)
+		{
+			TileUnit* ind = _tileset_map->GetTileUnit(index_Layer_Base);
+			memcpy(border_base,ind->m_border,sizeof(border_base));
+
+		}
+		if(index_Layer_Middle>=0)
+		{
+			TileUnit* ind =_tileset_map->GetTileUnit(index_Layer_Middle);
+			memcpy(border_middle,ind->m_border,sizeof(border_middle));
+			
+		}
+		if(index_Layer_Maze>=0)
+		{
+			TileUnit* ind=_tileset_maze->GetTileUnit(index_Layer_Maze);
+			ind->Rotate(_layer_maze->m_rotatable? _TileDir[index]:0);
+			memcpy(border_maze,ind->m_borderRot,sizeof(border_maze));
+			
+		}
+		//std::cout<<"Tile index["<<index_Map[i]<<"]"<<std::endl;
+		//std::cout<<"border_base["<<i<<"]: index["<<index_Layer_Base<<"]:"<<border_base[0]<<","<<border_base[1]<<","<<border_base[2]<<","<<border_base[3]<<std::endl;
+		//std::cout<<"border_middle["<<i<<"]: index["<<index_Layer_Middle<<"]:"<<border_middle[0]<<","<<border_middle[1]<<","<<border_middle[2]<<","<<border_middle[3]<<std::endl;
+		//std::cout<<"border_maze["<<i<<"]: index["<<index_Layer_Maze<<"]:"<<border_maze[0]<<","<<border_maze[1]<<","<<border_maze[2]<<","<<border_maze[3]<<std::endl;
+		for(int j=0;j!=4;j++)
+			_border[j]=border_base[j]|border_middle[j]|border_maze[j];
+		//std::cout<<"border["<<i<<"]: "<<border[0]<<","<<border[1]<<","<<border[2]<<","<<border[3]<<std::endl;
+	}
+	//return border;
+}
+
 //return true means has collide with obstacles
 bool Map::CheckCollision(CIwFVec2 characterPos,CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos)
 {
 	//get border info for each _TileObstacles by checking certain tile's border info stored in tileset for each layer
 	//-1- get current character standing on tile index from the map
-	
-	
-	
+
 	//check if character has moved to another tile since last frame, if not then don't update the rest
 	if(_characterPreIndex!=_characterIndex)
 	{	
@@ -297,62 +564,8 @@ bool Map::CheckCollision(CIwFVec2 characterPos,CIwSVec2 characterBox,CIwFVec2 &t
 	
 		for(int i=0;i!=9;i++)
 		{
-			//-4- get layer index
-			index_Layer_Base=-1;
-			index_Layer_Middle=-1;
-			index_Layer_Maze=-1;
-			//make sure tile index is valid
-			bool border[4]={false,false,false,false};
-			if(index_Map[i]>=0&&index_Map[i]<=_total)	
-			{
-				//index_Map[i]=-1;
-				index_Layer_Base=_layer_base->m_TileIndex[index_Map[i]]-_tileset_map->m_firstGid;
-				index_Layer_Middle=_layer_middle->m_TileIndex[index_Map[i]]-_tileset_map->m_firstGid;
-				index_Layer_Maze=_layer_maze->m_TileIndex[index_Map[i]]-_tileset_maze->m_firstGid;
-				//-5- get border info for each tile
-				bool border_base[4]={false,false,false,false};
-				bool border_middle[4]={false,false,false,false};
-				bool border_maze[4]={false,false,false,false};
-				if(index_Layer_Base>=0)
-				{
-					TileUnit* ind = _tileset_map->GetTileUnit(index_Layer_Base);
-					memcpy(border_base,ind->m_border,sizeof(border_base));
-					//border_base[4] = {ind->m_border[0],ind->m_border[0],ind->m_border[0],ind->m_border[0]};
-					//border_base[1] = ind->m_border[1];
-					//border_base[2] = ind->m_border[2];
-					//border_base[3] = ind->m_border[3];
-					//*border_base = _tileset_map->GetTileUnit(index_Layer_Base).m_border;
-				}
-				if(index_Layer_Middle>=0)
-				{
-					TileUnit* ind =_tileset_map->GetTileUnit(index_Layer_Middle);
-					memcpy(border_middle,ind->m_border,sizeof(border_middle));
-					//border_middle=ind->m_border;
-					//border_middle[1]=ind->m_border[1];
-					//border_middle[2]=ind->m_border[2];
-					//border_middle[3]=ind->m_border[3];
-				}
-				if(index_Layer_Maze>=0)
-				{
-					TileUnit* ind=_tileset_maze->GetTileUnit(index_Layer_Maze);
-					ind->Rotate(_layer_maze->m_rotatable? _TileDir[index_Map[i]]:0);
-					memcpy(border_maze,ind->m_borderRot,sizeof(border_maze));
-					//border_maze=ind->Rotate(_layer_maze->m_rotatable? _TileDir[index_Map[i]]:0);
-					//*border_maze=_tileset_maze->GetTileUnit(index_Layer_Maze)->Rotate(_layer_maze->m_rotatable? _TileDir[index_Map[i]]:0);
-				}
-				//std::cout<<"Tile index["<<index_Map[i]<<"]"<<std::endl;
-				//std::cout<<"border_base["<<i<<"]: index["<<index_Layer_Base<<"]:"<<border_base[0]<<","<<border_base[1]<<","<<border_base[2]<<","<<border_base[3]<<std::endl;
-				//std::cout<<"border_middle["<<i<<"]: index["<<index_Layer_Middle<<"]:"<<border_middle[0]<<","<<border_middle[1]<<","<<border_middle[2]<<","<<border_middle[3]<<std::endl;
-				//std::cout<<"border_maze["<<i<<"]: index["<<index_Layer_Maze<<"]:"<<border_maze[0]<<","<<border_maze[1]<<","<<border_maze[2]<<","<<border_maze[3]<<std::endl;
-				for(int j=0;j!=4;j++)
-					border[j]=border_base[j]|border_middle[j]|border_maze[j];
-				//std::cout<<"border["<<i<<"]: "<<border[0]<<","<<border[1]<<","<<border[2]<<","<<border[3]<<std::endl;
-			}
-			//std::cout<<"index_Layer_Maze: "<<index_Layer_Maze<<std::endl;
-
-			//std::cout<<"border: "<<border_maze[0]<<","<<border_maze[1]<<","<<border_maze[2]<<","<<border_maze[3]<<std::endl;
-			//-6- update border info of obstacles
-			_TileObstacles[i].UpdateObstacle(border,pos_Map[i]);
+			CheckBorder(index_Map[i]);
+			_TileObstacles[i].UpdateObstacle(_border,pos_Map[i]);
 			if(_TileObstacles[i].CheckCollision(characterPos,characterBox,target,characterPrePos))
 				return true;
 		}

@@ -15,6 +15,8 @@
     </Filter>
     <Filter Include="(SoundEngine)">
     </Filter>
+    <Filter Include="(Demo_5_Puzzle_GamePlayFlow)\Data">
+    </Filter>
     <Filter Include="(cjson)">
     </Filter>
     <Filter Include="(zlib)">
@@ -29,9 +31,11 @@
     </Filter>
     <Filter Include="'Marmalade Studio'\iw2d">
     </Filter>
-    <Filter Include="(Demo_5_Puzzle_GamePlayFlow)\Data">
+    <Filter Include="(Demo_5_Puzzle_GamePlayFlow)\h\Character">
     </Filter>
     <Filter Include="'Marmalade System (S3E)'\stdc headers\sys">
+    </Filter>
+    <Filter Include="(Demo_5_Puzzle_GamePlayFlow)\src\Character">
     </Filter>
     <Filter Include="'Marmalade Studio'\iwgxfont">
     </Filter>
@@ -724,6 +728,9 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/MarmaladeVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/NPC.h">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h\Character</Filter>
+    </ClInclude>
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/SE.h">
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\h\audio</Filter>
     </ClInclude>
@@ -752,7 +759,7 @@
       <Filter>(libjpeg)</Filter>
     </ClInclude>
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/character.h">
-      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h</Filter>
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h\Character</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/ctype.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
@@ -803,6 +810,9 @@
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
     <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/game.h">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/gamestate.h">
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\h</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/getopt.h">
@@ -955,8 +965,14 @@
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/c++/ostream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/panel.h">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h\UI</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/6.2/s3e/h/std/sys/param.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/h/path.h">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\h\map</Filter>
     </ClInclude>
     <ClInclude Include="c:/users/1106786/appdata/roaming/marmalade/packages/6.2.2/libpng_1.2.34/h/png.h">
       <Filter>(libpng)</Filter>
@@ -1314,6 +1330,9 @@
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/libs/soundengine/source/IwSoundSpec.cpp">
       <Filter>(SoundEngine)</Filter>
     </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/NPC.cpp">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\Character</Filter>
+    </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/SE.cpp">
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\audio</Filter>
     </ClCompile>
@@ -1327,9 +1346,12 @@
       <Filter>(cjson)</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/character.cpp">
-      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src</Filter>
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\Character</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/game.cpp">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src</Filter>
+    </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/gamestate.cpp">
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\src</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/input.cpp">
@@ -1348,6 +1370,12 @@
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\audio</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/obstacle.cpp">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/panel.cpp">
+      <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/path.cpp">
       <Filter>(Demo_5_Puzzle_GamePlayFlow)\src\map</Filter>
     </ClCompile>
     <ClCompile Include="c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_5_puzzle_gameplayflow/src/resmgr.cpp">

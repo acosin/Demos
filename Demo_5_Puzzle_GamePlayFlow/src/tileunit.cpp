@@ -1,10 +1,11 @@
 #include "tileunit.h"
 #include <iostream>
-void TileUnit::Init(bool border[],bool isDoor,bool isEndPoint)
+void TileUnit::Init(bool border[],bool isDoor,bool isEndPoint,bool isNPC)
 {
 	memcpy(m_border,border,sizeof(border));
 	m_isDoor=isDoor;
 	m_isEndPoint=isEndPoint;
+	m_isNPC=isNPC;
 }
 
 void TileUnit::Rotate(int rotation)

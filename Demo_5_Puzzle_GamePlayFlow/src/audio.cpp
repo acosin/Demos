@@ -48,6 +48,11 @@ bool Audio::Update(bool play)
 			Resume();
 		*/
 	}
+	else
+	{
+		if (g_Status == PLAYING)
+			Stop();
+	}
 	return true;
 }
 
