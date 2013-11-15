@@ -13,6 +13,7 @@ Map::~Map()
 	delete _tileset_maze;
 	delete _path;
 	delete _NPC;
+	delete _BGImage;
 }
 int CharCMP(char* a, char* b,int size)
 {
@@ -90,6 +91,10 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
+		else if(CharCMP(name,"BG",sizeof("BG")))
+		{
+			_BGImage=Iw2DCreateImageResource(propString);
+		}
 		else if(CharCMP(name,"Door",sizeof("Door")))
 		{
 			while(chars_array)
@@ -148,7 +153,48 @@ void Map::ReadJsonFile(char * filename)
 	_size=CIwSVec2(_width*_tileWidth,_height*_tileHeight);
 
 }
-
+void Map::Load(int level)
+{
+	switch(level)
+	{
+	case 0:
+		Load("Alpha 8 - Lobby.json");
+		break;
+	case 1:
+		Load("Alpha 8 - Level1.json");
+		break;
+	case 2:
+		Load("Alpha 8 - Level2.json");
+		break;
+	case 3:
+		Load("Alpha 8 - Level3.json");
+		break;
+	case 4:
+		Load("Alpha 8 - Level4.json");
+		break;
+	case 5:
+		Load("Alpha 8 - Level5.json");
+		break;
+	case 6:
+		Load("Alpha 8 - Level6.json");
+		break;
+	case 7:
+		Load("Alpha 8 - Level7.json");
+		break;
+	case 8:
+		Load("Alpha 8 - Level8.json");
+		break;
+	case 9:
+		Load("Alpha 8 - Level9.json");
+		break;
+	case 10:
+		Load("Alpha 8 - Level10.json");
+		break;
+	default:
+		Load("Alpha 8 - Lobby.json");
+		break;
+	}
+}
 void Map::Load(char * mapFileName)
 {
 	int temp[2]={0,0};
@@ -170,10 +216,7 @@ void Map::Load(char * mapFileName)
 	_NPC->m_Dialogs.append("How are you?");
 	_NPC->m_Dialogs.append("This is World of MI. Welcome!");
 	_NPC->Init();
-	for(int i=0;i!=_total;i++)
-	{
-		_TileDir.append(0);
-	}
+	
 	for(int i=0;i!=9;i++)
 	{
 		TileObstacle tileObs=TileObstacle();
@@ -198,9 +241,16 @@ bool Map::CheckNPC(int touchIndex)
 }
 void Map::Init()
 {
+	_blocked=false;
 	mazeFinished=0;
 	m_Position=CIwFVec2(_StartPos[0]*_tileWidth-Iw2DGetSurfaceWidth()/2.0f,_StartPos[1]*_tileHeight-Iw2DGetSurfaceHeight()/2.0f);
 	m_tileRotating=false;
+	_TileDir.clear();
+	
+	for(int i=0;i!=_total;i++)
+	{
+		_TileDir.append(0);
+	}
 }
 
 void Map::Update(int deltaTime)
@@ -258,6 +308,8 @@ bool Map::CheckEndPoint()
 void Map::Render(CIwSVec2 characterBox)
 {
 	IW_CALLSTACK("MAP::Render()");
+	if(_BGImage)
+		Iw2DDrawImage(_BGImage,CIwSVec2(0,0));
 	int index_Touched=-1;
 	m_tileRotating=false;
 	if(current_States==S3E_POINTER_STATE_DOWN)
@@ -306,6 +358,7 @@ void Map::Render(CIwSVec2 characterBox)
 	{
 		_NPC->Dialog(showDialog);
 	}
+	
 }
 
 bool Map::CheckMapEdge(CIwFVec2 &pos)

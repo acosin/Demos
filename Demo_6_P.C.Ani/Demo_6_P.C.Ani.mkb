@@ -1,0 +1,13 @@
+#!/usr/bin/env mkb
+
+subprojects
+{
+    iw2d
+	Demo_6_P.C.Ani
+	iwresmanager
+	(libs)
+    # path to cjson.mkf
+    cJSON-for-marmalade/cjson
+	# path to soundengine.mkf
+	SoundEngine/SoundEngine
+}

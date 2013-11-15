@@ -89,9 +89,10 @@ int Exit()
     delete pGame;
 	// Shutdown IwSound
 	IwSoundTerminate();
-	IwResManagerTerminate();
+	
     Iw2DTerminate();
 	IwGxTerminate();
+	IwResManagerTerminate();
 	return 0;
 }
 

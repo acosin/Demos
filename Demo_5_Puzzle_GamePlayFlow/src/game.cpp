@@ -16,33 +16,15 @@ CGame::~CGame()
 void CGame::LoadRes()
 {
 	_currentLevel=0;
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
-	_MapLevel.append(new Map);
+	
 	_Character=new Character;
 	_Music=new Music;
 	_SE=new SE;
 	_UI=new UI;
 	//IwMemBucketDebugSetBreakpoint(331) ;
-	_MapLevel[0]->Load("Alpha 8 - Lobby.json");
-	_MapLevel[1]->Load("Alpha 8 - Level1.json");
-	_MapLevel[2]->Load("Alpha 8 - Level2.json");
-	_MapLevel[3]->Load("Alpha 8 - Level3.json");
-	_MapLevel[4]->Load("Alpha 8 - Level4.json");
-	_MapLevel[5]->Load("Alpha 8 - Level5.json");
-	_MapLevel[6]->Load("Alpha 8 - Level6.json");
-	_MapLevel[7]->Load("Alpha 8 - Level7.json");
-	_MapLevel[8]->Load("Alpha 8 - Level8.json");
-	_MapLevel[9]->Load("Alpha 8 - Level9.json");
-	_MapLevel[10]->Load("Alpha 8 - Level10.json");
+	_MapLevel.append(new Map);
+	_MapLevel[0]->Load(0);
+	_MapLevel[0]->Init();
 	//load character img
 	_Character->Load();
 	currentMap=_MapLevel[_currentLevel];
@@ -76,10 +58,19 @@ void CGame::Update(int deltaTime)
 			_GS=GS_Playing;
 		else if(btn_id==BTN_P_MUSIC)
 			_GS=GS_Playing;
-
+		//current_States=S3E_POINTER_STATE_UP;
+	}
+	if(_GS==GS_Restart)
+	{
+		_Character->Init(currentMap->_StartPos);
+		currentMap->SetCharacterIndex(_Character->m_Position);
+		currentMap->Init();
+		_GS=GS_Playing;
+		//current_States=S3E_POINTER_STATE_UP;
 	}
 	if(_GS==GS_Playing)
 	{
+		//UpdateInput(deltaTime);
 		if(currentMap->m_tileRotating)
 			_SE->TileRotate();
 		if(current_States==S3E_POINTER_STATE_PRESSED)// Checking if screen has been touched first, otherwise keep character still when start a stage
@@ -101,6 +92,8 @@ void CGame::Update(int deltaTime)
 			int tou=_UI->IsTouched();
 			if(tou==BTN_E_RETURN)
 			{
+				delete _MapLevel[_MapLevel.size()-1];
+				_MapLevel.pop_back();
 				_currentLevel=0;
 				currentMap=_MapLevel[_currentLevel];
 				_Character->Init(currentMap->_StartPos);
@@ -116,7 +109,11 @@ void CGame::Update(int deltaTime)
 			if(doorIndex>0)
 			{
 				_currentLevel=doorIndex;
-				currentMap=_MapLevel[_currentLevel];
+				_MapLevel.append(new Map);
+				_MapLevel[_MapLevel.size()-1]->Load(_currentLevel);
+				_MapLevel[_MapLevel.size()-1]->Init();
+				
+				currentMap=_MapLevel[_MapLevel.size()-1];
 				_Character->Init(currentMap->_StartPos);
 				currentMap->SetCharacterIndex(_Character->m_Position);
 				currentMap->Init();
@@ -163,13 +160,12 @@ void CGame::Update(int deltaTime)
 		currentMap->m_PositionPrev=currentMap->m_Position;
 	}
 	
-	// Update Iw Sound Manager
-	IwGetSoundManager()->Update();
+	
 	if(!_Music->Update(_UI->isMusicPlay))
 		s3eDebugPrint(300, 100, "error Audio support", 0);
 
-	
-	
+	// Update Iw Sound Manager
+	IwGetSoundManager()->Update();
 
 }
 

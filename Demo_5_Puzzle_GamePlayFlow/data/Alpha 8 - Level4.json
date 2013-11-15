@@ -48,6 +48,7 @@
  "orientation":"orthogonal",
  "properties":
     {
+     "BG":"background test",
      "Block":"542,409",
      "EndPoint":"21,13",
      "StartPoint":"14,17",

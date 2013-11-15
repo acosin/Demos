@@ -7,6 +7,7 @@ CIwResGroup
 	"textures/MiM_LeftRight.png"
 	"textures/red tileset.png"
 	"textures/RotationTiles.png"
+	"textures/background test.png"
 	// UI
 	"ui/pause.png"
 
@@ -43,7 +44,7 @@ CIwResGroup
 	{
 		name		"sound_effects"	# Name of our sound group
 		maxPolyphony 8				# Maximum sounds that can be played simultaneously
-		killOldest	false			# Tell system not to stop the oldest sound effects frmo playing if we run out of channels
+		killOldest	true			# Tell system not to stop the oldest sound effects frmo playing if we run out of channels
 		addSpec		"footstep_L1"	# Add the sound spec to our sound group
 		addSpec		"footstep_R1"	# Add the sound spec to our sound group
 		addSpec		"noise_2"		# Add the sound spec to our sound group

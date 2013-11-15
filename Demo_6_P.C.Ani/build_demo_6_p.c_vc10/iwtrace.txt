@@ -1,0 +1,604 @@
+-- START TRACE TO FILE --
+tracing to: ''
+MarmaladeSDK v6.2.2 [338909] (S3E Loader v4.35.0)
+Copyright (C) 2001-2011 Ideaworks3D Ltd
+System Info:
+ OS           : WINDOWS (3)
+ OS Version   : Windows 6.1 (6.1)
+ Device ID    : Windows Simulator (0x1)
+ Device Class : WINDOWS_GENERIC (3000)
+ Phone Number : 0044123456789
+ Unique ID    : SIMULATOR_ID
+ Device Name  : My Computer
+ Memory       : 1048576KiB
+15/11/13 13:36:45.871: [0x420] DEVICE: Initialising FIBRE
+15/11/13 13:36:45.871: [0x420] DEVICE: Initialising THREAD
+15/11/13 13:36:45.872: [0x420] THREAD: s3eThreadCreateMain
+15/11/13 13:36:45.872: [0xfa0] DEVICE: Initialising SURFACE
+15/11/13 13:36:45.872: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+15/11/13 13:36:45.873: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:45.874: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:45.874: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+15/11/13 13:36:45.874: [0xfa0] DEVICE: Initialising EXT
+15/11/13 13:36:45.875: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+15/11/13 13:36:45.875: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+15/11/13 13:36:45.876: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+15/11/13 13:36:45.876: [0xfa0] EXT: registering extension: s3eNDSSimulator [0x1c45e0d5]
+15/11/13 13:36:45.876: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+15/11/13 13:36:45.877: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+15/11/13 13:36:45.877: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+15/11/13 13:36:45.878: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+15/11/13 13:36:45.878: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+15/11/13 13:36:45.878: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+15/11/13 13:36:45.879: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+15/11/13 13:36:45.879: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+15/11/13 13:36:45.879: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+15/11/13 13:36:45.880: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+15/11/13 13:36:45.880: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+15/11/13 13:36:45.881: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+15/11/13 13:36:45.881: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+15/11/13 13:36:45.881: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+15/11/13 13:36:45.882: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+15/11/13 13:36:45.882: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+15/11/13 13:36:45.883: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+15/11/13 13:36:45.883: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+15/11/13 13:36:45.883: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+15/11/13 13:36:45.884: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+15/11/13 13:36:45.884: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+15/11/13 13:36:45.884: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+15/11/13 13:36:45.885: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+15/11/13 13:36:45.885: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+15/11/13 13:36:45.885: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+15/11/13 13:36:45.886: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+15/11/13 13:36:45.886: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+15/11/13 13:36:45.886: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+15/11/13 13:36:45.887: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+15/11/13 13:36:45.887: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+15/11/13 13:36:45.887: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+15/11/13 13:36:45.888: [0xfa0] DEVICE: Initialising CONFIG
+15/11/13 13:36:45.888: [0xfa0] DEVICE: Initialising TIMER
+15/11/13 13:36:45.889: [0xfa0] DEVICE: Initialising COMPRESSION
+15/11/13 13:36:45.889: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+15/11/13 13:36:45.889: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+15/11/13 13:36:45.890: [0xfa0] EXT: initializing extension: s3eWindow
+15/11/13 13:36:45.890: [0xfa0] EXT: initializing extension: s3eWindow 0x100bc310
+15/11/13 13:36:45.890: [0xfa0] DEVICE: SetupPaths: NULL
+15/11/13 13:36:45.891: [0xfa0] LOADER: ParseCommandLineData [-via:"c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via"]
+15/11/13 13:36:45.891: [0xfa0] LOADER: setting [commandline]  via=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.892: [0xfa0] LOADER: parsing via file: c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.892: [0xfa0] FILE: s3eFileOpen('c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via', 'r') succeeded, id=269511096 p=0x101069b8
+15/11/13 13:36:45.892: [0xfa0] LOADER: reading 1252 bytes from via files
+15/11/13 13:36:45.893: [0xfa0] LOADER: ParseCommandLineData [-via:"c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via" --dll="c:\Users\1106786\Dropbox\Dropbox\PG life\Project 
+15/11/13 13:36:45.893: [0xfa0] LOADER: setting [commandline]  via=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.894: [0xfa0] LOADER: setting [commandline]  dll=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani
+15/11/13 13:36:45.894: [0xfa0] LOADER: setting [commandline]  data=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data
+15/11/13 13:36:45.894: [0xfa0] LOADER: setting [commandline]  checks3edir=1
+15/11/13 13:36:45.895: [0xfa0] LOADER: setting [commandline]  app-icf1=c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.icf
+15/11/13 13:36:45.895: [0xfa0] LOADER: setting [commandline]  config-txt1=c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.config.txt
+15/11/13 13:36:45.895: [0xfa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/6.2/modules/iw2d/docs/iw2d.config.txt
+15/11/13 13:36:45.896: [0xfa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/6.2/modules/iwgeom/docs/iwgeom.config.txt
+15/11/13 13:36:45.896: [0xfa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/6.2/modules/iwgl/docs/iwgl.config.txt
+15/11/13 13:36:45.897: [0xfa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/6.2/modules/iwgx/docs/iwgx.config.txt
+15/11/13 13:36:45.897: [0xfa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/6.2/modules/iwgxfont/docs/iwgxfont.config.txt
+15/11/13 13:36:45.897: [0xfa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/6.2/modules/iwresmanager/docs/iwresmanager.config.txt
+15/11/13 13:36:45.898: [0xfa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/6.2/modules/iwutil/docs/iwutil.config.txt
+15/11/13 13:36:45.898: [0xfa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/6.2/s3e/s3e.config.txt
+15/11/13 13:36:45.899: [0xfa0] LOADER: setting [commandline]  config-txt10=c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_6_p.c.ani/libs/soundengine/docs/iwsound.config.txt
+15/11/13 13:36:45.899: [0xfa0] LOADER: setting [commandline]  config-txt11=c:/marmalade/6.2/s3e\s3e.config.txt
+15/11/13 13:36:45.900: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+15/11/13 13:36:45.900: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data'
+15/11/13 13:36:45.900: [0xfa0] FILE: fs[03]: system[raw://] ''
+15/11/13 13:36:45.901: [0xfa0] FILE: listed 2 active filesystems
+15/11/13 13:36:45.901: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+15/11/13 13:36:45.902: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data'
+15/11/13 13:36:45.902: [0xfa0] FILE: fs[01]: system[ram://] 'c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data-ram'
+15/11/13 13:36:45.902: [0xfa0] FILE: fs[03]: system[raw://] ''
+15/11/13 13:36:45.903: [0xfa0] FILE: listed 3 active filesystems
+15/11/13 13:36:45.907: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+15/11/13 13:36:45.908: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+15/11/13 13:36:45.908: [0xfa0] LOADER: Using data directory c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data as ROM drive
+15/11/13 13:36:45.909: [0xfa0] LOADER: Using directory c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data-ram as RAM drive
+15/11/13 13:36:45.909: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.config.txt', 'r') succeeded, id=1000 p=0x10108034
+15/11/13 13:36:45.910: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iw2d/docs/iw2d.config.txt', 'r') succeeded, id=1001 p=0x10108150
+15/11/13 13:36:45.910: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwgeom/docs/iwgeom.config.txt', 'r') succeeded, id=1002 p=0x1010826c
+15/11/13 13:36:45.910: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwgl/docs/iwgl.config.txt', 'r') succeeded, id=1003 p=0x10108388
+15/11/13 13:36:45.911: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwgx/docs/iwgx.config.txt', 'r') succeeded, id=1004 p=0x101084a4
+15/11/13 13:36:45.912: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwgxfont/docs/iwgxfont.config.txt', 'r') succeeded, id=1005 p=0x101085c0
+15/11/13 13:36:45.912: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwresmanager/docs/iwresmanager.config.txt', 'r') succeeded, id=1006 p=0x101086dc
+15/11/13 13:36:45.912: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/modules/iwutil/docs/iwutil.config.txt', 'r') succeeded, id=1007 p=0x101087f8
+15/11/13 13:36:45.913: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/s3e/s3e.config.txt', 'r') succeeded, id=1008 p=0x10108914
+15/11/13 13:36:45.918: [0xfa0] FILE: s3eFileOpen('raw://c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_6_p.c.ani/libs/soundengine/docs/iwsound.config.txt', 'r') succeeded, id=1009 p=0x10108a30
+15/11/13 13:36:45.918: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/6.2/s3e\s3e.config.txt', 'r') succeeded, id=1010 p=0x10108b4c
+15/11/13 13:36:45.923: [0xfa0] FILE: s3eFileOpen('raw://c:\marmalade\6.2\s3e/s3e.icf', 'rb') succeeded, id=1011 p=0x10108c68
+15/11/13 13:36:45.924: [0xfa0] LOADER: Loading config from: c:\marmalade\6.2\s3e/s3e.icf
+15/11/13 13:36:45.926: [0xfa0] LOADER: Loading app-icf from command line specified location c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.icf
+15/11/13 13:36:45.927: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.icf', 'rb') succeeded, id=1012 p=0x10108d84
+15/11/13 13:36:45.927: [0xfa0] LOADER: Loading config from: raw://c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.icf
+15/11/13 13:36:45.928: [0xfa0] LOADER: ParseCommandLineData [-via:"c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via"]
+15/11/13 13:36:45.928: [0xfa0] LOADER: setting [commandline]  via=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.928: [0xfa0] LOADER: parsing via file: c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.929: [0xfa0] FILE: s3eFileOpen('c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via', 'r') succeeded, id=1013 p=0x10108ea0
+15/11/13 13:36:45.929: [0xfa0] LOADER: reading 1252 bytes from via files
+15/11/13 13:36:45.929: [0xfa0] LOADER: ParseCommandLineData [-via:"c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via" --dll="c:\Users\1106786\Dropbox\Dropbox\PG life\Project 
+15/11/13 13:36:45.929: [0xfa0] LOADER: setting [commandline]  via=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Demo_6_P.C_vc10_debug.via
+15/11/13 13:36:45.929: [0xfa0] LOADER: setting [commandline]  dll=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  data=c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\data
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  checks3edir=1
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  app-icf1=c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.icf
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  config-txt1=c:/Users/1106786/Dropbox/Dropbox/PG life/Project Impact/Code/Demos/Demo_6_P.C.Ani/data/app.config.txt
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/6.2/modules/iw2d/docs/iw2d.config.txt
+15/11/13 13:36:45.930: [0xfa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/6.2/modules/iwgeom/docs/iwgeom.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/6.2/modules/iwgl/docs/iwgl.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/6.2/modules/iwgx/docs/iwgx.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/6.2/modules/iwgxfont/docs/iwgxfont.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/6.2/modules/iwresmanager/docs/iwresmanager.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/6.2/modules/iwutil/docs/iwutil.config.txt
+15/11/13 13:36:45.931: [0xfa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/6.2/s3e/s3e.config.txt
+15/11/13 13:36:45.932: [0xfa0] LOADER: setting [commandline]  config-txt10=c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/demo_6_p.c.ani/libs/soundengine/docs/iwsound.config.txt
+15/11/13 13:36:45.932: [0xfa0] LOADER: setting [commandline]  config-txt11=c:/marmalade/6.2/s3e\s3e.config.txt
+15/11/13 13:36:45.932: [0xfa0] LOADER: s3eExecMemoryCheck: Memory free: 1048576K
+15/11/13 13:36:45.946: [0xfa0] SURFACE: scaling=1
+15/11/13 13:36:45.977: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+15/11/13 13:36:45.977: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:45.978: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:45.992: [0xfa0] EXT: Registering user-supplied extensions
+15/11/13 13:36:45.993: [0xfa0] FIBRE: stack switch : enabled
+15/11/13 13:36:45.993: [0xfa0] FIBRE: fast switch  : disabled
+15/11/13 13:36:45.994: [0xfa0] FIBRE: global lock  : enabled
+15/11/13 13:36:45.994: [0xfa0] FIBRE: fast lock    : disabled
+15/11/13 13:36:45.995: [0xfa0] FIBRE: thunks       : enabled
+15/11/13 13:36:45.995: [0xfa0] LOADER: Calling s3eDeviceInit()
+15/11/13 13:36:45.996: [0xfa0] DEVICE: DeviceInit: services=0xfffdffff [0xe5dc9eb7]
+15/11/13 13:36:45.996: [0xfa0] DEVICE: Initialising CALLBACKS
+15/11/13 13:36:45.997: [0xfa0] DEVICE: Initialising CRYPTO
+15/11/13 13:36:45.997: [0xfa0] DEVICE: Initialising ERROR
+15/11/13 13:36:45.998: [0xfa0] DEVICE: Initialising SOCKET
+15/11/13 13:36:46.005: [0xfa0] DEVICE: Initialising STORAGE
+15/11/13 13:36:46.006: [0xfa0] DEVICE: Initialising VIBRA
+15/11/13 13:36:46.006: [0xfa0] DEVICE: Initialising KEYBOARD
+15/11/13 13:36:46.028: [0xfa0] KEYBOARD: keyboard->SetDataFormat() succeeded in init().
+15/11/13 13:36:46.029: [0xfa0] DEVICE: Initialising POINTER
+15/11/13 13:36:46.030: [0xfa0] DEVICE: Initialising ACCELEROMETER
+15/11/13 13:36:46.030: [0xfa0] ACCELEROMETER: damping=0 scaling=0
+15/11/13 13:36:46.030: [0xfa0] DEVICE: Initialising SOUND
+15/11/13 13:36:46.066: [0xfa0] SOUND: stereo sound enabled
+15/11/13 13:36:46.067: [0xfa0] SOUND: s3eSoundStop: started=0
+15/11/13 13:36:46.067: [0xfa0] SOUND: SetMasterVolume: 255 -> 256
+15/11/13 13:36:46.068: [0xfa0] DEVICE: Initialising AUDIO
+15/11/13 13:36:46.068: [0xfa0] AUDIO: Number of channels = 16
+15/11/13 13:36:46.068: [0xfa0] DEVICE: Initialising VIDEO
+15/11/13 13:36:46.069: [0xfa0] DEVICE: Initialising LICENSE
+15/11/13 13:36:46.069: [0xfa0] DEVICE: Initialising GL
+15/11/13 13:36:46.070: [0xfa0] DEVICE: DeviceInit done: services=0xfffdffff
+15/11/13 13:36:46.076: [0x1afc] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+15/11/13 13:36:46.076: [0x1afc] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:46.077: [0x1afc] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:46.086: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+15/11/13 13:36:46.086: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:46.086: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:46.087: [0xfa0] SURFACE: Notifying app of surface size change: 1280x768
+15/11/13 13:36:46.088: [0xfa0] LOADER: displaying debug splash-screen
+15/11/13 13:36:46.412: [0xfa0] LOADER: s3eExecInit Done
+15/11/13 13:36:46.424: [0xfa0] LOADER: found initial S3E file: raw://c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani
+15/11/13 13:36:46.425: [0xfa0] DEVICE: s3eExecPushNext: raw://c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani [root=NULL 0x00000000 0x00000000]
+15/11/13 13:36:46.426: [0xfa0] DEVICE: s3eExecPushNext: raw://c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani
+15/11/13 13:36:46.426: [0xfa0] LOADER: s3eExecDoExecuteLoop
+15/11/13 13:36:46.459: [0xfa0] LOADER: AppVersion: 4 35
+15/11/13 13:36:46.460: [0xfa0] LOADER: S3E Version    : 4.35.0
+15/11/13 13:36:46.461: [0xfa0] LOADER: Arch           : X86
+15/11/13 13:36:46.461: [0xfa0] LOADER: VFP            : 1
+15/11/13 13:36:46.461: [0xfa0] LOADER: App S3E Version: 4.35.0
+15/11/13 13:36:46.462: [0xfa0] LOADER: App arch       : X86
+15/11/13 13:36:46.462: [0xfa0] LOADER: App VFP        : 0
+15/11/13 13:36:46.473: [0xfa0] LOADER: No background colour specified
+15/11/13 13:36:46.474: [0xfa0] LOADER: No game splash screen to display
+15/11/13 13:36:46.475: [0xfa0] LOADER: new s3eExecHandle = 0x023e5bf8
+15/11/13 13:36:46.485: [0xfa0] LOADER: Calling s3eDeviceInit(S3E_DEVICE_INIT_MEMORY)
+15/11/13 13:36:46.486: [0xfa0] DEVICE: DeviceInit: services=0x00020000 [0x00020000]
+15/11/13 13:36:46.486: [0xfa0] DEVICE: Initialising MEMORY
+15/11/13 13:36:46.487: [0xfa0] MEMORY: Loader heap size=30000
+15/11/13 13:36:46.528: [0xfa0] MEMORY: Initialised heap 0 [0x103e18e4-0x19918c64] size=156464000
+15/11/13 13:36:46.529: [0xfa0] MEMORY: Initialised heap 7 [0x01e81464-0x01e8dc64] size=51200
+15/11/13 13:36:46.529: [0xfa0] MEMORY: s3eMemorySetUserMemMgr 0x00323628 0x00323868 0x00323340
+15/11/13 13:36:46.530: [0xfa0] DEVICE: DeviceInit done: services=0x00020000
+15/11/13 13:36:46.531: [0xfa0] LOADER: IwS3EGetEntryPoint -> 0x503b281c
+15/11/13 13:36:46.531: [0xfa0] LOADER: Executing S3E 0x023e5bf8 [c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani] entry=0x503b281c
+15/11/13 13:36:46.533: [0xfa0] EXT: s3eExtGetHash: 0xcc0b4a28 [0x53dfb2f0 size=76]
+15/11/13 13:36:46.534: [0xfa0] EXT: initializing extension: s3eThread
+15/11/13 13:36:46.534: [0xfa0] EXT: initializing extension: s3eThread 0x1006ffb0
+15/11/13 13:36:46.535: [0xfa0] MEMORY: s3eMemorySetUserMemMgr 0x503b3145 0x503b3159 0x503ab099
+15/11/13 13:36:46.536: [0xfa0] EXT: s3eExtGetHash: 0x2bc8e047 [0x53dfb168 size=72]
+15/11/13 13:36:46.536: [0xfa0] EXT: initializing extension: s3eMetrics
+15/11/13 13:36:46.537: [0xfa0] EXT: s3eExtGetHash: 0xc667a795 [0x53dfb1c8 size=8]
+15/11/13 13:36:46.538: [0xfa0] EXT: initializing extension: s3eDebugHeap
+15/11/13 13:36:46.538: [0xfa0] MEMORY: s3eExtDebugHeapAlloc: 156464000 bytes allocated for system debug heap
+15/11/13 13:36:46.541: [0xfa0] UTIL: IwCallStackInit
+15/11/13 13:36:46.542: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=4
+15/11/13 13:36:46.543: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:46.543: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:46.544: [0xfa0] GX: IwGxSetScreenOrient: 0
+15/11/13 13:36:46.562: [0xfa0] IW_GL: EGL: eglGetDisplay returned 08460A10
+15/11/13 13:36:46.573: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+15/11/13 13:36:46.574: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+15/11/13 13:36:46.575: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+15/11/13 13:36:46.575: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+15/11/13 13:36:46.575: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+15/11/13 13:36:46.576: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+15/11/13 13:36:46.576: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+15/11/13 13:36:46.577: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+15/11/13 13:36:46.577: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+15/11/13 13:36:46.577: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+15/11/13 13:36:46.578: [0xfa0] IW_GL: rejecting config 0: EGL_DEPTH_SIZE < 16
+15/11/13 13:36:46.578: [0xfa0] IW_GL: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.579: [0xfa0] IW_GL: rejecting config 5: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.579: [0xfa0] IW_GL: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.580: [0xfa0] IW_GL: rejecting config 7: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.580: [0xfa0] IW_GL: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.581: [0xfa0] IW_GL: rejecting config 9: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.581: [0xfa0] IW_GL: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.581: [0xfa0] IW_GL: rejecting config 11: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+15/11/13 13:36:46.582: [0xfa0] IW_GL: EGL: Chose EGL_CONFIG_ID 3
+15/11/13 13:36:46.608: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+15/11/13 13:36:46.608: [0xfa0] IW_GL: GL_RENDERER: ANGLE (NVIDIA Quadro FX 1800)
+15/11/13 13:36:46.609: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+15/11/13 13:36:46.610: [0xfa0] IW_GL: GL properties reported by driver:
+15/11/13 13:36:46.610: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+15/11/13 13:36:46.611: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+15/11/13 13:36:46.611: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+15/11/13 13:36:46.612: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+15/11/13 13:36:46.612: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+15/11/13 13:36:46.613: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+15/11/13 13:36:46.613: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+15/11/13 13:36:46.613: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+15/11/13 13:36:46.614: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 8192
+15/11/13 13:36:46.614: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+15/11/13 13:36:46.620: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+15/11/13 13:36:46.620: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 8192
+15/11/13 13:36:46.621: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+15/11/13 13:36:46.621: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 8192
+15/11/13 13:36:46.622: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: 8192
+15/11/13 13:36:46.622: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+15/11/13 13:36:46.623: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+15/11/13 13:36:46.623: [0xfa0] IW_GL:     GL_OES_element_index_uint
+15/11/13 13:36:46.624: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+15/11/13 13:36:46.624: [0xfa0] IW_GL:     GL_NV_fence
+15/11/13 13:36:46.625: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+15/11/13 13:36:46.625: [0xfa0] IW_GL:     GL_OES_get_program_binary
+15/11/13 13:36:46.625: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+15/11/13 13:36:46.626: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+15/11/13 13:36:46.626: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+15/11/13 13:36:46.627: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+15/11/13 13:36:46.627: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+15/11/13 13:36:46.627: [0xfa0] IW_GL:     GL_OES_texture_npot
+15/11/13 13:36:46.628: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+15/11/13 13:36:46.628: [0xfa0] IW_GL:     GL_OES_texture_half_float
+15/11/13 13:36:46.629: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_multisample
+15/11/13 13:36:46.630: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+15/11/13 13:36:46.630: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+15/11/13 13:36:46.630: [0xfa0] IW_GL:     GL_OES_texture_float
+15/11/13 13:36:46.631: [0xfa0] IW_GL:     GL_OES_texture_float_linear
+15/11/13 13:36:46.631: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+15/11/13 13:36:46.632: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=4
+15/11/13 13:36:46.632: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+15/11/13 13:36:46.633: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+15/11/13 13:36:46.656: [0xfa0] GX: Parsing GL driver strings
+15/11/13 13:36:46.657: [0xfa0] GX: Unknown VENDOR
+15/11/13 13:36:46.657: [0xfa0] FILE: s3eFileOpen('resource_cache/cachedSize.bin', 'rb') succeeded, id=1014 p=0x10108fbc
+15/11/13 13:36:46.658: [0xfa0] UTIL: Added class factory for CIwGxShaderTechnique (hash 0x62ab11c4)
+15/11/13 13:36:46.658: [0xfa0] UTIL: Added class factory for CIwGxCubeMap (hash 0x5474a064)
+15/11/13 13:36:46.660: [0xfa0] EXT: s3eExtGetHash: 0x167d1038 [0x53dfb1d8 size=8]
+15/11/13 13:36:46.660: [0xfa0] EXT: initializing extension: s3eEval
+15/11/13 13:36:46.661: [0xfa0] UTIL: Added class factory for CIwResTemplateImage (hash 0x4d5ab6b1)
+15/11/13 13:36:46.662: [0xfa0] UTIL: Added class factory for CIwResTemplateMTL (hash 0x3a22b5bb)
+15/11/13 13:36:46.662: [0xfa0] UTIL: Added class factory for CIwResTemplateGROUP (hash 0x4d3980fb)
+15/11/13 13:36:46.662: [0xfa0] UTIL: Added class factory for CIwMaterial (hash 0x2544f997)
+15/11/13 13:36:46.663: [0xfa0] UTIL: Added class factory for CIwResGroup (hash 0xf446397f)
+15/11/13 13:36:46.663: [0xfa0] UTIL: Added class factory for CIwTexture (hash 0x3521f539)
+15/11/13 13:36:46.664: [0xfa0] UTIL: Added class factory for CIwResBuildStyle (hash 0xa59f2593)
+15/11/13 13:36:46.664: [0xfa0] RESMANAGER: Added serialise block for ResGroupMembers
+15/11/13 13:36:46.665: [0xfa0] RESMANAGER: Added serialise block for ResGroupBuildData
+15/11/13 13:36:46.665: [0xfa0] RESMANAGER: Added serialise block for ResGroupChildPaths
+15/11/13 13:36:46.665: [0xfa0] RESMANAGER: Added serialise block for ResGroupHST
+15/11/13 13:36:46.666: [0xfa0] RESMANAGER: Added serialise block for ResGroupDirectory
+15/11/13 13:36:46.666: [0xfa0] RESMANAGER: Added serialise block for ResGroupResources
+15/11/13 13:36:46.667: [0xfa0] RESMANAGER: Added serialise block for ResGroupResourcesOptimised
+15/11/13 13:36:46.667: [0xfa0] RESMANAGER: Setting build style to 'gles1'
+15/11/13 13:36:46.668: [0xfa0] UTIL: Added class factory for CIwGxFont (hash 0xa68776be)
+15/11/13 13:36:46.668: [0xfa0] UTIL: Added class factory for CIwGxFontTTFont (hash 0xc084661d)
+15/11/13 13:36:46.669: [0xfa0] UTIL: Added class factory for CIwResTemplateGXFONT (hash 0xf4d12aa4)
+15/11/13 13:36:46.669: [0xfa0] UTIL: Added class factory for CIwSoundData (hash 0xd5610dab)
+15/11/13 13:36:46.670: [0xfa0] UTIL: Added class factory for CIwSoundDataADPCM (hash 0x430758f0)
+15/11/13 13:36:46.670: [0xfa0] UTIL: Added class factory for CIwSoundGroup (hash 0x81c24cbe)
+15/11/13 13:36:46.670: [0xfa0] UTIL: Added class factory for CIwSoundSpec (hash 0xd569853c)
+15/11/13 13:36:46.687: [0xfa0] UTIL: Found 'Level_1.group' using default path
+15/11/13 13:36:46.687: [0xfa0] FILE: s3eFileOpen('Level_1.group', 'r') succeeded, id=1017 p=0x10109310
+15/11/13 13:36:46.688: [0xfa0] RESMANAGER: Reading asset: textures/character.png
+15/11/13 13:36:46.689: [0xfa0] UTIL: Found 'textures/character.png' using default path
+15/11/13 13:36:46.689: [0xfa0] FILE: s3eFileOpen('textures/character.png', 'rb') succeeded, id=1018 p=0x1010942c
+15/11/13 13:36:46.692: [0xfa0] RESMANAGER: Reading asset: textures/red tileset.png
+15/11/13 13:36:46.693: [0xfa0] UTIL: Found 'textures/red tileset.png' using default path
+15/11/13 13:36:46.694: [0xfa0] FILE: s3eFileOpen('textures/red tileset.png', 'rb') succeeded, id=1019 p=0x10109548
+15/11/13 13:36:46.765: [0xfa0] RESMANAGER: Reading asset: textures/RotationTiles.png
+15/11/13 13:36:46.766: [0xfa0] UTIL: Found 'textures/RotationTiles.png' using default path
+15/11/13 13:36:46.766: [0xfa0] FILE: s3eFileOpen('textures/RotationTiles.png', 'rb') succeeded, id=1020 p=0x10109664
+15/11/13 13:36:46.781: [0xfa0] RESMANAGER: Reading asset: textures/background test.png
+15/11/13 13:36:46.782: [0xfa0] UTIL: Found 'textures/background test.png' using default path
+15/11/13 13:36:46.783: [0xfa0] FILE: s3eFileOpen('textures/background test.png', 'rb') succeeded, id=1021 p=0x10109780
+15/11/13 13:36:46.905: [0xfa0] RESMANAGER: Reading asset: textures/FinishPanel.png
+15/11/13 13:36:46.906: [0xfa0] UTIL: Found 'textures/FinishPanel.png' using default path
+15/11/13 13:36:46.907: [0xfa0] FILE: s3eFileOpen('textures/FinishPanel.png', 'rb') succeeded, id=1022 p=0x1010989c
+15/11/13 13:36:46.927: [0xfa0] RESMANAGER: Reading asset: textures/anima/down.png
+15/11/13 13:36:46.928: [0xfa0] UTIL: Found 'textures/anima/down.png' using default path
+15/11/13 13:36:46.929: [0xfa0] FILE: s3eFileOpen('textures/anima/down.png', 'rb') succeeded, id=1023 p=0x101099b8
+15/11/13 13:36:46.931: [0xfa0] RESMANAGER: Reading asset: textures/anima/up.png
+15/11/13 13:36:46.932: [0xfa0] UTIL: Found 'textures/anima/up.png' using default path
+15/11/13 13:36:46.933: [0xfa0] FILE: s3eFileOpen('textures/anima/up.png', 'rb') succeeded, id=1024 p=0x10109ad4
+15/11/13 13:36:46.934: [0xfa0] RESMANAGER: Reading asset: textures/anima/idle.png
+15/11/13 13:36:46.935: [0xfa0] UTIL: Found 'textures/anima/idle.png' using default path
+15/11/13 13:36:46.936: [0xfa0] FILE: s3eFileOpen('textures/anima/idle.png', 'rb') succeeded, id=1025 p=0x10109bf0
+15/11/13 13:36:46.938: [0xfa0] RESMANAGER: Reading asset: textures/anima/right.png
+15/11/13 13:36:46.938: [0xfa0] UTIL: Found 'textures/anima/right.png' using default path
+15/11/13 13:36:46.939: [0xfa0] FILE: s3eFileOpen('textures/anima/right.png', 'rb') succeeded, id=1026 p=0x10109d0c
+15/11/13 13:36:46.940: [0xfa0] RESMANAGER: Reading asset: ui/pause.png
+15/11/13 13:36:46.941: [0xfa0] UTIL: Found 'ui/pause.png' using default path
+15/11/13 13:36:46.942: [0xfa0] FILE: s3eFileOpen('ui/pause.png', 'rb') succeeded, id=1027 p=0x10109e28
+ERROR: S3E_COMPRESSION_ERR_INSUFF in s3eCompressionDecomp - Input stream ended before all output data could be produced
+15/11/13 13:36:46.944: [0xfa0] RESMANAGER: Reading asset: audios/test_footstep_left_01_PCM.wav
+15/11/13 13:36:46.945: [0xfa0] UTIL: Found 'audios/test_footstep_left_01_PCM.wav' using default path
+15/11/13 13:36:46.946: [0xfa0] FILE: s3eFileOpen('audios/test_footstep_left_01_PCM.wav', 'rb') succeeded, id=1028 p=0x10109f44
+15/11/13 13:36:46.946: [0xfa0] RESMANAGER: Reading asset: audios/test_footstep_right_01_PCM.wav
+15/11/13 13:36:46.947: [0xfa0] UTIL: Found 'audios/test_footstep_right_01_PCM.wav' using default path
+15/11/13 13:36:46.948: [0xfa0] FILE: s3eFileOpen('audios/test_footstep_right_01_PCM.wav', 'rb') succeeded, id=1029 p=0x1010a060
+15/11/13 13:36:46.948: [0xfa0] RESMANAGER: Reading asset: audios/noise2.wav
+15/11/13 13:36:46.949: [0xfa0] UTIL: Found 'audios/noise2.wav' using default path
+15/11/13 13:36:46.950: [0xfa0] FILE: s3eFileOpen('audios/noise2.wav', 'rb') succeeded, id=1030 p=0x1010a17c
+15/11/13 13:36:46.950: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin' using path global 'data-gles1'
+15/11/13 13:36:46.952: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin', 'wb') succeeded, id=1031 p=0x1010a298
+15/11/13 13:36:46.953: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin.txt' using path global 'data-gles1'
+15/11/13 13:36:46.953: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin.txt', 'wt') succeeded, id=1000 p=0x10108034
+15/11/13 13:36:46.954: [0xfa0] RESMANAGER: Serialising CIwResList of 10 items
+15/11/13 13:36:46.955: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:46.955: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x34cb6392
+15/11/13 13:36:46.956: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:46.959: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0xcde1623a
+15/11/13 13:36:46.960: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:46.962: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0xdc00556
+15/11/13 13:36:46.962: [0xfa0] RESMANAGER: Serialising item 3
+15/11/13 13:36:46.997: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0xa5a6fba5
+15/11/13 13:36:46.998: [0xfa0] RESMANAGER: Serialising item 4
+15/11/13 13:36:47.000: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x3a4bfbb6
+15/11/13 13:36:47.000: [0xfa0] RESMANAGER: Serialising item 5
+15/11/13 13:36:47.001: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x7c95cd5d
+15/11/13 13:36:47.002: [0xfa0] RESMANAGER: Serialising item 6
+15/11/13 13:36:47.003: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x5979ca
+15/11/13 13:36:47.004: [0xfa0] RESMANAGER: Serialising item 7
+15/11/13 13:36:47.005: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x7c985b03
+15/11/13 13:36:47.005: [0xfa0] RESMANAGER: Serialising item 8
+15/11/13 13:36:47.006: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x10494163
+15/11/13 13:36:47.007: [0xfa0] RESMANAGER: Serialising item 9
+15/11/13 13:36:47.007: [0xfa0] RESMANAGER: Wrote item: classname 0x3521f539, name 0x1020ea43
+15/11/13 13:36:47.008: [0xfa0] RESMANAGER: Serialising CIwResList of 3 items
+15/11/13 13:36:47.008: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.009: [0xfa0] RESMANAGER: Wrote item: classname 0xd5610dab, name 0x3bc63261
+15/11/13 13:36:47.009: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:47.010: [0xfa0] RESMANAGER: Wrote item: classname 0xd5610dab, name 0xfba1baf4
+15/11/13 13:36:47.010: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:47.011: [0xfa0] RESMANAGER: Wrote item: classname 0xd5610dab, name 0x108aa415
+15/11/13 13:36:47.011: [0xfa0] RESMANAGER: Serialising CIwResList of 3 items
+15/11/13 13:36:47.012: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.012: [0xfa0] RESMANAGER: Wrote item: classname 0xd569853c, name 0x91acdb5
+15/11/13 13:36:47.013: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:47.013: [0xfa0] RESMANAGER: Wrote item: classname 0xd569853c, name 0x91ace7b
+15/11/13 13:36:47.013: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:47.014: [0xfa0] RESMANAGER: Wrote item: classname 0xd569853c, name 0x21df2cb4
+15/11/13 13:36:47.014: [0xfa0] RESMANAGER: Serialising CIwResList of 1 items
+15/11/13 13:36:47.015: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.015: [0xfa0] RESMANAGER: Wrote item: classname 0x81c24cbe, name 0x7f3c706d
+15/11/13 13:36:47.019: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin.debug' using path global 'data-gles1'
+15/11/13 13:36:47.020: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin.debug', 'wb') succeeded, id=1001 p=0x10108150
+15/11/13 13:36:47.020: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin.debug.txt' using path global 'data-gles1'
+15/11/13 13:36:47.021: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin.debug.txt', 'wt') succeeded, id=1002 p=0x1010826c
+15/11/13 13:36:47.024: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.hst' using path global 'data-gles1'
+15/11/13 13:36:47.025: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.hst', 'wb') succeeded, id=1003 p=0x10108388
+15/11/13 13:36:47.179: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin' using path global 'data-gles1'
+15/11/13 13:36:47.181: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin', 'rb') succeeded, id=1004 p=0x101084a4
+15/11/13 13:36:47.183: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.hst' using path global 'data-gles1'
+15/11/13 13:36:47.185: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.hst', 'r') succeeded, id=1005 p=0x101085c0
+15/11/13 13:36:47.186: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.hst' using path global 'data-gles1'
+15/11/13 13:36:47.188: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.hst', 'rb') succeeded, id=1006 p=0x101086dc
+15/11/13 13:36:47.190: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin.debug' using path global 'data-gles1'
+15/11/13 13:36:47.192: [0xfa0] UTIL: Found 'data-gles1/Level_1.group.bin.debug' using path global 'data-gles1'
+15/11/13 13:36:47.194: [0xfa0] FILE: s3eFileOpen('data-gles1/Level_1.group.bin.debug', 'rb') succeeded, id=1007 p=0x101087f8
+15/11/13 13:36:47.195: [0xfa0] RESMANAGER: Serialising CIwResList of 10 items
+15/11/13 13:36:47.196: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.197: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x34cb6392
+15/11/13 13:36:47.201: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:47.202: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0xcde1623a
+15/11/13 13:36:47.234: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:47.235: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0xdc00556
+15/11/13 13:36:47.243: [0xfa0] RESMANAGER: Serialising item 3
+15/11/13 13:36:47.243: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0xa5a6fba5
+15/11/13 13:36:47.337: [0xfa0] RESMANAGER: Serialising item 4
+15/11/13 13:36:47.338: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x3a4bfbb6
+15/11/13 13:36:47.350: [0xfa0] RESMANAGER: Serialising item 5
+15/11/13 13:36:47.351: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x7c95cd5d
+15/11/13 13:36:47.353: [0xfa0] RESMANAGER: Serialising item 6
+15/11/13 13:36:47.354: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x5979ca
+15/11/13 13:36:47.356: [0xfa0] RESMANAGER: Serialising item 7
+15/11/13 13:36:47.357: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x7c985b03
+15/11/13 13:36:47.359: [0xfa0] RESMANAGER: Serialising item 8
+15/11/13 13:36:47.360: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x10494163
+15/11/13 13:36:47.362: [0xfa0] RESMANAGER: Serialising item 9
+15/11/13 13:36:47.362: [0xfa0] RESMANAGER: Read item: classname 0x3521f539, name 0x1020ea43
+15/11/13 13:36:47.363: [0xfa0] RESMANAGER: Serialising CIwResList of 3 items
+15/11/13 13:36:47.364: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.364: [0xfa0] RESMANAGER: Read item: classname 0xd5610dab, name 0x3bc63261
+15/11/13 13:36:47.365: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:47.365: [0xfa0] RESMANAGER: Read item: classname 0xd5610dab, name 0xfba1baf4
+15/11/13 13:36:47.366: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:47.366: [0xfa0] RESMANAGER: Read item: classname 0xd5610dab, name 0x108aa415
+15/11/13 13:36:47.367: [0xfa0] RESMANAGER: Serialising CIwResList of 3 items
+15/11/13 13:36:47.367: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.367: [0xfa0] RESMANAGER: Read item: classname 0xd569853c, name 0x91acdb5
+15/11/13 13:36:47.368: [0xfa0] RESMANAGER: Serialising item 1
+15/11/13 13:36:47.368: [0xfa0] RESMANAGER: Read item: classname 0xd569853c, name 0x91ace7b
+15/11/13 13:36:47.369: [0xfa0] RESMANAGER: Serialising item 2
+15/11/13 13:36:47.369: [0xfa0] RESMANAGER: Read item: classname 0xd569853c, name 0x21df2cb4
+15/11/13 13:36:47.369: [0xfa0] RESMANAGER: Serialising CIwResList of 1 items
+15/11/13 13:36:47.370: [0xfa0] RESMANAGER: Serialising item 0
+15/11/13 13:36:47.370: [0xfa0] RESMANAGER: Read item: classname 0x81c24cbe, name 0x7f3c706d
+15/11/13 13:36:47.371: [0xfa0] FILE: s3eFileOpen('Alpha 8 - Lobby.json', 'rb') succeeded, id=1008 p=0x10108914
+S3E_FILE_ERR_EOF in s3eFileRead
+ERROR *(MAJOR)*: S3E_FILE_ERR_PARAM in s3eFileFlush - Invalid s3eFile descriptor 0x3f0
+15/11/13 13:36:47.424: [0xfa0] FILE: s3eFileOpen('audios/music1.mp3', 'rb') succeeded, id=1009 p=0x10108a30
+15/11/13 13:36:47.425: [0xfa0] AUDIO: s3eAudioIsCodecSupported.
+15/11/13 13:36:47.426: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:47.426: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:47.427: [0xfa0] SOUND: s3eSoundStart: started=0
+15/11/13 13:36:47.427: [0xfa0] SOUND: Sound starting...
+15/11/13 13:36:47.428: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:47.428: [0xfa0] SOUND: Play: ch=01 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:47.429: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:47.429: [0xfa0] SOUND: Playing noise_2 10438840
+15/11/13 13:36:47.430: [0xfa0] SOUND: Play: ch=02 numSampl=25357 repeat=1 loopfrom=0
+15/11/13 13:36:47.430: [0xfa0] SOUND: s3eSoundStart: started=1
+x:22, y:58, index: 2516
+15/11/13 13:36:48.048: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:48.051: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:48.051: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:48.559: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:48.559: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:48.560: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:49.060: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:49.061: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:49.062: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:49.574: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:49.575: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:49.576: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:50.093: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:50.094: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:50.095: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:50.612: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:50.613: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:50.613: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:51.137: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:51.138: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:51.138: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:51.547: [0xfa0] FILE: s3eFileOpen('Alpha 8 - Level1.json', 'rb') succeeded, id=1010 p=0x10108b4c
+S3E_FILE_ERR_EOF in s3eFileRead
+ERROR *(MAJOR)*: S3E_FILE_ERR_PARAM in s3eFileFlush - Invalid s3eFile descriptor 0x3f2
+15/11/13 13:36:51.641: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:51.643: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:51.643: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:52.145: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:52.146: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:52.146: [0xfa0] SOUND: s3eSoundStart: started=1
+x:14, y:20, index: 614
+15/11/13 13:36:53.088: [0xfa0] SOUND: Playing noise_2 10438840
+15/11/13 13:36:53.089: [0xfa0] SOUND: Play: ch=00 numSampl=25357 repeat=1 loopfrom=0
+15/11/13 13:36:53.090: [0xfa0] SOUND: s3eSoundStart: started=1
+x:14, y:18, index: 554
+15/11/13 13:36:53.670: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:53.671: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:53.671: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:54.170: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:36:54.171: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:54.172: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:36:54.669: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:36:54.670: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:36:54.671: [0xfa0] SOUND: s3eSoundStart: started=1
+Touched
+x:25, y:59, index: 2562
+15/11/13 13:37:07.535: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:07.536: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:07.537: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:08.039: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:37:08.040: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:08.041: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:08.540: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:08.541: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:08.541: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:09.038: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:37:09.039: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:09.040: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:09.535: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:09.536: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:09.536: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:10.038: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:37:10.039: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:10.040: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:10.535: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:10.536: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:10.537: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:11.036: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:37:11.036: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:11.037: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:11.535: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:11.536: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:11.537: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:12.035: [0xfa0] SOUND: Playing footstep_L1 10422F60
+15/11/13 13:37:12.036: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:12.037: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:12.540: [0xfa0] SOUND: Playing footstep_R1 1042DBD0
+15/11/13 13:37:12.541: [0xfa0] SOUND: Play: ch=00 numSampl=22050 repeat=1 loopfrom=0
+15/11/13 13:37:12.541: [0xfa0] SOUND: s3eSoundStart: started=1
+15/11/13 13:37:12.985: [0x1afc] DEVICE: s3eDeviceNotify 2
+15/11/13 13:37:12.986: [0x1afc] DEVICE: done s3eDeviceNotify
+15/11/13 13:37:12.986: [0x1afc] DEVICE: done RequestQuit
+15/11/13 13:37:12.991: [0xfa0] AUDIO: s3eAudioStop
+15/11/13 13:37:12.992: [0x1afc] AUDIO: s3eAudioDoStop.
+15/11/13 13:37:12.992: [0xfa0] DEBUG: s3eDebugAssertShow 0x00000000 type=2 'IwAssert failure:
+Channel: MEMORY
+File: s3eMemoryDebug.cpp
+Line: 321
+Expression: g_MaxAllocsExceeded
+Message: Invalid pointer 0x0x104222c0.
+'
+Ignoring...
+15/11/13 13:37:15.147: [0xfa0] IW_GL: Terminating EGL...
+15/11/13 13:37:15.171: [0xfa0] IW_GL: Terminating EGL... Done
+15/11/13 13:37:15.171: [0xfa0] UTIL: IwCallStackTerm
+15/11/13 13:37:15.173: [0xfa0]   bucket       allocated  num  w/children  num   FirstID Callstack of allocation
+15/11/13 13:37:15.173: [0xfa0]   ------------ ---------  ----  ---------  ----  ------- -----------------------
+15/11/13 13:37:15.174: [0xfa0]         System    580843 [13640]    581563 [13652]     404 _IwGxInitPipeline
+15/11/13 13:37:15.174: [0xfa0] L       System       720 [  12]       720 [  12]    9925 _IwGxInitPipeline, Iw2DCreateImageResource, Iw2DCreateImageResource
+15/11/13 13:37:15.174: [0xfa0] DEBUG: s3eDebugAssertShow 0x00000000 type=2 'IwAssert failure (MEMORY, 2356).
+Message: Bucket 0(System) is still in use (first allocation ID=404); deleting it is dangerous
+'
+Ignoring...
+15/11/13 13:37:16.305: [0xfa0]   bucket       allocated  num  w/children  num   FirstID Callstack of allocation
+15/11/13 13:37:16.306: [0xfa0]   ------------ ---------  ----  ---------  ----  ------- -----------------------
+15/11/13 13:37:16.307: [0xfa0] L  SystemDebug       960 [   6]       960 [   6]    9927 _IwGxInitPipeline, Iw2DCreateImageResource, Iw2DCreateImageResource, CIwMaterial::SetName
+15/11/13 13:37:16.308: [0xfa0] FIBRE: calling s3eFibreExit() (rtn=0x00000000)
+15/11/13 13:37:16.309: [0xfa0] FIBRE: s3eFibreExit() 0x023ec660
+15/11/13 13:37:16.310: [0xfa0] FIBRE: s3eFibreExit() to 0x023ec63c from 0x023ec660
+15/11/13 13:37:16.311: [0xfa0] THREAD: s3eThreadCancelAll
+15/11/13 13:37:16.312: [0xfa0] THREAD: done s3eThreadCancelAll
+15/11/13 13:37:16.313: [0xfa0] THREAD: all threads now dead (current=0x00000fa0)
+15/11/13 13:37:16.314: [0xfa0] LOADER: Application has exited, starting cleanup
+15/11/13 13:37:16.315: [0xfa0] LOADER: Done execute S3E 0x023e5bf8 [rtn=0]
+15/11/13 13:37:16.317: [0xfa0] SOUND: s3eSoundStop: started=1
+15/11/13 13:37:16.327: [0xfa0] LOADER: Unloading S3E 0x023e5bf8 [c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani]
+15/11/13 13:37:16.329: [0xfa0] LOADER: deleting DLL: c:\Users\1106786\Dropbox\Dropbox\PG life\Project Impact\Code\Demos\Demo_6_P.C.Ani\build_demo_6_p.c_vc10\Debug_Demo_6_P.C_VC10_x86\Demo_6_P.C.Ani
+15/11/13 13:37:16.333: [0xfa0] DEVICE: Terminating LICENSE
+15/11/13 13:37:16.334: [0xfa0] DEVICE: Terminating VIDEO
+15/11/13 13:37:16.335: [0xfa0] DEVICE: Terminating AUDIO
+15/11/13 13:37:16.335: [0xfa0] DEVICE: Terminating SOUND
+15/11/13 13:37:16.340: [0xfa0] DEVICE: Terminating POINTER
+15/11/13 13:37:16.340: [0xfa0] DEVICE: Terminating ACCELEROMETER
+15/11/13 13:37:16.341: [0xfa0] DEVICE: Terminating GL
+15/11/13 13:37:16.342: [0xfa0] DEVICE: Terminating VIBRA
+15/11/13 13:37:16.342: [0xfa0] DEVICE: Terminating TIMER
+15/11/13 13:37:16.343: [0xfa0] DEVICE: Terminating STORAGE
+15/11/13 13:37:16.343: [0xfa0] DEVICE: Terminating SOCKET
+15/11/13 13:37:16.344: [0xfa0] DEVICE: Terminating CONFIG
+15/11/13 13:37:16.345: [0xfa0] DEVICE: Terminating ERROR
+15/11/13 13:37:16.345: [0xfa0] DEVICE: Terminating MEMORY
+15/11/13 13:37:16.355: [0xfa0] DEVICE: Terminating CRYPTO
+15/11/13 13:37:16.356: [0xfa0] DEVICE: Terminating EXT
+15/11/13 13:37:16.357: [0xfa0] EXT: terminating extension: s3eWindow
+15/11/13 13:37:16.357: [0xfa0] EXT: terminating extension: s3eThread
+15/11/13 13:37:16.359: [0xfa0] DEVICE: Terminating SURFACE
+15/11/13 13:37:16.362: [0xfa0] DEVICE: Terminating KEYBOARD
+15/11/13 13:37:16.363: [0xfa0] DEVICE: Terminating DEBUG
+-- END TRACE --
