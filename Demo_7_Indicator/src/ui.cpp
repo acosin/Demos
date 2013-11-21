@@ -14,7 +14,7 @@ void UI::Load()
 	m_PausePanel=new Panel;
 	m_PausePanel->Load();
 	m_PausePanel->SetBG(CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80),CIwSVec2(150,150),0x88888888);
-	m_PausePanel->SetText("Hi!!!!It is a pause menu!!!!/ndo you Know me?",CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80),2,0x00008800);
+	m_PausePanel->SetText("Menu",CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80),2,0x00008800);
 
 
 	Button *m_btnMusic=new Button;
@@ -32,7 +32,7 @@ void UI::Load()
 	Button *m_btnReturn=new Button;
 	m_btnReturn->m_id=BTN_P_RETURN;
 	m_btnReturn->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2),CIwSVec2(100,20),0xffff0000);
-	m_btnReturn->SetText("Return",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+4),CIwSVec2(64,64),0xff00ff00);
+	m_btnReturn->SetText("Continue",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+4),CIwSVec2(64,64),0xff00ff00);
 	m_PausePanel->m_btns.append(m_btnReturn);
 
 	Button *m_btnQuit=new Button;
@@ -46,7 +46,7 @@ void UI::Load()
 	//m_EndPanel->Load();
 	m_EndPanel->Load("FinishPanel",CIwSVec2(Iw2DGetSurfaceWidth()/2-200,Iw2DGetSurfaceHeight()/2-80));
 	//m_EndPanel->SetBG(CIwSVec2(Iw2DGetSurfaceWidth()/2-200,Iw2DGetSurfaceHeight()/2-80),CIwSVec2(400,300),0x88888888);
-	m_EndPanel->SetText("Level Cleared",CIwSVec2(Iw2DGetSurfaceWidth()/2-50,Iw2DGetSurfaceHeight()/2-70),2,0x00008800);
+	//m_EndPanel->SetText("Level Cleared",CIwSVec2(Iw2DGetSurfaceWidth()/2-50,Iw2DGetSurfaceHeight()/2-70),2,0x00008800);
 	
 	Button *m_btnEndRestart=new Button;
 	m_btnEndRestart->m_id=BTN_E_RESTART;
@@ -57,7 +57,7 @@ void UI::Load()
 	Button *m_btnEndReturn=new Button;
 	m_btnEndReturn->m_id=BTN_E_RETURN;
 	m_btnEndReturn->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2+180),CIwSVec2(100,20),0xffff0000);
-	m_btnEndReturn->SetText("Return",CIwSVec2(Iw2DGetSurfaceWidth()/2+54,Iw2DGetSurfaceHeight()/2+184),CIwSVec2(64,64),0xff00ff00);
+	m_btnEndReturn->SetText("Continue",CIwSVec2(Iw2DGetSurfaceWidth()/2+54,Iw2DGetSurfaceHeight()/2+184),CIwSVec2(64,64),0xff00ff00);
 	m_EndPanel->m_btns.append(m_btnEndReturn);
 
 }

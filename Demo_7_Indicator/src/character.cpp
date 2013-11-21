@@ -26,8 +26,7 @@ void Character::Load()
 void Character::Init(int startPoint[])
 {
 	_CS=idle;
-	m_Target=m_Position=CIwFVec2(startPoint[0]*64,startPoint[1]*64);
-
+	m_Target=m_Position=CIwFVec2(startPoint[0]*64,startPoint[1]*64);//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 void Character::Render(CIwFVec2 mapPos)

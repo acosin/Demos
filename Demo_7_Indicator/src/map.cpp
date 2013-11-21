@@ -275,7 +275,21 @@ void Map::Init()
 		_TileDir.append(0);
 	}
 }
-
+void Map::Init(int pos[2])
+{
+	touchedNPC=-1;
+	_blocked=false;
+	_path=new Path;
+	mazeFinished=0;
+	m_Position=CIwFVec2(pos[0]*_tileWidth-Iw2DGetSurfaceWidth()/2.0f,pos[1]*_tileHeight-Iw2DGetSurfaceHeight()/2.0f);
+	m_tileRotating=false;
+	_TileDir.clear_optimised();
+	
+	for(int i=0;i!=_total;i++)
+	{
+		_TileDir.append(0);
+	}
+}
 void Map::Update(int deltaTime)
 {
 	//DO NOTING CURRENTLY

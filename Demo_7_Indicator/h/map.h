@@ -17,6 +17,7 @@ public:
 	void Load(int level);
 	void Load(char * mapFileName);
 	void Init();
+	void Init(int pos[2]);
 	void Update(int deltaTime);
 	void Render(CIwSVec2 characterBox);
 	CIwSVec2 GetMapSize(){return _size;}
@@ -38,6 +39,8 @@ public:
 	CIwArray<int> m_doors;
 	char* m_filename;
 	bool m_tileRotating;
+	int _height;
+	int _width;
 private:
 	int screenHeight;
 	int screenWidth;
@@ -51,8 +54,7 @@ private:
 	TileSet* _tileset_maze;
 	TileSet* _tileset_indi;
 	Path* _path;
-	int _height;
-	int _width;
+	
 	int _total;
 	int _tileHeight;
 	int _tileWidth;

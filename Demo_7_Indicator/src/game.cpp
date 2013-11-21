@@ -112,11 +112,16 @@ void CGame::Update(int deltaTime)
 			{
 				delete _MapLevel[_MapLevel.size()-1];
 				_MapLevel.pop_back();
+				int door_Index=_MapLevel[0]->m_doors[_currentLevel-1];
 				_currentLevel=0;
+
 				currentMap=_MapLevel[_currentLevel];
-				_Character->Init(currentMap->_StartPos);
+				int pos[2]={door_Index%currentMap->_width+1,door_Index/currentMap->_width+2};
+				//_Character->Init(currentMap->_StartPos);
+				_Character->Init(pos);
 				currentMap->SetCharacterIndex(_Character->m_Position);
-				currentMap->Init();
+				//currentMap->Init();
+				currentMap->Init(pos);
 			}
 			else
 				return;
