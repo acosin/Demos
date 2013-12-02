@@ -17,7 +17,8 @@ CGame::~CGame()
 void CGame::LoadRes()
 {
 	_currentLevel=0;
-	
+	_isLevel1Fin=false;
+	_isLevel2Fin=false;
 	_Character=new Character;
 	_Music=new Music;
 	_SE=new SE;
@@ -37,7 +38,18 @@ void CGame::LoadRes()
 	_UI->Load();
 	_GS=GS_Playing;
 }
-
+void CGame::EnterLevel(int levelIndex)
+{
+	_currentLevel=levelIndex;
+	_MapLevel.append(new Map);
+	_MapLevel[_MapLevel.size()-1]->Load(_currentLevel);
+	_MapLevel[_MapLevel.size()-1]->Init();
+				
+	currentMap=_MapLevel[_MapLevel.size()-1];
+	_Character->Init(currentMap->_StartPos);
+	currentMap->SetCharacterIndex(_Character->m_Position);
+	currentMap->Init();
+}
 void CGame::Update(int deltaTime)
 {
 	_Character->_CS=idle;
@@ -64,7 +76,7 @@ void CGame::Update(int deltaTime)
 			_GS=GS_QUIT;
 		//current_States=S3E_POINTER_STATE_UP;
 	}
-	if(_GS==GS_QUIT)
+	if(_GS==GS_QUIT)//quit to lobby
 	{
 		if(_MapLevel.size()>0&&_currentLevel!=0)
 		{
@@ -78,7 +90,7 @@ void CGame::Update(int deltaTime)
 		currentMap->Init();
 		_GS=GS_Playing;
 	}
-	if(_GS==GS_Restart)
+	if(_GS==GS_Restart)//restart cur level
 	{
 		_Character->Init(currentMap->_StartPos);
 		currentMap->SetCharacterIndex(_Character->m_Position);
@@ -99,12 +111,12 @@ void CGame::Update(int deltaTime)
 		
 		}
 		currentMap->SetCharacterIndex(_Character->m_Position);
-		if(currentMap->CheckBlock())
+		if(currentMap->CheckBlock())// enter maze entrance
 		{
 			if(!currentMap->CheckMazePath())
 				return;
 		}
-		if(currentMap->CheckEndPoint())
+		if(currentMap->CheckEndPoint())// finish a level
 		{
 			_UI->m_EndPanel->SetVisible(true);
 			int tou=_UI->IsTouched();
@@ -113,6 +125,10 @@ void CGame::Update(int deltaTime)
 				delete _MapLevel[_MapLevel.size()-1];
 				_MapLevel.pop_back();
 				int door_Index=_MapLevel[0]->m_doors[_currentLevel-1];
+				if(_currentLevel==1)
+					_isLevel1Fin=true;
+				if(_currentLevel==2)
+					_isLevel2Fin=true;
 				_currentLevel=0;
 
 				currentMap=_MapLevel[_currentLevel];
@@ -129,17 +145,36 @@ void CGame::Update(int deltaTime)
 		if(_currentLevel==0)
 		{
 			int doorIndex=currentMap->CheckDoor()+1;
-			if(doorIndex>0)
+			//1st level->1st & 2nd level->all levels
+			if(!_isLevel1Fin)
 			{
-				_currentLevel=doorIndex;
-				_MapLevel.append(new Map);
-				_MapLevel[_MapLevel.size()-1]->Load(_currentLevel);
-				_MapLevel[_MapLevel.size()-1]->Init();
-				
-				currentMap=_MapLevel[_MapLevel.size()-1];
-				_Character->Init(currentMap->_StartPos);
-				currentMap->SetCharacterIndex(_Character->m_Position);
-				currentMap->Init();
+				if(doorIndex==1)
+				{
+					EnterLevel(1);
+				}
+				else if(doorIndex>0)
+				{
+					//pop text box tell player that it is wrong entry
+				}
+			}
+			else if(!_isLevel2Fin)//enter a level
+			{
+				if(doorIndex==1)
+				{
+					EnterLevel(1);
+				}
+				else if(doorIndex==2)
+				{
+					EnterLevel(2);
+				}
+				else if(doorIndex>0)
+				{
+					//pop text box tell player that it is wrong entry
+				}
+			}
+			else if(doorIndex>0)
+			{
+				EnterLevel(doorIndex);
 			}
 		}
 	

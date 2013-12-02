@@ -31,6 +31,7 @@ public:
 
 	// loading images from resource
 	void LoadRes();
+	void EnterLevel(int levelIndex);
 private:
 	CIwArray<Map*> _MapLevel;
 	Map* currentMap;
@@ -38,7 +39,8 @@ private:
 	Music* _Music;
 	SE* _SE;
 	UI* _UI;
-	
+	bool _isLevel1Fin;
+	bool _isLevel2Fin;
 	int _currentLevel;
 	int _GS;
 };
