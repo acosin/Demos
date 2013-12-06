@@ -102,19 +102,31 @@ void Map::Load(char * mapFileName)
 	for(int i=0;i!=_NPCIndex.size();i++)
 	{
 		NPC* _npc=new NPC;
-		switch(_DialogIndex[i])
+		
+		for(int j=0;j!=_Dialogs.size();j++)
 		{
-		case 2:
-			_npc->m_Dialogs.append("We have been waiting for someone to help for a while now.");
-			break;
-		case 3:
-			_npc->m_Dialogs.append("Will it be you?");
-			break;
-		case 6:
-			_npc->m_Dialogs.append("Do you think you can help us? It would not take up too much of your time.");
-			break;
+			if(_NPCIndex[i]==_DialogIndex[j])
+				_npc->m_Dialogs.append(_Dialogs[j]);
 		}
+
+		//switch(_NPCIndex[i])
+		//{
+		//case 2:
+		//	_npc->m_Dialogs.append("We have been waiting for someone to help for a while now.");
+
+		//	//_npc->Init(_NPCPos[_DialogIndex.find(2)]);
+		//	break;
+		//case 3:
+		//	_npc->m_Dialogs.append("Will it be you?");
+		//	//_npc->Init(_NPCPos[2]);
+		//	break;
+		//case 6:
+		//	_npc->m_Dialogs.append("Do you think you can help us? It would not take up too much of your time.");
+		//	//_npc->Init(_NPCPos[1]);
+		//	break;
+		//}
 		_npc->Init(_NPCPos[i]);
+		std::cout<<"DialogIndex:"<<_npc->m_Dialogs[0]<<" pos:"<<_npc->m_Index<<std::endl;
 		_NPCs.append(_npc);
 	}
 	/*for(int i=0;i!=_total;i++)
@@ -154,6 +166,7 @@ void Map::Load(char * mapFileName)
 
 void Map::Init()
 {
+	m_rotateCount=0;
 	touchedNPC=-1;
 	_blocked=false;
 	_path=new Path;
@@ -169,6 +182,7 @@ void Map::Init()
 }
 void Map::Init(int pos[2])
 {
+	m_rotateCount=0;
 	touchedNPC=-1;
 	_blocked=false;
 	_path=new Path;
@@ -306,20 +320,45 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
+		else if(CharCMP(name,"0",sizeof("0")))
+		{
+			_Dialogs.append(propString);
+			_DialogIndex.append(0);
+		}
+		else if(CharCMP(name,"1",sizeof("1")))
+		{
+			_Dialogs.append(propString);
+			_DialogIndex.append(1);
+		}
 		else if(CharCMP(name,"2",sizeof("2")))
 		{
 			_Dialogs.append(propString);
 			_DialogIndex.append(2);
+		}
+		else if(CharCMP(name,"3",sizeof("3")))
+		{
+			_Dialogs.append(propString);
+			_DialogIndex.append(3);
+		}
+		else if(CharCMP(name,"4",sizeof("4")))
+		{
+			_Dialogs.append(propString);
+			_DialogIndex.append(4);
+		}
+		else if(CharCMP(name,"5",sizeof("5")))
+		{
+			_Dialogs.append(propString);
+			_DialogIndex.append(5);
 		}
 		else if(CharCMP(name,"6",sizeof("6")))
 		{
 			_Dialogs.append(propString);
 			_DialogIndex.append(6);
 		}
-		else if(CharCMP(name,"3",sizeof("3")))
+		else if(CharCMP(name,"7",sizeof("7")))
 		{
 			_Dialogs.append(propString);
-			_DialogIndex.append(3);
+			_DialogIndex.append(7);
 		}
 		else if(CharCMP(name,"NPCPos",sizeof("NPCPos")))
 		{
@@ -453,7 +492,6 @@ bool Map::CheckEndPoint()
 
 	return false;
 }
-
 
 bool Map::CheckMapEdge(CIwFVec2 &pos)
 {
@@ -758,6 +796,7 @@ void Map::Render(CIwSVec2 characterBox)
 		}
 		if(_blocked&&(_layer_maze->m_TileIndex[index_Touched]-_tileset_maze->m_firstGid)>=0)
 		{
+			m_rotateCount++;
 			m_tileRotating=true;
 			_TileDir[index_Touched]+=1;
 			if(_TileDir[index_Touched]==4)

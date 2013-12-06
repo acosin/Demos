@@ -1,6 +1,0 @@
-build "ARM GCC Release"
-outdir "//vmwfil03/students$/1106786/desktop"
-!task !name "Default:android" "Package"
-!config !name "Default"
-!config <os> "android"
-configlist "Default",

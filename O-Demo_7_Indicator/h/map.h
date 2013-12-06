@@ -35,12 +35,15 @@ public:
 	bool CheckCollision(CIwFVec2 characterPos,CIwSVec2 characterBox,CIwFVec2 &target,CIwFVec2 characterPrePos);
 	bool CheckMazeTileConn(int index_1,int openDir,int index_2);
 	int CheckNPC(int touchIndex);
+	int GetCharaIndex(){return _characterIndex;}
+	int GetMazeExitIndex(){return mapEndIndex.back();}
 	int _StartPos[2];
 	CIwArray<int> m_doors;
 	char* m_filename;
 	bool m_tileRotating;
 	int _height;
 	int _width;
+	int m_rotateCount;
 private:
 	int screenHeight;
 	int screenWidth;
@@ -83,6 +86,7 @@ private:
 	CIwArray<int> _NPCPos;
 	CIwArray<int> _DialogIndex;
 	CIwArray<char*> _Dialogs;
+	
 };
 
 #endif
