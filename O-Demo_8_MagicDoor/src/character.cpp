@@ -24,10 +24,10 @@ void Character::Load()
 	//_Size=CIwSVec2(_image->GetWidth(),_image->GetHeight());
 	m_CollisionBox=CIwSVec2(_anima_idle->_frameSize.x/2,_anima_idle->_frameSize.y/4);
 }
-void Character::Init(int startPoint[])
+void Character::Init(CIwSVec2 mapPos)
 {
 	_CS=idle;
-	m_Target=m_Position=CIwFVec2(startPoint[0]*64,startPoint[1]*64);//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	m_Target=m_Position=CIwFVec2((float)mapPos.x,(float)mapPos.y);
 }
 
 void Character::Render(CIwFVec2 mapPos)

@@ -51,7 +51,7 @@ void CGame::LoadRes()
 	//load character img
 	_Character->Load();
 	currentMap=_MapLevel[_currentLevel];
-	_Character->Init(currentMap->_StartPos);
+	_Character->Init(currentMap->m_startPos);
 	currentMap->Init();
 	currentMap->m_isLobby=true;
 	currentMap->m_openedDoor.append(true);
@@ -84,7 +84,8 @@ void CGame::EnterLevel(int levelIndex)
 	_MapLevel[_MapLevel.size()-1]->Init();
 				
 	currentMap=_MapLevel[_MapLevel.size()-1];
-	_Character->Init(currentMap->_StartPos);
+	//int pos[2]={currentMap->_indicator->m_StartPoint%currentMap->_width}
+	_Character->Init(currentMap->m_startPos);
 	currentMap->SetCharacterIndex(_Character->m_Position);
 	currentMap->Init();
 	if(_currentLevel==0)
@@ -226,7 +227,7 @@ void CGame::Update(int deltaTime)
 			_currentLevel=0;
 			currentMap=_MapLevel[_currentLevel];
 
-			_Character->Init(currentMap->_StartPos);
+			_Character->Init(currentMap->m_startPos);
 			currentMap->SetCharacterIndex(_Character->m_Position);
 			currentMap->Init();
 			_GS=GS_Playing;
@@ -242,7 +243,7 @@ void CGame::Update(int deltaTime)
 		if(btnYES)
 		{
 			
-			_Character->Init(currentMap->_StartPos);
+			_Character->Init(currentMap->m_startPos);
 			currentMap->SetCharacterIndex(_Character->m_Position);
 			currentMap->Init();
 			_GS=GS_Playing;
@@ -318,11 +319,9 @@ void CGame::OnPlaying(int deltaTime)
 		int tou=_UI->IsTouched();
 		if(tou==BTN_E_RETURN)
 		{
-			//delete _MapLevel[_MapLevel.size()-1];
-			//std::cout<<"mapsize:"<<_MapLevel.size()<<std::endl;
 			_MapLevel.pop_back();
-			std::cout<<"doorsize:"<<_MapLevel[0]->_indicator->GetDoorPos(_currentLevel)<<":"<<_currentLevel<<std::endl;
-			int door_Index=_MapLevel[0]->_indicator->GetDoorPos(_currentLevel);//change here!!!!!!!!!!!!!!!!!!!!!!!!!
+			std::cout<<"door:"<<_MapLevel[0]->_indicator->GetDoorPos(_currentLevel)<<":"<<_currentLevel<<std::endl;
+			int door_Index=_MapLevel[0]->_indicator->GetDoorPos(_currentLevel);
 			if(_currentLevel==1)
 				_MapLevel[0]->m_openedDoor[_currentLevel]=true;
 			else if(_currentLevel==2)
@@ -340,10 +339,9 @@ void CGame::OnPlaying(int deltaTime)
 
 			currentMap=_MapLevel[_currentLevel];
 			int pos[2]={door_Index%currentMap->_width+2,door_Index/currentMap->_width+4};
-			//_Character->Init(currentMap->_StartPos);
-			_Character->Init(pos);
+			CIwSVec2 p=CIwSVec2(pos[0]*64,pos[1]*64);
+			_Character->Init(p);
 			currentMap->SetCharacterIndex(_Character->m_Position);
-			//currentMap->Init();
 			currentMap->Init(pos);
 		}
 		else
@@ -370,7 +368,6 @@ void CGame::OnPlaying(int deltaTime)
 		}
 		if(!currentMap->CheckMapEdge())
 			_Character->m_Target=_Character->m_Position;
-
 		else
 		{
 			if(_Character->m_Target.x<_Character->m_Position.x-currentMap->m_Position.x)

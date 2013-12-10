@@ -70,6 +70,16 @@ void Indicator::Init(cJSON* tileset,cJSON* layer)
 					s.startPos=atoi(proper->valuestring);
 					std::cout<<index<<":"<<s.door<<std::endl;
 				}
+				else if(CharCMP(proper->string, "Map",sizeof("Map")))
+				{
+					s.map=atoi(proper->valuestring);
+					std::cout<<index<<":"<<s.door<<std::endl;
+				}
+				else if(CharCMP(proper->string, "Maze",sizeof("Maze")))
+				{
+					s.maze=atoi(proper->valuestring);
+					std::cout<<index<<":"<<s.door<<std::endl;
+				}
 			}
 			m_tileProp.append(s);
 		}
@@ -104,13 +114,30 @@ int Indicator::CheckProp(int index,int pos)
 		if(m_tileProp[i].index==index)
 		{
 			res=1;
-			m_DoorPos.append(pos);
-			m_DoorOrder.append(m_tileProp[i].door);
-			m_DoorPos.append(pos+1);
-			m_DoorOrder.append(m_tileProp[i].door);
-			m_DoorIndicator.append(pos-87);//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			m_DoorIndicOrder.append(m_tileProp[i].door);
-			std::cout<<m_tileProp[i].door<<":"<<pos<<std::endl;
+			if(m_tileProp[i].door>=0)
+			{
+				m_DoorPos.append(pos);
+				m_DoorOrder.append(m_tileProp[i].door);
+				m_DoorPos.append(pos+1);
+				m_DoorOrder.append(m_tileProp[i].door);
+				m_DoorIndicator.append(pos-87);//hard code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				m_DoorIndicOrder.append(m_tileProp[i].door);
+				std::cout<<m_tileProp[i].door<<":"<<pos<<std::endl;
+			}
+			if(m_tileProp[i].startPos>=0)
+			{
+				m_StartPoint=pos;
+			}
+			if(m_tileProp[i].map>=0)
+			{
+				m_Map.append(pos);
+				m_MapOrder.append(m_tileProp[i].map);
+			}
+			if(m_tileProp[i].maze>=0)
+			{
+				m_Maze.append(pos);
+				m_MazeOrder.append(m_tileProp[i].maze);
+			}
 		}
 	}
 	return res;

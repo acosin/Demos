@@ -9,19 +9,24 @@ struct Properties
 	int index;
 	int startPos;
 	int door;
-	int mazeIn;
-	int mazeOut;
-	int mapIn;
-	int mapOut;
-	void init(){index=-1;door=-1;}
+	int maze;
+	int map;
+	void init(){index=-1;door=-1;startPos=-1;maze=-1;map=-1;}
 };
 
 class Indicator
 {
 public:
-	~Indicator(){m_Blocks.clear_optimised();m_NPCS.clear_optimised();m_MazeEnter.clear_optimised();}
+	~Indicator(){m_Blocks.clear_optimised();m_NPCS.clear_optimised();
+			m_Maze.clear_optimised();m_MazeOrder.clear_optimised();
+			m_Map.clear_optimised();m_MapOrder.clear_optimised();
+			m_DoorPos.clear_optimised();m_DoorOrder.clear_optimised();
+			m_DoorIndicator.clear_optimised();m_DoorIndicOrder.clear_optimised();}
 	CIwArray<int> m_Blocks;
-	CIwArray<int> m_MazeEnter;
+	CIwArray<int> m_Maze;
+	CIwArray<int> m_MazeOrder;
+	CIwArray<int> m_Map;
+	CIwArray<int> m_MapOrder;
 	CIwArray<int> m_NPCS;
 	CIwArray<int> m_DoorPos;
 	CIwArray<int> m_DoorOrder;

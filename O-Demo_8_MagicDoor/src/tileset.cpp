@@ -15,7 +15,7 @@ void TileSet::Init(cJSON* tileset)
 {
 	_defaultTU=new TileUnit;
 	bool b[4]={false,false,false,false};//non-blocking border
-	_defaultTU->Init(b,false,false,false);
+	_defaultTU->Init(b,false);
 	m_firstGid=cJSON_GetObjectItem(tileset,"firstgid")->valueint;
 	_filename=cJSON_GetObjectItem(tileset,"image")->valuestring;
 	_imageHeight=cJSON_GetObjectItem(tileset,"imageheight")->valueint;
@@ -56,14 +56,6 @@ void TileSet::Init(cJSON* tileset)
 						if(border[i*2]=='0')
 							b[i]=true;//blocking border
 				}
-				else if(CharCMP(proper->string, "Door",sizeof("Door")))
-				{
-					isDoor=true;
-				}
-				else if(CharCMP(proper->string, "EndPoint",sizeof("EndPoint")))
-				{
-					isEndPoint=true;
-				}
 				else if(CharCMP(proper->string, "NPC",sizeof("NPC")))
 				{
 					isNPC=true;
@@ -73,9 +65,9 @@ void TileSet::Init(cJSON* tileset)
 		
 			TileUnit tu;
 			if(isNPC)
-				tu.Init(b,isDoor,isEndPoint,isNPC,NPCindex);
+				tu.Init(b,isNPC,NPCindex);
 			else
-				tu.Init(b,isDoor,isEndPoint,isNPC);
+				tu.Init(b,isNPC);
 			m_TileUnitsKey.append(index);
 			m_TileUnits.append(tu);
 		}

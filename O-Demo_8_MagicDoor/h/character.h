@@ -28,7 +28,7 @@ public:
 	Character(CIwFVec2 mapPos);
 	~Character(){}
 	void Load();
-	void Init(int startPoint[]);
+	void Init(CIwSVec2 mapPos);
 	void Update(int deltaTime);
 	void Render(CIwFVec2 mapPos);
 	void Animation();

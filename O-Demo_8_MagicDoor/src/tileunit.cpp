@@ -1,18 +1,14 @@
 #include "tileunit.h"
 #include <iostream>
-void TileUnit::Init(bool border[],bool isDoor,bool isEndPoint,bool isNPC,int NPCindex)
+void TileUnit::Init(bool border[],bool isNPC,int NPCindex)
 {
 	memcpy(m_border,border,sizeof(border));
-	m_isDoor=isDoor;
-	m_isEndPoint=isEndPoint;
 	m_isNPC=isNPC;
 	m_NPCIndex=NPCindex;
 }
-void TileUnit::Init(bool border[],bool isDoor,bool isEndPoint,bool isNPC)
+void TileUnit::Init(bool border[],bool isNPC)
 {
 	memcpy(m_border,border,sizeof(border));
-	m_isDoor=isDoor;
-	m_isEndPoint=isEndPoint;
 	m_isNPC=isNPC;
 	m_NPCIndex=-1;
 }

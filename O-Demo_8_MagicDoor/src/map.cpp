@@ -3,7 +3,7 @@
 #include <iostream>
 #include "s3ePointer.h"
 #include "s3eFile.h"
-
+#include <sstream>
 Map::~Map()
 {
 	delete _layer_base;
@@ -83,7 +83,6 @@ void Map::Load(char * mapFileName)
 {
 	int temp[2]={0,0};
 	_doorImg=Iw2DCreateImageResource("Door");
-	memcpy(_StartPos,temp,sizeof(temp));
 	showDialog=-1;
 	screenHeight= IwGxGetScreenHeight();
 	screenWidth=IwGxGetScreenWidth();
@@ -97,6 +96,7 @@ void Map::Load(char * mapFileName)
 	_path=new Path;
 	ReadJsonFile(mapFileName);
 	_characterPreIndex=0;
+	m_startPos=CIwSVec2(_indicator->m_StartPoint%_width*_tileWidth,_indicator->m_StartPoint/_width*_tileHeight);
 	for(int i=0;i!=_NPCIndex.size();i++)
 	{
 		NPC* _npc=new NPC;
@@ -162,14 +162,16 @@ void Map::Load(char * mapFileName)
 	//_EventBlock.append(4322);
 }
 
-void Map::Init()
+void Map::Init()//start position
 {
 	m_rotateCount=0;
 	touchedNPC=-1;
 	_blocked=false;
 	_path=new Path;
 	mazeFinished=0;
-	m_Position=CIwFVec2(_StartPos[0]*_tileWidth-Iw2DGetSurfaceWidth()/2.0f,_StartPos[1]*_tileHeight-Iw2DGetSurfaceHeight()/2.0f);
+
+	//int pos[2]={_indicator->m_StartPoint%_width,_indicator->m_StartPoint/_width};
+	m_Position=CIwFVec2(m_startPos.x-Iw2DGetSurfaceWidth()/2.0f,m_startPos.y-Iw2DGetSurfaceHeight()/2.0f);
 	m_tileRotating=false;
 	_TileDir.clear_optimised();
 	
@@ -347,12 +349,6 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
-		else if(CharCMP(name,"StartPoint",sizeof("StartPoint")))
-		{
-			_StartPos[0]=atoi(chars_array);
-			chars_array = strtok(NULL, ",");
-			_StartPos[1]=atoi(chars_array);
-		}
 		else if(CharCMP(name,"emaze",sizeof("emaze")))
 		{
 			while(chars_array)
@@ -385,6 +381,19 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
+		//else
+		//{
+		//	for(int j=0;j!=8;j++)
+		//	{
+		//		int na=atoi(name);
+		//		if(na==j)
+		//		{
+		//			_Dialogs.append(propString);
+		//			_DialogIndex.append(j);
+		//			break;
+		//		}
+		//	}
+		//}
 	}
 
 	_total=_height*_width;

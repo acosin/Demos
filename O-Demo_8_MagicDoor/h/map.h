@@ -39,7 +39,7 @@ public:
 	int GetCharaIndex(){return _characterIndex;}
 	int GetMazeExitIndex(){return mapEndIndex.back();}
 	void RenderOpenedDoor();
-	int _StartPos[2];
+	CIwSVec2 m_startPos;
 	char* m_filename;
 	bool m_tileRotating;
 	int _height;
