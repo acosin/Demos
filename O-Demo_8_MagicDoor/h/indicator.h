@@ -23,13 +23,18 @@ public:
 			m_DoorPos.clear_optimised();m_DoorOrder.clear_optimised();
 			m_DoorIndicator.clear_optimised();m_DoorIndicOrder.clear_optimised();}
 	CIwArray<int> m_Blocks;
+
 	CIwArray<int> m_Maze;
 	CIwArray<int> m_MazeOrder;
+
 	CIwArray<int> m_Map;
 	CIwArray<int> m_MapOrder;
+
 	CIwArray<int> m_NPCS;
+
 	CIwArray<int> m_DoorPos;
 	CIwArray<int> m_DoorOrder;
+
 	CIwArray<int> m_DoorIndicator;
 	CIwArray<int> m_DoorIndicOrder;
 	int _height;
@@ -45,5 +50,7 @@ public:
 	int IsDoor(int index);
 	int GetDoorPos(int index);
 	CIwSVec2 IndexToPos(int index);
+	int GetMazePos(int index);
+	int GetMapPos(int index);
 };
 #endif

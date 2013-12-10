@@ -142,6 +142,24 @@ int Indicator::CheckProp(int index,int pos)
 	}
 	return res;
 }
+int Indicator::GetMapPos(int index)
+{
+	int i=m_MapOrder.find(index);
+	if(i>=0)
+	{
+		return m_Map[i];
+	}
+	return -1;
+}
+int Indicator::GetMazePos(int index)
+{
+	int i=m_MazeOrder.find(index);
+	if(i>=0)
+	{
+		return m_Maze[i];
+	}
+	return -1;
+}
 int Indicator::IsDoor(int index)
 {
 	int i=m_DoorPos.find(index);

@@ -281,15 +281,8 @@ void Map::ReadJsonFile(char * filename)
 		char* name=prop->string;
 
 		char* chars_array = strtok(propString, ",");
-		if(CharCMP(name,"Block",sizeof("Block")))
-		{
-			while(chars_array)
-			{
-				_EventBlock.append(atoi(chars_array));
-				chars_array = strtok(NULL, ",");
-			}
-		}
-		else if(CharCMP(name,"BG",sizeof("BG")))
+
+		if(CharCMP(name,"BG",sizeof("BG")))
 		{
 			_BGImage=Iw2DCreateImageResource(propString);
 		}
@@ -300,46 +293,6 @@ void Map::ReadJsonFile(char * filename)
 				_NPCIndex.append(atoi(chars_array));
 				chars_array = strtok(NULL, ",");
 			}
-		}
-		else if(CharCMP(name,"0",sizeof("0")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(0);
-		}
-		else if(CharCMP(name,"1",sizeof("1")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(1);
-		}
-		else if(CharCMP(name,"2",sizeof("2")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(2);
-		}
-		else if(CharCMP(name,"3",sizeof("3")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(3);
-		}
-		else if(CharCMP(name,"4",sizeof("4")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(4);
-		}
-		else if(CharCMP(name,"5",sizeof("5")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(5);
-		}
-		else if(CharCMP(name,"6",sizeof("6")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(6);
-		}
-		else if(CharCMP(name,"7",sizeof("7")))
-		{
-			_Dialogs.append(propString);
-			_DialogIndex.append(7);
 		}
 		else if(CharCMP(name,"NPCPos",sizeof("NPCPos")))
 		{
@@ -381,19 +334,19 @@ void Map::ReadJsonFile(char * filename)
 				chars_array = strtok(NULL, ",");
 			}
 		}
-		//else
-		//{
-		//	for(int j=0;j!=8;j++)
-		//	{
-		//		int na=atoi(name);
-		//		if(na==j)
-		//		{
-		//			_Dialogs.append(propString);
-		//			_DialogIndex.append(j);
-		//			break;
-		//		}
-		//	}
-		//}
+		else
+		{
+			for(int j=0;j!=8;j++)
+			{
+				int na=atoi(name);
+				if(na==j)
+				{
+					_Dialogs.append(propString);
+					_DialogIndex.append(j);
+					break;
+				}
+			}
+		}
 	}
 
 	_total=_height*_width;
@@ -431,10 +384,14 @@ void Map::SetCharacterIndex(CIwFVec2 characterPos)
 bool Map::CheckBlock()
 {
 	_blocked= false;
-	if(_EventBlock.empty())
+	if(_indicator->m_Map.empty())
 		_blocked= false;
-	else if(mazeFinished<_EventBlock.size()&&_EventBlock[mazeFinished]==_characterIndex&&(_layer_maze->m_TileIndex[_characterPreIndex]-_tileset_maze->m_firstGid)<0)
+	else if(mazeFinished<_indicator->m_Map.size()&&_indicator->GetMapPos(mazeFinished+1)==_characterIndex&&(_layer_maze->m_TileIndex[_characterPreIndex]-_tileset_maze->m_firstGid)<0)
 		_blocked=true;
+	//if(_EventBlock.empty())
+	//	_blocked= false;
+	//else if(mazeFinished<_EventBlock.size()&&_EventBlock[mazeFinished]==_characterIndex&&(_layer_maze->m_TileIndex[_characterPreIndex]-_tileset_maze->m_firstGid)<0)
+	//	_blocked=true;
 	return _blocked;
 }
 

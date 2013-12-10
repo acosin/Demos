@@ -66,20 +66,21 @@ private:
 	int _total;
 	int _tileHeight;
 	int _tileWidth;
-	CIwArray<int> _TileDir;
-	CIwArray<TileObstacle> _TileObstacles;
+	
 	int _characterPreIndex;
 	int _characterIndex;
 	int _index_Map_X;
 	int	_index_Map_Y;
-	CIwArray<int> _EventBlock;
-	
+
 	bool _border[4];
-	
+	CIwArray<int> _TileDir;
+	CIwArray<TileObstacle> _TileObstacles;
+
 	CIwArray<int> mazeEndIndex;
 	CIwArray<int> mapEndIndex;
 	CIwArray<int> mazeStartIndex;
 	CIwArray<int> mapStartIndex;
+
 	CIwArray<NPC*> _NPCs;
 	int mazeFinished;
 	bool _blocked;
