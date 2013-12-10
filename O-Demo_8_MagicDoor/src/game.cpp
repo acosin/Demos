@@ -53,8 +53,19 @@ void CGame::LoadRes()
 	currentMap=_MapLevel[_currentLevel];
 	_Character->Init(currentMap->_StartPos);
 	currentMap->Init();
+	currentMap->m_isLobby=true;
+	currentMap->m_openedDoor.append(true);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
+	currentMap->m_openedDoor.append(false);
 	_Music_1->Init("audios/music1.mp3");
-	_Music_2->Init("audios/music2.mp3");
+	_Music_2->Init("audios/game_loop.mp3");
 	_SE->Init();
 	_SE->AddSFX("footstep_L1");
 	_SE->AddSFX("footstep_R1");
@@ -67,6 +78,7 @@ void CGame::LoadRes()
 void CGame::EnterLevel(int levelIndex)
 {
 	_currentLevel=levelIndex;
+	
 	_MapLevel.append(new Map);
 	_MapLevel[_MapLevel.size()-1]->Load(_currentLevel);
 	_MapLevel[_MapLevel.size()-1]->Init();
@@ -75,6 +87,14 @@ void CGame::EnterLevel(int levelIndex)
 	_Character->Init(currentMap->_StartPos);
 	currentMap->SetCharacterIndex(_Character->m_Position);
 	currentMap->Init();
+	if(_currentLevel==0)
+	{
+		currentMap->m_isLobby=true;
+	}
+	else
+	{
+		currentMap->m_isLobby=false;
+	}
 }
 
 void CGame::TutCheckCondition(int deltaTime)
@@ -166,7 +186,7 @@ void CGame::Update(int deltaTime)
 		else if(btn_id==BTN_E_RESTART)
 		{	_GS=GS_Restart;	std::cout<<"E_RS"<<std::endl;}
 		else if(btn_id==BTN_E_RETURN)
-			_GS=GS_Playing;
+			_GS=GS_RETURN;
 		else if(btn_id==BTN_P_MUSIC)
 			_GS=GS_Playing;
 		else if(btn_id==BTN_P_QUIT)
@@ -176,6 +196,11 @@ void CGame::Update(int deltaTime)
 		else if(btn_id==BTN_V_CANCEL)
 			btnCancel=true;
 		//current_States=S3E_POINTER_STATE_UP;
+	}
+	if(_GS==GS_RETURN)
+	{
+		_timeLevelCost=0;
+		_GS=GS_Playing;
 	}
 	if(_GS==GS_QUIT)//quit to lobby
 	{
@@ -263,7 +288,7 @@ void CGame::OnPlaying(int deltaTime)
 		if(!currentMap->CheckMazePath())
 			return;
 	}
-	if(currentMap->CheckEndPoint())// finish a level
+	if(_currentLevel>0&&currentMap->CheckEndPoint())// finish a level
 	{
 		_levelFinish=true;
 		if(!_setEndingText)
@@ -293,14 +318,28 @@ void CGame::OnPlaying(int deltaTime)
 		int tou=_UI->IsTouched();
 		if(tou==BTN_E_RETURN)
 		{
-			delete _MapLevel[_MapLevel.size()-1];
+			//delete _MapLevel[_MapLevel.size()-1];
+			//std::cout<<"mapsize:"<<_MapLevel.size()<<std::endl;
 			_MapLevel.pop_back();
-			int door_Index=_MapLevel[0]->m_doors[_currentLevel-1];
-
+			std::cout<<"doorsize:"<<_MapLevel[0]->_indicator->GetDoorPos(_currentLevel)<<":"<<_currentLevel<<std::endl;
+			int door_Index=_MapLevel[0]->_indicator->GetDoorPos(_currentLevel);//change here!!!!!!!!!!!!!!!!!!!!!!!!!
+			if(_currentLevel==1)
+				_MapLevel[0]->m_openedDoor[_currentLevel]=true;
+			else if(_currentLevel==2)
+			{
+				_MapLevel[0]->m_openedDoor[2]=true;
+				_MapLevel[0]->m_openedDoor[3]=true;
+				_MapLevel[0]->m_openedDoor[4]=true;
+				_MapLevel[0]->m_openedDoor[5]=true;
+				_MapLevel[0]->m_openedDoor[6]=true;
+				_MapLevel[0]->m_openedDoor[7]=true;
+				_MapLevel[0]->m_openedDoor[8]=true;
+				_MapLevel[0]->m_openedDoor[9]=true;
+			}
 			_currentLevel=0;
 
 			currentMap=_MapLevel[_currentLevel];
-			int pos[2]={door_Index%currentMap->_width+1,door_Index/currentMap->_width+2};
+			int pos[2]={door_Index%currentMap->_width+2,door_Index/currentMap->_width+4};
 			//_Character->Init(currentMap->_StartPos);
 			_Character->Init(pos);
 			currentMap->SetCharacterIndex(_Character->m_Position);
@@ -312,7 +351,7 @@ void CGame::OnPlaying(int deltaTime)
 	}
 	if(_currentLevel==0)
 	{
-		int doorIndex=currentMap->CheckDoor()+1;
+		int doorIndex=currentMap->CheckDoor();
 		//1st level->1st & 2nd level->all levels
 		if(doorIndex>0)
 			EnterLevel(doorIndex);
@@ -380,7 +419,7 @@ void CGame::OnPlaying(int deltaTime)
 		_Character->m_Position=_Character->m_Target;
 		currentMap->m_Position=_Character->m_Target;
 	}*/
-		
+	
 	_Character->m_TargetOnScreen=_Character->m_Target-currentMap->m_Position;
 	_Character->m_PositionPrev=_Character->m_Position;
 	currentMap->m_PositionPrev=currentMap->m_Position;
@@ -484,13 +523,13 @@ void CGame::Render()
 	_Character->Render(currentMap->m_Position);
 	_UI->Render();
 	if(_firstLaunch)
-		Iw2DDrawImage(_imageTut[0],CIwSVec2(300,300));
+		Iw2DDrawImage(_imageTut[0],CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
 	if(_currentLevel==1&&_firstLaunchLevel1)
-		Iw2DDrawImage(_imageTut[1],CIwSVec2(300,300));
+		Iw2DDrawImage(_imageTut[1],CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
 	if(_enterDoor)
-		Iw2DDrawImage(_imageTut[2],CIwSVec2(300,300));
+		Iw2DDrawImage(_imageTut[2],CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
 	if(_mazeFinish)
-		Iw2DDrawImage(_imageTut[3],CIwSVec2(300,300));
+		Iw2DDrawImage(_imageTut[3],CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
     // show the surface
     Iw2DSurfaceShow();
 }

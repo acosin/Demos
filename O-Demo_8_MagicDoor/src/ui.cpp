@@ -13,39 +13,43 @@ void UI::Load()
 
 	m_PausePanel=new Panel;
 	m_PausePanel->Load();
-	m_PausePanel->Load("Pause menu",CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80));
+	m_PausePanel->Load("Pause menu",CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
 	//m_PausePanel->SetBG(CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80),CIwSVec2(150,150),0x88888888);
 	//m_PausePanel->SetText("Menu",CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2-80),2,0x00008800);
 
 
 	Button *m_btnMusic=new Button;
 	m_btnMusic->m_id=BTN_P_MUSIC;
-	m_btnMusic->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2-64),CIwSVec2(100,20),0xffff0000);
-	m_btnMusic->SetText("Music",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2-60),CIwSVec2(64,64),0xff00ff00);
+	m_btnMusic->Load("music button",CIwSVec2(Iw2DGetSurfaceWidth()/2-176,Iw2DGetSurfaceHeight()/2-240));
+	//m_btnMusic->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2-64),CIwSVec2(100,20),0xffff0000);
+	//m_btnMusic->SetText("Music",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2-60),CIwSVec2(64,64),0xff00ff00);
 	m_PausePanel->m_btns.append(m_btnMusic);
 
 	Button *m_btnRestart=new Button;
 	m_btnRestart->m_id=BTN_P_RESTART;
-	m_btnRestart->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2-32),CIwSVec2(100,20),0xffff0000);
-	m_btnRestart->SetText("Restart",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2-28),CIwSVec2(64,64),0xff00ff00);
+	m_btnRestart->Load("BTN_Restart",CIwSVec2(Iw2DGetSurfaceWidth()/2-176,Iw2DGetSurfaceHeight()/2-120));
+	//m_btnRestart->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2-32),CIwSVec2(100,20),0xffff0000);
+	//m_btnRestart->SetText("Restart",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2-28),CIwSVec2(64,64),0xff00ff00);
 	m_PausePanel->m_btns.append(m_btnRestart);
 
 	Button *m_btnReturn=new Button;
 	m_btnReturn->m_id=BTN_P_RETURN;
-	m_btnReturn->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2),CIwSVec2(100,20),0xffff0000);
-	m_btnReturn->SetText("Continue",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+4),CIwSVec2(64,64),0xff00ff00);
+	m_btnReturn->Load("continue button",CIwSVec2(Iw2DGetSurfaceWidth()/2-176,Iw2DGetSurfaceHeight()/2));
+	//m_btnReturn->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2),CIwSVec2(100,20),0xffff0000);
+	//m_btnReturn->SetText("Continue",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+4),CIwSVec2(64,64),0xff00ff00);
 	m_PausePanel->m_btns.append(m_btnReturn);
 
 	Button *m_btnQuit=new Button;
 	m_btnQuit->m_id=BTN_P_QUIT;
-	m_btnQuit->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2+32),CIwSVec2(100,20),0xffff0000);
-	m_btnQuit->SetText("Quit",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+36),CIwSVec2(64,64),0xff00ff00);
+	m_btnQuit->Load("quit button",CIwSVec2(Iw2DGetSurfaceWidth()/2-176,Iw2DGetSurfaceHeight()/2+120));
+	//m_btnQuit->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+64,Iw2DGetSurfaceHeight()/2+32),CIwSVec2(100,20),0xffff0000);
+	//m_btnQuit->SetText("Quit",CIwSVec2(Iw2DGetSurfaceWidth()/2+66,Iw2DGetSurfaceHeight()/2+36),CIwSVec2(64,64),0xff00ff00);
 	m_PausePanel->m_btns.append(m_btnQuit);
 
 	
 	m_EndPanel=new Panel;
 	//m_EndPanel->Load();
-	m_EndPanel->Load("end screen",CIwSVec2(Iw2DGetSurfaceWidth()/2-180,Iw2DGetSurfaceHeight()/2-80));
+	m_EndPanel->Load("level complete",CIwSVec2(Iw2DGetSurfaceWidth()/2-300,Iw2DGetSurfaceHeight()/2-320));
 	//m_EndPanel->SetBG(CIwSVec2(Iw2DGetSurfaceWidth()/2-200,Iw2DGetSurfaceHeight()/2-80),CIwSVec2(400,300),0x88888888);
 	//m_EndPanel->SetText("Level Cleared",CIwSVec2(Iw2DGetSurfaceWidth()/2-50,Iw2DGetSurfaceHeight()/2-70),2,0x00008800);
 	std::string t;
@@ -54,14 +58,14 @@ void UI::Load()
 
 	Button *m_btnEndRestart=new Button;
 	m_btnEndRestart->m_id=BTN_E_RESTART;
-	m_btnEndRestart->Load("restart button",CIwSVec2(Iw2DGetSurfaceWidth()/2-140,Iw2DGetSurfaceHeight()/2+100));
+	m_btnEndRestart->Load("restart button",CIwSVec2(Iw2DGetSurfaceWidth()/2-270,Iw2DGetSurfaceHeight()/2+100));
 	//m_btnEndRestart->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2-154,Iw2DGetSurfaceHeight()/2+180),CIwSVec2(100,20),0xffff0000);
 	///m_btnEndRestart->SetText("Restart",CIwSVec2(Iw2DGetSurfaceWidth()/2-150,Iw2DGetSurfaceHeight()/2+184),CIwSVec2(64,64),0xff00ff00);
 	m_EndPanel->m_btns.append(m_btnEndRestart);
 
 	Button *m_btnEndReturn=new Button;
 	m_btnEndReturn->m_id=BTN_E_RETURN;
-	m_btnEndReturn->Load("return button",CIwSVec2(Iw2DGetSurfaceWidth()/2,Iw2DGetSurfaceHeight()/2+100));
+	m_btnEndReturn->Load("return button",CIwSVec2(Iw2DGetSurfaceWidth()/2+20,Iw2DGetSurfaceHeight()/2+100));
 	//m_btnEndReturn->SetBG(RECT,CIwSVec2(Iw2DGetSurfaceWidth()/2+50,Iw2DGetSurfaceHeight()/2+180),CIwSVec2(100,20),0xffff0000);
 	//m_btnEndReturn->SetText("Continue",CIwSVec2(Iw2DGetSurfaceWidth()/2+54,Iw2DGetSurfaceHeight()/2+184),CIwSVec2(64,64),0xff00ff00);
 	m_EndPanel->m_btns.append(m_btnEndReturn);

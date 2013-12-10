@@ -1,29 +1,36 @@
 CIwResGroup
 {
 	name "Level_1"
-	// textures
+	// levels
 	"textures/red tileset.png"
 	"textures/RotationTiles.png"
 	"textures/background test.png"
 	"textures/indicator.png"
-	"textures/anima/down.png"
-	"textures/anima/up.png"
-	"textures/anima/idle.png"
-	"textures/anima/right.png"
-	"textures/anima/left.png"
+	"textures/Door.png"
+	//characters
+	"anima/down.png"
+	"anima/up.png"
+	"anima/idle.png"
+	"anima/right.png"
+	"anima/left.png"
+
+	//tutorial text
 	"textures/tuttext_1.png"
 	"textures/tuttext_2.png"
 	"textures/tuttext_3.png"
 	"textures/tuttext_4.png"
-	"textures/pause button.png"
-	"textures/end screen.png"
-	"textures/restart button.png"
-	"textures/return button.png"
-	"textures/Verif.png"
-	"textures/Pause menu.png"
-
+	
 	// UI
-	"ui/pause.png"
+	"ui/pause button.png"
+	"ui/level complete.png"
+	"ui/restart button.png"
+	"ui/return button.png"
+	"ui/continue button.png"
+	"ui/music button.png"
+	"ui/quit button.png"
+	"ui/Verif.png"
+	"ui/Pause menu.png"
+	"ui/BTN_Restart.png"
 
 	// sounds WAV files
 	"audios/test_footstep_left_01_PCM.wav"

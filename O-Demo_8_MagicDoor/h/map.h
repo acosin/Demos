@@ -38,27 +38,29 @@ public:
 	int CheckNPC(int touchIndex);
 	int GetCharaIndex(){return _characterIndex;}
 	int GetMazeExitIndex(){return mapEndIndex.back();}
+	void RenderOpenedDoor();
 	int _StartPos[2];
-	CIwArray<int> m_doors;
 	char* m_filename;
 	bool m_tileRotating;
 	int _height;
 	int _width;
 	int m_rotateCount;
-	
+	CIwArray<int> m_openedDoor;
+	bool m_isLobby;
+	Indicator* _indicator;
 private:
+	CIw2DImage* _doorImg;
 	int screenHeight;
 	int screenWidth;
     CIwSVec2 _size; // character size
 	Layer* _layer_base;
 	Layer* _layer_middle;
 	Layer* _layer_maze;
-	Layer* _layer_indi;
 	Layer* _layer_npc;
+
 	TileSet* _tileset_map;
 	TileSet* _tileset_maze;
-	TileSet* _tileset_indi;
-	Indicator* _indicator;
+
 	Path* _path;
 	
 	int _total;
@@ -71,7 +73,6 @@ private:
 	int _index_Map_X;
 	int	_index_Map_Y;
 	CIwArray<int> _EventBlock;
-	int _EndPos[2];
 	
 	bool _border[4];
 	

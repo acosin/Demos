@@ -9,15 +9,14 @@ Map::~Map()
 	delete _layer_base;
 	delete _layer_middle;
 	delete _layer_maze;
-	delete _layer_indi;
 	delete _layer_npc;
 	delete _tileset_map;
 	delete _tileset_maze;
-	delete _tileset_indi;
+	delete _indicator;
 	delete _path;
+	delete _doorImg;
 	_NPCs.clear_optimised();
 	delete _BGImage;
-	m_doors.clear_optimised();
 	_TileDir.clear_optimised();
 	_TileObstacles.clear_optimised();
 	mazeEndIndex.clear_optimised();
@@ -83,8 +82,8 @@ void Map::Load(int level)
 void Map::Load(char * mapFileName)
 {
 	int temp[2]={0,0};
+	_doorImg=Iw2DCreateImageResource("Door");
 	memcpy(_StartPos,temp,sizeof(temp));
-	memcpy(_EndPos,temp,sizeof(temp));
 	showDialog=-1;
 	screenHeight= IwGxGetScreenHeight();
 	screenWidth=IwGxGetScreenWidth();
@@ -92,10 +91,9 @@ void Map::Load(char * mapFileName)
 	_layer_middle=new Layer;
 	_layer_maze=new Layer;
 	_layer_npc=new Layer;
-	_layer_indi=new Layer;
 	_tileset_map=new TileSet;
 	_tileset_maze=new TileSet;
-	_tileset_indi=new TileSet;
+	_indicator=new Indicator;
 	_path=new Path;
 	ReadJsonFile(mapFileName);
 	_characterPreIndex=0;
@@ -241,6 +239,7 @@ void Map::ReadJsonFile(char * filename)
 	_layer_base->Init(cJSON_GetArrayItem(layers,0));
 	_layer_middle->Init(cJSON_GetArrayItem(layers,1));
 	_layer_maze->Init(cJSON_GetArrayItem(layers,2));
+	int indicator_index=-1;
 	if(cJSON_GetArraySize(layers)>3)
 	{
 		cJSON *layer_3=cJSON_GetArrayItem(layers,3);
@@ -248,7 +247,7 @@ void Map::ReadJsonFile(char * filename)
 		if(CharCMP(name,"NPC",sizeof("NPC")))
 			_layer_npc->Init(layer_3);
 		else if(CharCMP(name,"indicator",sizeof("indicator")))
-			_layer_indi->Init(layer_3);
+			indicator_index=3;
 		if(cJSON_GetArraySize(layers)>4)
 		{
 			cJSON *layer_4=cJSON_GetArrayItem(layers,4);
@@ -256,39 +255,19 @@ void Map::ReadJsonFile(char * filename)
 			if(CharCMP(name,"NPC",sizeof("NPC")))
 				_layer_npc->Init(layer_4);
 			else if(CharCMP(name,"indicator",sizeof("indicator")))
-				_layer_indi->Init(layer_4);
+				indicator_index=4;
 		}
 	}
 	
 	cJSON *tilesets = cJSON_GetObjectItem(root,"tilesets");
 	_tileset_map->Init(cJSON_GetArrayItem(tilesets,0));
 	_tileset_maze->Init(cJSON_GetArrayItem(tilesets,1));
-	if(cJSON_GetArraySize(tilesets)>2)
-		_tileset_indi->Init(cJSON_GetArrayItem(tilesets,2));
 
-//begin reorder indicator index
-	int len=_layer_indi->_indicatorIndex.size();
-	CIwArray<int> m_OrderIndex;
 	
-	for(int i=0;i!=len;i++)
-	{
-		m_OrderIndex.append(0);
-		_layer_indi->_indicatorIndex[i]-=_tileset_indi->m_firstGid;
-	}
-	for(int i=0;i!=len;i++)
-	{
-		m_OrderIndex[_layer_indi->_indicatorIndex[i]]=i;
-	}
-	CIwArray<int> m_indiIndex;
-	CIwArray<int> m_indiPos;
-	for(int i=0;i!=len;i++)
-	{
-		m_indiIndex.append(_layer_indi->_indicatorIndex[m_OrderIndex[i]]);
-		m_indiPos.append(_layer_indi->_indicatorPos[m_OrderIndex[i]]);
-	}
-	_layer_indi->_indicatorIndex.swap(m_indiIndex);
-	_layer_indi->_indicatorPos.swap(m_indiPos);
-//end reorder indicator index
+	if(cJSON_GetArraySize(tilesets)>2)
+		_indicator->Init(cJSON_GetArrayItem(tilesets,2),cJSON_GetArrayItem(layers,indicator_index));
+
+
 
 	cJSON * properties=cJSON_GetObjectItem(root,"properties");
 	int propSize=cJSON_GetArraySize(properties);
@@ -367,20 +346,6 @@ void Map::ReadJsonFile(char * filename)
 				_NPCPos.append(atoi(chars_array));
 				chars_array = strtok(NULL, ",");
 			}
-		}
-		else if(CharCMP(name,"Door",sizeof("Door")))
-		{
-			while(chars_array)
-			{
-				m_doors.append(atoi(chars_array));
-				chars_array = strtok(NULL, ",");
-			}
-		}
-		else if(CharCMP(name,"EndPoint",sizeof("EndPoint")))
-		{
-			_EndPos[0]=atoi(chars_array);
-			chars_array = strtok(NULL, ",");
-			_EndPos[1]=atoi(chars_array);
 		}
 		else if(CharCMP(name,"StartPoint",sizeof("StartPoint")))
 		{
@@ -467,30 +432,33 @@ bool Map::CheckBlock()
 int Map::CheckDoor()
 {
 	
-	int index_base=_layer_base->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
-	bool isDoor_base=_tileset_map->GetTileUnit(index_base)->m_isDoor;
-
-	int index_middle=_layer_middle->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
-	bool isDoor_middle=_tileset_map->GetTileUnit(index_middle)->m_isDoor;
-
+	//int index_base=_layer_base->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
+	//bool isDoor_base=_tileset_map->GetTileUnit(index_base)->m_isDoor;
 
 	//int index_middle=_layer_middle->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
 	//bool isDoor_middle=_tileset_map->GetTileUnit(index_middle)->m_isDoor;
 
-	if(isDoor_base||isDoor_middle)
-	{
-		return m_doors.find(_characterIndex);
-	}
-	return -1;
+
+	////int index_middle=_layer_middle->m_TileIndex[_characterIndex]-_tileset_map->m_firstGid;
+	////bool isDoor_middle=_tileset_map->GetTileUnit(index_middle)->m_isDoor;
+
+	//if(isDoor_base||isDoor_middle)
+	//{
+	//	return m_doors.find(_characterIndex);
+	//}
+	int r=_indicator->IsDoor(_characterIndex);
+	return r;
+	//return -1;
 }
 
 bool Map::CheckEndPoint()
 {
-	int endPoint_Index=_EndPos[0]+_EndPos[1]*_width;
+	return _indicator->IsDoor(_characterIndex)>0? true:false;
+	/*int endPoint_Index=_EndPos[0]+_EndPos[1]*_width;
 	if(endPoint_Index==_characterIndex)
 		return true;
 
-	return false;
+	return false;*/
 }
 
 bool Map::CheckMapEdge(CIwFVec2 &pos)
@@ -820,8 +788,13 @@ void Map::Render(CIwSVec2 characterBox)
 		
 		_tileset_map->Render(_layer_middle->m_TileIndex[i],topleft,_layer_middle->m_rotatable? _TileDir[i]:0);
 		_tileset_maze->Render(_layer_maze->m_TileIndex[i],topleft,_layer_maze->m_rotatable? _TileDir[i]:0);
+
+
 		_tileset_map->Render(_layer_npc->m_TileIndex[i],topleft,_layer_npc->m_rotatable? _TileDir[i]:0);
 	}
+	//render opened door
+	if(m_isLobby)
+		RenderOpenedDoor();
 	for(int i=0;i!=9;i++)
 	{
 		_TileObstacles[i].Render(m_Position,false,characterBox,i);
@@ -831,4 +804,18 @@ void Map::Render(CIwSVec2 characterBox)
 		_NPCs[touchedNPC]->Dialog(showDialog);
 	}
 	
+}
+void Map::RenderOpenedDoor()
+{
+	for(int i=1;i!=11;i++)
+	{
+		if(m_openedDoor[i-1]){
+			int ind=_indicator->GetDoorPos(i);
+			if(ind>0)
+			{
+				CIwSVec2 tp=_indicator->IndexToPos(ind);
+				Iw2DDrawImage(_doorImg, CIwSVec2(tp.x-(int)m_Position.x,tp.y-(int)m_Position.y));
+			}
+		}
+	}
 }

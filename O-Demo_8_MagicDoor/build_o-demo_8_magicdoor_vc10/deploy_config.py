@@ -21,11 +21,7 @@ assets['Default'] = [
 
 assets['default'] = [
     ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/splashscreen.jpg', 'splashscreen.jpg', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/audios/music_placeholder.mp3', 'audios/music_placeholder.mp3', 0),
     ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data-ram/data-gles1/Level_1.group.bin,c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/Level_1.group.bin', 'Level_1.group.bin', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/audios/music1.mp3', 'music1.mp3', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/audios/test_footstep_left_01.wav', 'test_footstep_left_01.wav', 0),
-    ('c:/users/1106786/dropbox/dropbox/pg life/project impact/code/demos/o-demo_8_magicdoor/data/audios/test_footstep_right_01.wav', 'test_footstep_right_01.wav', 0),
 ]
 
 assets['artbuild'] = [
